@@ -24,10 +24,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}><Provider><div className="flex-1 overflow-y-auto">
         <header className="bg-white shadow-md sticky top-0 z-50">
-
           <div className="container mx-auto p-4">
-            <Link href="/" className="hover:text-indigo-500">
-              <h2 className="text-xl font-semibold">
+            <Link href="/" className="text-gray-700 hover:text-indigo-500">
+              <h2 className="text-xl  font-semibold">
                 {metadata.title as string}
               </h2>
             </Link>
