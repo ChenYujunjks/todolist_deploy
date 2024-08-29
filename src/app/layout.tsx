@@ -22,20 +22,27 @@ export default function RootLayout({
         <title>{metadata.title as string}</title>
         <meta name="description" content={metadata.description as string} />
       </head>
-      <body className={inter.className}><Provider><div className="flex-1 overflow-y-auto">
-        <header className="bg-white shadow-md sticky top-0 z-50">
-          <div className="container mx-auto p-4">
-            <Link href="/" className="text-gray-700 hover:text-indigo-500">
-              <h2 className="text-xl  font-semibold">
-                {metadata.title as string}
-              </h2>
-            </Link>
+      <body className={`${inter.className} bg-white flex flex-col min-h-screen`}>
+        <Provider>
+          <div className="flex-1">
+            <header className="bg-white shadow-md sticky top-0 z-50">
+              <div className="container mx-auto p-4">
+                <Link href="/" className="text-gray-700 hover:text-indigo-500">
+                  <h2 className="text-xl font-semibold">
+                    {metadata.title as string}
+                  </h2>
+                </Link>
+              </div>
+            </header>
+            <main className="container mx-auto p-6">
+              {children}
+            </main>
           </div>
-        </header>
-        <main className="container mx-auto p-6">{children}</main>
-      </div>
-      </Provider>
+          <footer className="bg-gray-100 text-gray-600 text-center py-4 mt-auto">
+            <p>© 2024 My Todo List. All rights reserved.</p>
+          </footer>
+        </Provider>
       </body>
-    </html >
+    </html>
   );
 }
