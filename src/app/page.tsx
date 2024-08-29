@@ -10,15 +10,12 @@ const HomePage = () => {
         </p>
       </div>
       <nav className="flex flex-wrap space-x-4">
-        <div className="text-white font-bold text-xl">
-          MyWebsited
-          <Link
-            href="todolist"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md mb-4 hover:bg-violet-500 font-mono"
-          >
-            Main Content
-          </Link>
-        </div>
+        <Link
+          href="todolist"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md mb-4 hover:bg-violet-500 font-mono"
+        >
+          Main Content
+        </Link>
       </nav>
     </>
   );
