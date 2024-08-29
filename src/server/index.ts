@@ -57,10 +57,7 @@ export const appRouter = router({
         if (error) {
           throw new Error(error.message);
         }
-        if (!data ) {
-            throw new Error("No matching records found or data is null")
-        }
-        return data[0];
+        return 1;
       }),
   
     deleteTodo: publicProcedure.input(z.number()).mutation(async ({ input }) => {
