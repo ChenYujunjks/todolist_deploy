@@ -52,12 +52,16 @@ export const appRouter = router({
         const { data, error } = await supabase
           .from("todos")
           .update({ is_completed: input.is_completed })
-          .match({ id: input.id });
-  
+          .match({ id: input.id })
+          .select();
+
         if (error) {
           throw new Error(error.message);
         }
-        return 1;
+        if (!data ) {
+            throw new Error("No matching records found or data is null")
+        }
+        return data[0];
       }),
   
     deleteTodo: publicProcedure.input(z.number()).mutation(async ({ input }) => {
