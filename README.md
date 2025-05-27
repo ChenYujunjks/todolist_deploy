@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 项目命名与编码规范
 
-## Getting Started
+---
 
-First, run the development server:
+## 1. 文件命名规范
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 1.1 页面文件（位于 `pages/` 或 `app/`）
+
+- **命名格式**：`kebab-case`（短横线连接的小写格式）
+- **文件后缀**：`.tsx`，用于 React 页面组件
+- **示例**：
+
+  ```
+  pages/
+    index.tsx          # 对应路径 `/`
+    about-us.tsx       # 对应路径 `/about-us`
+    user-profile.tsx   # 对应路径 `/user-profile`
+  ```
+
+### 1.2 组件文件（位于 `components/`）
+
+- **命名格式**：`PascalCase`（每个单词首字母大写）
+- **文件后缀**：`.tsx`
+- **示例**：
+
+  ```
+  components/
+    Navbar.tsx
+    UserCard.tsx
+    LoginForm.tsx
+  ```
+
+---
+
+## 2. 变量与函数命名规范
+
+### 2.1 普通变量与函数
+
+- **命名格式**：`camelCase`（首字母小写，后续单词首字母大写）
+- **示例**：
+
+  ```ts
+  const userName = "Bruce";
+  function fetchData() { ... }
+  ```
+
+### 2.2 React 组件命名
+
+- **命名格式**：`PascalCase`
+- **示例**：
+
+  ```tsx
+  function UserCard() {
+    return <div>...</div>;
+  }
+  ```
+
+---
+
+## 3. 项目目录结构
+
+```plaintext
+proj-root/
+├── components/      # 可复用的 UI 组件（使用 PascalCase 命名）
+│   ├── Navbar.tsx
+│   ├── Navbar.module.css
+│   └── UserCard.tsx
+├── pages/           # Next.js 页面文件（使用 kebab-case 命名）
+│   ├── index.tsx
+│   ├── about-us.tsx
+│   └── user-profile.tsx
+├── public/          # 公共资源文件（如图片、字体）
+├── styles/          # 全局样式文件
+│   └── globals.css
+├── utils/           # 工具函数文件（文件名使用 camelCase）
+│   └── dateFormatter.ts
+└── README.md        # 项目说明文档
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Project Naming & Coding Conventions
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 1. File Naming Conventions
 
-## Learn More
+### 1.1 Pages (in `pages/` or `app/`)
 
-To learn more about Next.js, take a look at the following resources:
+- **Format**: `kebab-case`
+- **Extension**: `.tsx` for React pages
+- **Examples**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  ```
+  pages/
+    index.tsx          # maps to `/`
+    about-us.tsx       # maps to `/about-us`
+    user-profile.tsx   # maps to `/user-profile`
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 1.2 Components (in `components/`)
 
-## Deploy on Vercel
+- **Format**: `PascalCase`
+- **Extension**: `.tsx`
+- **Examples**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  ```
+  components/
+    Navbar.tsx
+    UserCard.tsx
+    LoginForm.tsx
+  ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+## 2. Variable & Function Naming
+
+### 2.1 Variables & Functions
+
+- **Format**: `camelCase`
+- **Examples**:
+
+  ```ts
+  const userName = "Bruce";
+  function fetchData() { ... }
+  ```
+
+### 2.2 React Component Names
+
+- **Format**: `PascalCase`
+- **Examples**:
+
+  ```tsx
+  function UserCard() {
+    return <div>...</div>;
+  }
+  ```
+
+---
+
+## 3. Folder Structure
+
+```plaintext
+proj-root/
+├── components/      # Reusable UI components (PascalCase filenames)
+│   ├── Navbar.tsx
+│   ├── Navbar.module.css
+│   └── UserCard.tsx
+├── pages/           # Next.js pages (kebab-case filenames)
+│   ├── index.tsx
+│   ├── about-us.tsx
+│   └── user-profile.tsx
+├── public/          # Public assets
+├── styles/          # Global styles
+│   └── globals.css
+├── utils/           # Utility functions (camelCase filenames)
+│   └── dateFormatter.ts
+└── README.md        # Project README
+```
+
+---
+
+> Keep these conventions consistent to help everyone on the team read and maintain the codebase efficiently.
