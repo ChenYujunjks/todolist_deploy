@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import api from "@/lib/axios";
+import api from "../lib/axios";
 
 export default function FormSender() {
   const [name, setName] = useState("");
