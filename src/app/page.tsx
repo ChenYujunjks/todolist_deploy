@@ -1,36 +1,37 @@
-// app/page.tsx
 import Link from "next/link";
+/* 首页：app/page.tsx --------------------------------------------------- */
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 主内容 */}
-      <main className="flex-grow flex flex-col justify-center items-center px-4 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
-        <h1 className="text-4xl font-bold mb-4">🚀 Axios + Next.js 示例</h1>
-        <p className="text-center text-lg mb-6 text-gray-600 dark:text-gray-400">
-          使用 App Router 构建的 Axios 请求页面。
-        </p>
-        <div className="flex flex-col gap-4">
-          <a
-            href="/axios"
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow-md hover:bg-indigo-700 transition"
-          >
-            前往示例页面 →
-          </a>
+      <main className="flex-grow grid place-items-center px-4">
+        <div className="text-center space-y-6 motion-safe:animate-fadeSlide">
+          <h1 className="text-4xl/tight sm:text-5xl font-extrabold">
+            🚀 Axios + Next.js 示例
+          </h1>
+          <p className="max-w-xl mx-auto text-balance text-lg text-muted-foreground">
+            使用 App Router 构建的 Axios 请求页面。
+          </p>
 
-          <nav className="flex flex-wrap space-x-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/axios"
+              className="px-6 py-3 rounded-xl font-medium bg-[--color-brand] text-white hover:bg-[--color-brand-hover] transition"
+            >
+              前往示例页面 →
+            </Link>
+
             <Link
               href="/todolist"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md mb-4 hover:bg-violet-500 font-mono"
+              className="px-6 py-3 rounded-xl font-medium border border-[--color-brand] text-[--color-brand] hover:bg-[--color-brand] hover:text-white transition"
             >
-              Main Content
+              Todo List
             </Link>
-          </nav>
+          </div>
         </div>
       </main>
 
-      {/* 页脚 */}
-      <footer className="bg-gray-100 text-gray-600 text-center py-4 mt-auto">
-        <p>© 2024 My Todo List. All rights reserved.</p>
+      <footer className="border-t border-[--color-card-border] py-4 text-center text-sm text-muted-foreground">
+        © 2024 My Todo List. All rights reserved.
       </footer>
     </div>
   );

@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
+/* ② 主题变量：浅色 & 深色 ------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* 色相用 HSL，方便统一调整亮度/饱和度 */
+  --bg: hsl(210 40% 98%);
+  --fg: hsl(222 47% 11%);
+  --brand: hsl(242 85% 65%);
+  --brand-hover: hsl(242 85% 55%);
+  --card: hsl(0 0% 100%);
+  --card-border: hsl(210 15% 90%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: hsl(222 47% 7%);
+    --fg: hsl(210 40% 96%);
+    --brand: hsl(242 100% 72%);
+    --brand-hover: hsl(242 100% 80%);
+    --card: hsl(222 25% 14%);
+    --card-border: hsl(216 12% 20%);
   }
 }
 
+/* ③ 将变量映射给 Tailwind 的自定义属性（无需 tailwind.config.ts） */
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --font-sans: var(--font-geist-sans, Inter, ui-sans-serif, system-ui);
+  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular);
+}
+
+/* ④ 全局元素 & 自定义动画 ----------------------------------------------- */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  @apply antialiased leading-relaxed;
+}
+
+a {
+  @apply underline-offset-2 hover:underline decoration-[var(--color-brand)];
+}
+
+/* 卡片统一圆角 & 阴影 */
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  @apply rounded-2xl shadow-sm;
+}
+
+/* 轻微入场动画，可通过 motion-safe 只在支持时启用 */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.motion-safe\:animate-fadeSlide {
+  animation: fadeSlide 0.35s ease-out both;
 }
