@@ -20,5 +20,4 @@ const compose =
   (输入值: T): V =>
     第一函数(第二函数(输入值));
 
-const result = compose(square, double)(5); // (5*2)^2 = 100
-console.log("Composed Result:", result);
+console.log("Composed Result:", compose(square, double)(5));

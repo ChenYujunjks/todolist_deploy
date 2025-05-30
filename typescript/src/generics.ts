@@ -1,10 +1,12 @@
-// ① 泛型函数：返回输入本身
-function identity<T>(value: T): T {
-  return value;
+class Box<T> {
+  content: T;
+  constructor(value: T) {
+    this.content = value;
+  }
 }
 
-const num = identity<number>(42); // 推断出 T = number
-const str = identity("hello"); // 类型推断，等同于 T = string
+const numberBox = new Box<number>(123); // 装数字
+const stringBox = new Box<string>("hello"); // 装字符串
 
 // ② 泛型接口
 interface ApiResponse<T> {
@@ -14,6 +16,7 @@ interface ApiResponse<T> {
 }
 
 type User = { id: number; name: string };
+
 const res: ApiResponse<User> = {
   code: 0,
   data: { id: 1, name: "Alice" },
