@@ -59,29 +59,3 @@ async function showPosts() {
   }
 }
 showPosts();
-
-// ✅ 并行调用
-async function main() {
-  try {
-    // 串行调用
-    const comments = await fetchJson<Comment[]>(
-      "https://jsonplaceholder.typicode.com/comments"
-    );
-    const todos = await fetchJson<Todo[]>(
-      "https://jsonplaceholder.typicode.com/todos"
-    );
-
-    console.log("串行调用结果：", comments.length, todos.length);
-
-    // 并行调用
-    const [comments2, todos2] = await Promise.all([
-      fetchJson<Comment[]>("https://jsonplaceholder.typicode.com/comments"),
-      fetchJson<Todo[]>("https://jsonplaceholder.typicode.com/todos"),
-    ]);
-
-    console.log("并行调用结果：", comments2.length, todos2.length);
-  } catch (err) {
-    console.error("并行调用 Error:", err);
-  }
-}
-main();
