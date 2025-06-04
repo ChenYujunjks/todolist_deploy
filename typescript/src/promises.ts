@@ -1,5 +1,3 @@
-// mock-fetch.ts
-
 function mockFetch<T>(data: T, delay: number = 500): Promise<T> {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -9,7 +7,6 @@ function mockFetch<T>(data: T, delay: number = 500): Promise<T> {
   });
 }
 
-// 模拟类型
 interface User {
   id: number;
   name: string;
@@ -22,7 +19,6 @@ interface Post {
   body: string;
 }
 
-// 模拟用户数据
 const mockUser: User = {
   id: 1,
   name: "Alice",
