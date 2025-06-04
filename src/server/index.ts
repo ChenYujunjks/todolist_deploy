@@ -1,5 +1,5 @@
 import { initTRPC } from "@trpc/server";
-import { z } from "zod"; // 用于输入校验
+import { z } from "zod";
 import supabase from "@/lib/supabase-client";
 
 // trpc.ts
