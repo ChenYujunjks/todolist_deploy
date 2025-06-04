@@ -17,11 +17,12 @@ export interface Post {
 }
 
 fetchJson<User>("https://jsonplaceholder.typicode.com/users/1")
-  .then((user) =>
-    fetchJson<Post[]>(
+  .then((user) => {
+    console.log("User --->:", user.name);
+    return fetchJson<Post[]>(
       `https://jsonplaceholder.typicode.com/posts?userId=${user.id}`
-    )
-  )
+    );
+  })
   .then((posts) => {
     const firstPost = posts[0];
     console.log("第一条 Post:----->>\n", firstPost);
