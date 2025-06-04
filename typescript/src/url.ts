@@ -28,3 +28,20 @@ fetchJson<User>("https://jsonplaceholder.typicode.com/users/1")
     console.log("第一条 Post:----->>\n", firstPost);
   })
   .catch((err) => console.error("链式 Error:", err));
+
+async function main() {
+  try {
+    const user = await fetchJson<User>(
+      "https://jsonplaceholder.typicode.com/users/1"
+    );
+    console.log("User --->:", user.name);
+
+    const posts = await fetchJson<Post[]>(
+      `https://jsonplaceholder.typicode.com/posts?userId=${user.id}`
+    );
+    const firstPost = posts[0];
+    console.log("第一条 Post:----->>\n", firstPost);
+  } catch (err) {
+    console.error("错误发生:", err);
+  }
+}
