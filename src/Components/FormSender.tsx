@@ -1,26 +1,33 @@
 // components/FormSender.tsx
 "use client";
 
+import { trpc } from "@/components/trpc/Provider";
 import { useState } from "react";
-import api from "../lib/axios";
 
 export default function FormSender() {
   const [name, setName] = useState("");
   const [age, setAge] = useState<number | "">("");
   const [formResult, setFormResult] = useState<string>("");
 
-  const sendForm = async () => {
+  const mutation = trpc.formSubmit.useMutation();
+
+  const sendForm = () => {
     if (!name || age === "") {
       alert("请填写完整信息");
       return;
     }
 
-    try {
-      const res = await api.post("/api/form", { name, age: Number(age) });
-      setFormResult(JSON.stringify(res.data));
-    } catch (error) {
-      setFormResult("提交失败！");
-    }
+    mutation.mutate(
+      { name, age: Number(age) },
+      {
+        onSuccess: (data) => {
+          setFormResult(JSON.stringify(data));
+        },
+        onError: () => {
+          setFormResult("提交失败！");
+        },
+      }
+    );
   };
 
   return (
