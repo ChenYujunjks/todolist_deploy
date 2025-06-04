@@ -1,12 +1,3 @@
-function mockFetch<T>(data: T, delay: number = 500): Promise<T> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("✅ mock 返回数据:", data);
-      resolve(data);
-    }, delay);
-  });
-}
-
 interface User {
   id: number;
   name: string;
@@ -17,6 +8,14 @@ interface Post {
   userId: number;
   title: string;
   body: string;
+}
+function mockFetch<T>(data: T, delay: number = 500): Promise<T> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("✅ mock 返回数据:", data);
+      resolve(data);
+    }, delay);
+  });
 }
 
 const mockUser: User = {
