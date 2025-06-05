@@ -50,9 +50,9 @@ const TodoListPage = () => {
         {todosQuery.data?.map((todo) => (
           <li
             key={todo.id}
-            className={`flex items-center justify-between gap-4 p-4 rounded-2xl border border-gray-200 bg-white shadow-sm transition ${
-              todo.is_completed ? "opacity-50" : ""
-            }`}
+            className={`flex items-center justify-between gap-4 p-4 rounded-2xl transition
+                  bg-purple-700 text-white hover:bg-purple-200 hover:text-black
+                  ${todo.is_completed ? "opacity-50" : ""}`}
           >
             <div className="flex items-center gap-3">
               <input
@@ -61,11 +61,11 @@ const TodoListPage = () => {
                 onChange={() =>
                   handleToggleComplete(todo.id, todo.is_completed)
                 }
-                className="h-5 w-5 text-[--color-brand] rounded focus:ring-[--color-brand]"
+                className="h-5 w-5 text-purple-300 border-gray-300 rounded"
               />
               <span
                 className={`text-base sm:text-lg ${
-                  todo.is_completed ? "line-through text-muted-foreground" : ""
+                  todo.is_completed ? "line-through" : ""
                 }`}
               >
                 {todo.title}
@@ -73,7 +73,7 @@ const TodoListPage = () => {
             </div>
             <button
               onClick={() => handleDeleteTodo(todo.id)}
-              className="text-sm font-medium text-red-500 hover:text-red-700 transition"
+              className="text-sm font-medium hover:underline"
             >
               Delete
             </button>
