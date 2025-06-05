@@ -50,7 +50,7 @@ const TodoListPage = () => {
         {todosQuery.data?.map((todo) => (
           <li
             key={todo.id}
-            className={`flex items-center justify-between gap-4 p-4 rounded-2xl border border-[--color-card-border] bg-background shadow-sm transition ${
+            className={`flex items-center justify-between gap-4 p-4 rounded-2xl border border-gray-200 bg-white shadow-sm transition ${
               todo.is_completed ? "opacity-50" : ""
             }`}
           >
