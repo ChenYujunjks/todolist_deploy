@@ -8,7 +8,7 @@ export default function AxiosDemoPage() {
   const [showMessage, setShowMessage] = useState(true);
 
   return (
-    <main className="flex-grow flex flex-col justify-center items-center min-h-screen items-center bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 px-4">
+    <main className="flex-grow flex flex-col justify-center min-h-screen items-center bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 px-4">
       <div className="w-full max-w-xl">
         <h1 className="text-4xl font-bold text-center mb-4">
           🚀 Axios + Next.js App Router
