@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Inter } from "next/font/google";
 import { Provider } from "@/components/trpc/Provider";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -16,32 +18,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-background text-foreground antialiased">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className} bg-[--color-background] flex flex-col min-h-screen`}
       >
-        <Provider>
-          <header
-            className="
-    sticky top-0 z-50
-    backdrop-blur     /* 毛玻璃 */
-    bg-white/80       /* 浅色：80% 不透明白 */
-    dark:bg-zinc-900/60   /* 深色：60% 不透明深灰 */
-    border-b border-[--color-card-border]
-  "
-          >
-            <div className="container mx-auto p-4 flex items-center">
-              <Link
-                href="/"
-                className="text-lg font-semibold tracking-tight text-[--color-foreground] hover:text-[--color-brand] transition"
-              >
-                {metadata.title as string}
-              </Link>
-            </div>
-          </header>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Provider>
+            <header
+              className="
+                sticky top-0 z-50
+                backdrop-blur     /* 毛玻璃 */
+                bg-white/80       /* 浅色：80% 不透明白 */
+                dark:bg-zinc-900/60   /* 深色：60% 不透明深灰 */
+                border-b border-[--color-card-border]
+              "
+            >
+              <div className="container mx-auto p-4 ">
+                <div className="flex items-center justify-between w-full">
+                  <Link
+                    href="/"
+                    className="text-lg font-semibold tracking-tight text-[--color-foreground] hover:text-[--color-brand] transition"
+                  >
+                    {metadata.title as string}
+                  </Link>
+                  <ThemeToggle />
+                </div>
+              </div>
+            </header>
 
-          <main className="flex-1 container mx-auto p-6">{children}</main>
-        </Provider>
+            <main className="flex-1 container mx-auto p-6">{children}</main>
+          </Provider>
+        </ThemeProvider>
       </body>
     </html>
   );
