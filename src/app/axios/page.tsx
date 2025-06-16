@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import MessageFetcher from "@/components/MessageFetcher";
-import FormSender from "@/components/FormSender";
+import MessageFetcher from "@/components/api/MessageFetcher";
+import FormSender from "@/components/api/FormSender";
 
 export default function AxiosDemoPage() {
   const [showMessage, setShowMessage] = useState(true);
