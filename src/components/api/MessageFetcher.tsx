@@ -24,10 +24,9 @@ export default function MessageFetcher() {
     };
 
     fetchMessage();
-    // 每 60 秒刷新一次数据
-    const intervalId = setInterval(fetchMessage, 60000);
+    const intervalId = setInterval(fetchMessage, 60000); // 每 60 秒刷新一次数据
 
-    // 清理函数：组件卸载时取消定时器
+    // useEffect 返回一个清理函数，用于在组件卸载时清理副作用。
     return () => {
       clearInterval(intervalId);
       isMounted = false;

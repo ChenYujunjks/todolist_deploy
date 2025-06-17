@@ -21,6 +21,7 @@ export default function AxiosDemoPage() {
           onClick={() => setShowMessage((prev) => !prev)}
           className="mb-6 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
         >
+          {/*每次点击按钮重新显示 MessageFetcher 组件时，React 可能会重新渲染组件 */}
           {showMessage ? "隐藏 MessageFetcher" : "显示 MessageFetcher"}
         </button>
 
