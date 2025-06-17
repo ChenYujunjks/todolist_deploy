@@ -33,7 +33,7 @@ export default function ExchangeRatesViewer() {
       ) : (
         <div className="max-h-64 overflow-y-auto text-sm">
           {Object.entries(exchangeRatesQuery.data.data.rates)
-            .slice(0, 30)
+            .filter(([symbol]) => ["ETH", "PEPE", "GALA"].includes(symbol))
             .map(([symbol, rate]) => (
               <div key={symbol}>
                 <strong>{symbol}</strong>: {String(rate)}
