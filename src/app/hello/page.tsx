@@ -3,7 +3,7 @@
 import { useState } from "react";
 import MessageFetcher from "@/components/api/MessageFetcher";
 import FormSender from "@/components/api/FormSender";
-
+import CoinbasePriceCard from "@/components/binance/GetPriceCard";
 export default function AxiosDemoPage() {
   const [showMessage, setShowMessage] = useState(true);
 
@@ -31,6 +31,11 @@ export default function AxiosDemoPage() {
             <MessageFetcher />
           </section>
         )}
+        {/* ✅ 加入 Coinbase Price 卡片展示区 */}
+        <section className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6">
+          <h2 className="text-xl font-semibold mb-4">💹 Coinbase 实时价格</h2>
+          <CoinbasePriceCard />
+        </section>
 
         <section className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md">
           <h2 className="text-xl font-semibold mb-4">📝 发送信息（POST）</h2>

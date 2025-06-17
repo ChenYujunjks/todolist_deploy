@@ -14,7 +14,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/axios"
+              href="/hello"
               className="px-6 py-3 rounded-xl font-medium bg-[--color-brand] text-white hover:bg-[--color-brand-hover] transition"
             >
               前往示例页面 →
