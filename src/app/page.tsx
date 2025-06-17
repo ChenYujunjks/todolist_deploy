@@ -26,6 +26,12 @@ export default function Home() {
             >
               Todo List
             </Link>
+            <Link
+              href="/coinbase"
+              className="px-6 py-3 rounded-xl font-medium border border-[--color-brand] text-[--color-brand] hover:bg-[--color-brand] hover:text-white transition"
+            >
+              Coinbase API
+            </Link>
           </div>
         </div>
       </main>
