@@ -3,10 +3,10 @@ import { trpc } from "@/components/trpc/Provider";
 import { useState } from "react";
 
 const TodoListPage = () => {
-  const todosQuery = trpc.getTodos.useQuery();
-  const addTodoMutation = trpc.addTodo.useMutation();
-  const updateTodoMutation = trpc.updateTodo.useMutation();
-  const deleteTodoMutation = trpc.deleteTodo.useMutation();
+  const todosQuery = trpc.todo.getTodos.useQuery();
+  const addTodoMutation = trpc.todo.addTodo.useMutation();
+  const updateTodoMutation = trpc.todo.updateTodo.useMutation();
+  const deleteTodoMutation = trpc.todo.deleteTodo.useMutation();
 
   const [newTodo, setNewTodo] = useState({ title: "", description: "" });
 

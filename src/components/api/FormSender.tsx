@@ -9,7 +9,7 @@ export default function FormSender() {
   const [age, setAge] = useState<number | "">("");
   const [formResult, setFormResult] = useState<string>("");
 
-  const mutation = trpc.formSubmit.useMutation();
+  const mutation = trpc.form.formSubmit.useMutation();
 
   const sendForm = () => {
     if (!name || age === "") {
