@@ -11,12 +11,15 @@ export default function BtcPrice() {
     const fetchPrice = async () => {
       try {
         const response = await fetch(
-          "https://api.kraken.com/0/public/Ticker?pair=XBTUSD"
+          "https://api.coinbase.com/v2/prices/BTC-USD/spot"
         );
         const data = await response.json();
-        setPrice(data.result.XXBTZUSD.c[0]);
+        setPrice(data.data.amount);
       } catch (err) {
+        console.log(err);
         setError("获取价格失败");
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchPrice();
