@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import api from "../lib/axios";
+import api from "@/lib/axios";
 
 export default function MessageFetcher() {
   const [msg, setMsg] = useState<string | null>(null);
