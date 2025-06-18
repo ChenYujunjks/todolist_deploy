@@ -1,6 +1,8 @@
 "use client";
-import { trpc } from "@/components/trpc/Provider";
+
 import { useState } from "react";
+import { trpc } from "@/components/trpc/Provider";
+import { DueDatePicker } from "@/components/DatePicker";
 
 const TodoListPage = () => {
   const todosQuery = trpc.todo.getTodos.useQuery();
@@ -17,7 +19,7 @@ const TodoListPage = () => {
   const handleAddTodo = async () => {
     if (newTodo.title.trim()) {
       await addTodoMutation.mutateAsync(newTodo);
-      setNewTodo({ title: "", description: "" });
+      setNewTodo({ title: "", description: "", due_date: undefined }); // ✅ 清空所有字段
       todosQuery.refetch();
     }
   };
@@ -39,10 +41,11 @@ const TodoListPage = () => {
     todosQuery.refetch();
   };
 
-  if (todosQuery.isLoading)
+  if (todosQuery.isLoading) {
     return (
       <div className="text-center mt-10 text-muted-foreground">Loading...</div>
     );
+  }
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
@@ -55,8 +58,8 @@ const TodoListPage = () => {
           <li
             key={todo.id}
             className={`flex items-center justify-between gap-4 p-4 rounded-2xl transition
-                  bg-purple-700 text-white hover:bg-purple-200 hover:text-black
-                  ${todo.is_completed ? "opacity-50" : ""}`}
+              bg-purple-700 text-white hover:bg-purple-200 hover:text-black
+              ${todo.is_completed ? "opacity-50" : ""}`}
           >
             <div className="flex items-center gap-3">
               <input
@@ -101,6 +104,13 @@ const TodoListPage = () => {
           }
           className="w-full px-4 py-3 border border-[--color-card-border] rounded-xl bg-background shadow-sm focus:outline-none focus:ring-2 focus:ring-[--color-brand]"
         />
+
+        {/* ✅ 加入日期选择器 */}
+        <DueDatePicker
+          value={newTodo.due_date}
+          onChange={(date) => setNewTodo({ ...newTodo, due_date: date })}
+        />
+
         <button
           onClick={handleAddTodo}
           className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition"
