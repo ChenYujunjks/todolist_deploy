@@ -13,7 +13,7 @@ export function TodoCard({ todo, onToggleComplete, onDelete }: TodoCardProps) {
   return (
     <li
       className={cn(
-        "p-4 rounded-2xl border transition flex justify-between gap-4",
+        "p-4 rounded-2xl border transition hover:brightness-95 flex justify-between gap-4",
         style.bg,
         style.border,
         style.text
@@ -25,7 +25,7 @@ export function TodoCard({ todo, onToggleComplete, onDelete }: TodoCardProps) {
             type="checkbox"
             checked={todo.is_completed}
             onChange={() => onToggleComplete(todo.id, todo.is_completed)}
-            className="h-5 w-5 text-purple-500 border-gray-300 rounded"
+            className="h-5 w-5 text-purple-500 border-gray-300 rounded transition-transform duration-150 ease-in-out hover:scale-105 focus:scale-110"
           />
           <span
             className={cn(
