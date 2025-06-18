@@ -28,14 +28,13 @@ const TodoListPage = () => {
     todosQuery.refetch();
   };
 
-  const { expired, upcoming, future, completed } = useCategorizedTodos(
+  const { expired, upcoming, future } = useCategorizedTodos(
     todosQuery.data || []
   );
   const sections = [
     { title: "⏳ 已过期", data: expired },
     { title: "📆 一周内", data: upcoming },
     { title: "📅 七天以后", data: future },
-    { title: "✅ 已完成", data: completed },
   ];
 
   if (todosQuery.isLoading) {
@@ -51,25 +50,29 @@ const TodoListPage = () => {
 
       {/* 🧾 分类展示 */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {sections
-          .filter((section) =>
-            ["⏳ 已过期", "📆 一周内", "📅 七天以后"].includes(section.title)
-          )
-          .map((section) => (
-            <div key={section.title}>
-              <h2 className="text-lg font-bold mb-3">{section.title}</h2>
-              <ul className="space-y-4">
-                {section.data.map((todo) => (
-                  <TodoCard
-                    key={todo.id}
-                    todo={todo}
-                    onToggleComplete={handleToggleComplete}
-                    onDelete={handleDeleteTodo}
-                  />
-                ))}
-              </ul>
-            </div>
-          ))}
+        {sections.map(({ title, data }) => (
+          <div key={title}>
+            <h2 className="text-lg font-bold mb-3">{title}</h2>
+            <ul className="space-y-4">
+              {data.pending.map((todo) => (
+                <TodoCard
+                  key={todo.id}
+                  todo={todo}
+                  onToggleComplete={handleToggleComplete}
+                  onDelete={handleDeleteTodo}
+                />
+              ))}
+              {data.completed.map((todo) => (
+                <TodoCard
+                  key={todo.id}
+                  todo={todo}
+                  onToggleComplete={handleToggleComplete}
+                  onDelete={handleDeleteTodo}
+                />
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
 
       {/* ➕ 添加任务区域 */}

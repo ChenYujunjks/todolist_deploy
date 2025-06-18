@@ -8,23 +8,34 @@ export function useCategorizedTodos(todos: Todo[] = []) {
     nextWeek.setDate(today.getDate() + 7);
 
     const expired: Todo[] = [];
+    const expiredCompleted: Todo[] = [];
     const upcoming: Todo[] = [];
+    const upcomingCompleted: Todo[] = [];
     const future: Todo[] = [];
-    const completed: Todo[] = [];
+    const futureCompleted: Todo[] = [];
 
     for (const todo of todos) {
-      if (todo.is_completed) {
-        completed.push(todo);
-      } else if (!todo.due_date) {
-        future.push(todo);
+      const due = todo.due_date ? new Date(todo.due_date) : undefined;
+
+      if (!due) {
+        if (todo.is_completed) futureCompleted.push(todo);
+        else future.push(todo);
+      } else if (due < today) {
+        if (todo.is_completed) expiredCompleted.push(todo);
+        else expired.push(todo);
+      } else if (due <= nextWeek) {
+        if (todo.is_completed) upcomingCompleted.push(todo);
+        else upcoming.push(todo);
       } else {
-        const due = new Date(todo.due_date);
-        if (due < today) expired.push(todo);
-        else if (due <= nextWeek) upcoming.push(todo);
+        if (todo.is_completed) futureCompleted.push(todo);
         else future.push(todo);
       }
     }
 
-    return { expired, upcoming, future, completed };
+    return {
+      expired: { pending: expired, completed: expiredCompleted },
+      upcoming: { pending: upcoming, completed: upcomingCompleted },
+      future: { pending: future, completed: futureCompleted },
+    };
   }, [todos]);
 }

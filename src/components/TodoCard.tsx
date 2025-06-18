@@ -55,39 +55,54 @@ export function TodoCard({ todo, onToggleComplete, onDelete }: TodoCardProps) {
 
 // 提取分类逻辑
 function getStatusStyle(todo: Todo) {
+  const today = new Date();
+  const due = todo.due_date ? new Date(todo.due_date) : undefined;
+
+  const diffDays = due
+    ? Math.ceil((due.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
+    : null;
+
+  // 🟣 如果完成，只用深色版本
   if (todo.is_completed) {
-    return {
-      bg: "bg-purple-100",
-      border: "border-purple-300",
-      text: "text-purple-900",
-    };
-  }
-
-  if (todo.due_date) {
-    const today = new Date();
-    const due = new Date(todo.due_date);
-    const diffDays = Math.ceil(
-      (due.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
-    );
-
-    if (diffDays <= 7 && diffDays >= 0) {
+    if (!due || diffDays! > 7) {
       return {
-        bg: "bg-emerald-100",
-        border: "border-emerald-300",
+        bg: "bg-sky-200",
+        border: "border-sky-400",
+        text: "text-sky-900",
+      };
+    } else if (diffDays! <= 7 && diffDays! >= 0) {
+      return {
+        bg: "bg-emerald-200",
+        border: "border-emerald-400",
         text: "text-emerald-900",
       };
-    } else if (diffDays > 7) {
+    } else {
       return {
-        bg: "bg-sky-100",
-        border: "border-sky-300",
-        text: "text-sky-900",
+        bg: "bg-red-200",
+        border: "border-red-400",
+        text: "text-red-900",
       };
     }
   }
 
-  return {
-    bg: "bg-gray-100",
-    border: "border-gray-300",
-    text: "text-gray-900",
-  };
+  // 🟡 未完成分类
+  if (!due || diffDays! > 7) {
+    return {
+      bg: "bg-sky-100",
+      border: "border-sky-300",
+      text: "text-sky-900",
+    };
+  } else if (diffDays! <= 7 && diffDays! >= 0) {
+    return {
+      bg: "bg-emerald-100",
+      border: "border-emerald-300",
+      text: "text-emerald-900",
+    };
+  } else {
+    return {
+      bg: "bg-red-100",
+      border: "border-red-300",
+      text: "text-red-900",
+    };
+  }
 }
