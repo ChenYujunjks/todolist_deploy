@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { DueDatePicker } from "@/components/DatePicker";
-import type { Todo } from "@/types/Todo";
 
 interface AddTodoFormProps {
   onSubmit: (todo: {
@@ -12,7 +11,7 @@ interface AddTodoFormProps {
   }) => Promise<void>;
 }
 
-export const AddTodoForm: React.FC<AddTodoFormProps> = ({ onSubmit }) => {
+export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
   const [newTodo, setNewTodo] = useState({
     title: "",
     description: "",
@@ -56,4 +55,4 @@ export const AddTodoForm: React.FC<AddTodoFormProps> = ({ onSubmit }) => {
       </button>
     </div>
   );
-};
+}
