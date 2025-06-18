@@ -16,8 +16,7 @@ interface DueDatePickerProps {
   onChange: (value: string) => void;
 }
 
-export function DueDatePicker({value, onChange}: DueDatePickerProps) {
-
+export function DueDatePicker({ value, onChange }: DueDatePickerProps) {
   const parsedDate = value ? new Date(value) : undefined;
 
   return (
@@ -26,7 +25,7 @@ export function DueDatePicker({value, onChange}: DueDatePickerProps) {
         <Button
           variant="outline"
           data-empty={!value}
-          className="data-[empty=true]:text-muted-foreground w-full justify-start text-left font-normal"
+          className="h-10 data-[empty=true]:text-muted-foreground w-full justify-start text-left font-normal"
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
           {value ? format(parsedDate!, "PPP") : <span>Pick a due date</span>}
@@ -46,4 +45,4 @@ export function DueDatePicker({value, onChange}: DueDatePickerProps) {
       </PopoverContent>
     </Popover>
   );
-};
+}
