@@ -13,7 +13,7 @@ export function TodoCard({ todo, onToggleComplete, onDelete }: TodoCardProps) {
   return (
     <li
       className={cn(
-        "p-4 rounded-2xl border transition hover:brightness-95 flex justify-between gap-4",
+        "p-4 rounded-2xl border transition hover:brightness-90 flex justify-between gap-4",
         style.bg,
         style.border,
         style.text
