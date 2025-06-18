@@ -3,7 +3,7 @@
 import { useState } from "react";
 import MessageFetcher from "@/components/api/MessageFetcher";
 import FormSender from "@/components/api/FormSender";
-import CoinbasePriceCard from "@/components/binance/GetPriceCard";
+import CoinbasePriceCard from "@/components/coinbase/GetPriceCard";
 export default function AxiosDemoPage() {
   const [showMessage, setShowMessage] = useState(true);
 

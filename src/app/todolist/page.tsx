@@ -8,7 +8,11 @@ const TodoListPage = () => {
   const updateTodoMutation = trpc.todo.updateTodo.useMutation();
   const deleteTodoMutation = trpc.todo.deleteTodo.useMutation();
 
-  const [newTodo, setNewTodo] = useState({ title: "", description: "" });
+  const [newTodo, setNewTodo] = useState({
+    title: "",
+    description: "",
+    due_date: undefined as string | undefined,
+  });
 
   const handleAddTodo = async () => {
     if (newTodo.title.trim()) {
