@@ -14,11 +14,7 @@ interface TodoCardProps {
   onDelete: (id: number) => void;
 }
 
-export const TodoCard: React.FC<TodoCardProps> = ({
-  todo,
-  onToggleComplete,
-  onDelete,
-}) => {
+export function TodoCard({ todo, onToggleComplete, onDelete }: TodoCardProps) {
   const style = getStatusStyle(todo);
 
   return (
@@ -62,7 +58,7 @@ export const TodoCard: React.FC<TodoCardProps> = ({
       </button>
     </li>
   );
-};
+}
 
 // 提取分类逻辑
 function getStatusStyle(todo: Todo) {
