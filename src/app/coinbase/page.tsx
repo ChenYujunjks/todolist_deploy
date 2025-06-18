@@ -1,8 +1,8 @@
 // app/coinbase/currencies/page.tsx
 "use client";
 
-import BuyPriceCard from "@/components/binance/BuyPriceCard";
-import ExchangeRatesViewer from "@/components/binance/ExchangeRatesViewer";
+import BuyPriceCard from "@/components/coinbase/BuyPriceCard";
+import ExchangeRatesViewer from "@/components/coinbase/ExchangeRatesViewer";
 
 export default function CoinbaseCurrenciesPage() {
   return (

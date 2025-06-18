@@ -14,7 +14,8 @@ export const todoRouter = router({
       z.object({
         title: z.string(),
         description: z.string().optional(),
-      }),
+        due_date: z.string().optional(), // 前端传 ISO 字符串
+      })
     )
     .mutation(async ({ input }) => {
       const { data, error } = await supabase
@@ -23,6 +24,7 @@ export const todoRouter = router({
           title: input.title,
           description: input.description ?? "",
           is_completed: false,
+          due_date: input.due_date ? new Date(input.due_date) : null,
         })
         .select()
         .single();
@@ -36,7 +38,7 @@ export const todoRouter = router({
       z.object({
         id: z.number(),
         is_completed: z.boolean(),
-      }),
+      })
     )
     .mutation(async ({ input }) => {
       const { data, error } = await supabase
@@ -50,11 +52,9 @@ export const todoRouter = router({
       return data;
     }),
 
-  deleteTodo: publicProcedure
-    .input(z.number())
-    .mutation(async ({ input }) => {
-      const { error } = await supabase.from("todos").delete().eq("id", input);
-      if (error) throw new Error(error.message);
-      return { success: true };
-    }),
+  deleteTodo: publicProcedure.input(z.number()).mutation(async ({ input }) => {
+    const { error } = await supabase.from("todos").delete().eq("id", input);
+    if (error) throw new Error(error.message);
+    return { success: true };
+  }),
 });
