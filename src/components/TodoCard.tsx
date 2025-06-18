@@ -1,12 +1,5 @@
 import { cn } from "@/lib/utils";
-
-export interface Todo {
-  id: number;
-  title: string;
-  description?: string;
-  is_completed: boolean;
-  due_date?: string; // 格式为 "YYYY-MM-DD"
-}
+import type { Todo } from "@/types/Todo";
 
 interface TodoCardProps {
   todo: Todo;

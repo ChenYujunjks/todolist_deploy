@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { trpc } from "@/components/trpc/Provider";
 import { DueDatePicker } from "@/components/DatePicker";
+import { TodoCard } from "@/components/TodoCard"; // 路径根据你实际放置的位置调整
+import { useCategorizedTodos } from "@/hooks/useCategorizedTodos";
+import type { Todo } from "@/types/Todo";
 
 const TodoListPage = () => {
   const todosQuery = trpc.todo.getTodos.useQuery();
@@ -41,54 +44,48 @@ const TodoListPage = () => {
     todosQuery.refetch();
   };
 
+  const { expired, upcoming, future, completed } = useCategorizedTodos(
+    todosQuery.data || []
+  );
+  const sections = [
+    { title: "⏳ 已过期", data: expired },
+    { title: "📆 一周内", data: upcoming },
+    { title: "📅 七天以后", data: future },
+    { title: "✅ 已完成", data: completed },
+  ];
+
   if (todosQuery.isLoading) {
     return (
       <div className="text-center mt-10 text-muted-foreground">Loading...</div>
     );
   }
-
   return (
     <div className="max-w-2xl mx-auto px-4 py-10">
       <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
         📝 Todo List
       </h1>
 
-      <ul className="space-y-4">
-        {todosQuery.data?.map((todo) => (
-          <li
-            key={todo.id}
-            className={`flex items-center justify-between gap-4 p-4 rounded-2xl transition
-              bg-purple-700 text-white hover:bg-purple-200 hover:text-black
-              ${todo.is_completed ? "opacity-50" : ""}`}
-          >
-            <div className="flex items-center gap-3">
-              <input
-                type="checkbox"
-                checked={todo.is_completed}
-                onChange={() =>
-                  handleToggleComplete(todo.id, todo.is_completed)
-                }
-                className="h-5 w-5 text-purple-300 border-gray-300 rounded"
-              />
-              <span
-                className={`text-base sm:text-lg ${
-                  todo.is_completed ? "line-through" : ""
-                }`}
-              >
-                {todo.title}
-              </span>
-            </div>
-            <button
-              onClick={() => handleDeleteTodo(todo.id)}
-              className="text-sm font-medium hover:underline"
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+      {/* 🧾 分类展示 */}
+      {sections.map((section) =>
+        section.data.length > 0 ? (
+          <div key={section.title} className="mt-10">
+            <h2 className="text-xl font-bold mb-4">{section.title}</h2>
+            <ul className="space-y-4">
+              {section.data.map((todo) => (
+                <TodoCard
+                  key={todo.id}
+                  todo={todo}
+                  onToggleComplete={handleToggleComplete}
+                  onDelete={handleDeleteTodo}
+                />
+              ))}
+            </ul>
+          </div>
+        ) : null
+      )}
 
-      <div className="mt-10 space-y-4">
+      {/* ➕ 添加任务区域 */}
+      <div className="mt-14 space-y-4 border-t pt-8">
         <input
           type="text"
           placeholder="Todo title"
@@ -105,7 +102,6 @@ const TodoListPage = () => {
           className="w-full px-4 py-3 border border-[--color-card-border] rounded-xl bg-background shadow-sm focus:outline-none focus:ring-2 focus:ring-[--color-brand]"
         />
 
-        {/* ✅ 加入日期选择器 */}
         <DueDatePicker
           value={newTodo.due_date}
           onChange={(date) => setNewTodo({ ...newTodo, due_date: date })}
@@ -121,5 +117,4 @@ const TodoListPage = () => {
     </div>
   );
 };
-
 export default TodoListPage;
