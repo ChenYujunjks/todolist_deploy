@@ -18,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className} bg-[--color-background] flex flex-col min-h-screen`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${inter.className} bg-[--color-background] flex flex-col min-h-screen`}
+        >
           <Provider>
             <header
               className="
@@ -48,8 +48,8 @@ export default function RootLayout({
 
             <main className="flex-1 container mx-auto p-6">{children}</main>
           </Provider>
-        </ThemeProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }
