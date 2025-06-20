@@ -28,8 +28,8 @@ export default function RootLayout({
               className="
                 sticky top-0 z-50
                 backdrop-blur     /* 毛玻璃 */
-                bg-white/80       /* 浅色：80% 不透明白 */
-                dark:bg-zinc-900/60   /* 深色：60% 不透明深灰 */
+                bg-white/80       /* 浅色:80% 不透明白 */
+                dark:bg-zinc-900/60   /* 深色:60% 不透明深灰 */
                 border-b border-[--color-card-border]
               "
             >

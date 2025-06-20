@@ -1,106 +1,142 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* 自定义 .dark 选择器（不再使用 @media） */
 @custom-variant dark (&:is(.dark *));
 
-/* ② 主题变量：浅色 & 深色 ------------------------------------------------- */
+/* ① 主题变量：浅色模式（默认） */
 :root {
-  /* 色相用 HSL，方便统一调整亮度/饱和度 */
-  --bg: hsl(210 40% 98%);
-  --fg: hsl(222 47% 11%);
-  --brand: hsl(242 85% 65%);
-  --brand-hover: hsl(242 85% 55%);
-  --card: oklch(1 0 0);
-  --card-border: hsl(210 15% 90%);
+  --color-background: hsl(42, 40%, 95%);
+  --color-foreground: hsl(222 47% 11%);
+  --color-brand: hsl(242 85% 65%);
+  --color-brand-hover: hsl(242 85% 55%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-border: hsl(210 15% 90%);
+
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
-  --card-foreground: oklch(0.141 0.005 285.823);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.21 0.006 285.885);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.705 0.015 286.067);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-primary: oklch(0.21 0.006 285.885);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.705 0.015 286.067);
+
+  /* 可视化图表色卡 */
+  --color-chart-1: hsl(26 90% 60%);
+  --color-chart-2: hsl(200 80% 60%);
+  --color-chart-3: hsl(230 70% 60%);
+  --color-chart-4: hsl(90 80% 70%);
+  --color-chart-5: hsl(60 80% 70%);
+
+  /* 侧边栏变量 */
+  --color-sidebar: var(--color-background);
+  --color-sidebar-foreground: var(--color-foreground);
+  --color-sidebar-primary: var(--color-brand);
+  --color-sidebar-primary-foreground: var(--color-background);
+  --color-sidebar-accent: hsl(220 20% 80%);
+  --color-sidebar-accent-foreground: var(--color-foreground);
+  --color-sidebar-border: var(--color-card-border);
+  --color-sidebar-ring: hsl(210 20% 70%);
+
+  --color-ring: hsl(210 20% 70%);
+  --color-input: hsl(210 20% 90%);
+  --color-border: var(--color-card-border);
+  --color-destructive: hsl(0 70% 60%);
+  --color-muted: hsl(220 20% 95%);
+  --color-muted-foreground: hsl(220 10% 50%);
+  --color-accent: hsl(220 20% 90%);
+  --color-accent-foreground: var(--color-foreground);
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: var(--color-background);
+  --color-secondary: hsl(220 20% 95%);
+  --color-secondary-foreground: var(--color-foreground);
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-foreground);
+  --color-card-foreground: var(--color-foreground);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: hsl(222 47% 7%);
-    --fg: hsl(210 40% 96%);
-    --brand: hsl(242 100% 72%);
-    --brand-hover: hsl(242 100% 80%);
-    --card: hsl(222 25% 14%);
-    --card-border: hsl(216 12% 20%);
-  }
+/* ② 深色模式变量（.dark class） */
+.dark {
+  --color-background: hsl(222 47% 7%);
+  --color-foreground: hsl(210 40% 96%);
+  --color-brand: hsl(242 100% 72%);
+  --color-brand-hover: hsl(242 100% 80%);
+  --color-card: hsl(222 25% 14%);
+  --color-card-border: hsl(216 12% 20%);
+
+  --color-chart-1: hsl(264 80% 60%);
+  --color-chart-2: hsl(160 80% 60%);
+  --color-chart-3: hsl(50 80% 60%);
+  --color-chart-4: hsl(300 80% 60%);
+  --color-chart-5: hsl(10 80% 60%);
+
+  --color-sidebar: var(--color-card);
+  --color-sidebar-foreground: var(--color-foreground);
+  --color-sidebar-primary: var(--color-brand);
+  --color-sidebar-primary-foreground: var(--color-background);
+  --color-sidebar-accent: hsl(220 20% 30%);
+  --color-sidebar-accent-foreground: var(--color-foreground);
+  --color-sidebar-border: var(--color-card-border);
+  --color-sidebar-ring: hsl(210 30% 60%);
+
+  --color-ring: hsl(210 30% 60%);
+  --color-input: hsl(210 25% 20%);
+  --color-border: var(--color-card-border);
+  --color-destructive: hsl(0 70% 50%);
+  --color-muted: hsl(220 15% 20%);
+  --color-muted-foreground: hsl(220 10% 70%);
+  --color-accent: hsl(220 20% 30%);
+  --color-accent-foreground: var(--color-foreground);
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: var(--color-background);
+  --color-secondary: hsl(220 15% 20%);
+  --color-secondary-foreground: var(--color-foreground);
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-foreground);
+  --color-card-foreground: var(--color-foreground);
 }
 
-/* ③ 将变量映射给 Tailwind 的自定义属性（无需 tailwind.config.ts） */
+/* ③ 变量映射给 Tailwind 的自定义属性 */
 @theme inline {
-  --color-background: var(--bg);
-  --color-foreground: var(--fg);
-  --color-brand: var(--brand);
-  --color-brand-hover: var(--brand-hover);
-  --color-card: var(--card);
-  --color-card-border: var(--card-border);
   --font-sans: var(--font-geist-sans, Inter, ui-sans-serif, system-ui);
   --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
+
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-brand: var(--color-brand);
+  --color-brand-hover: var(--color-brand-hover);
+  --color-card: var(--color-card);
+  --color-card-border: var(--color-card-border);
+  --color-ring: var(--color-ring);
+  --color-input: var(--color-input);
+  --color-border: var(--color-border);
+  --color-destructive: var(--color-destructive);
+  --color-muted: var(--color-muted);
+  --color-muted-foreground: var(--color-muted-foreground);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-foreground: var(--color-secondary-foreground);
+  --color-popover: var(--color-popover);
+  --color-popover-foreground: var(--color-popover-foreground);
+  --color-card-foreground: var(--color-card-foreground);
+  --color-chart-1: var(--color-chart-1);
+  --color-chart-2: var(--color-chart-2);
+  --color-chart-3: var(--color-chart-3);
+  --color-chart-4: var(--color-chart-4);
+  --color-chart-5: var(--color-chart-5);
+  --color-sidebar: var(--color-sidebar);
+  --color-sidebar-foreground: var(--color-sidebar-foreground);
+  --color-sidebar-primary: var(--color-sidebar-primary);
+  --color-sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+  --color-sidebar-accent: var(--color-sidebar-accent);
+  --color-sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+  --color-sidebar-border: var(--color-sidebar-border);
+  --color-sidebar-ring: var(--color-sidebar-ring);
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-/* ④ 全局元素 & 自定义动画 ----------------------------------------------- */
+/* ④ 全局元素样式 */
 html,
 body {
   height: 100%;
@@ -117,14 +153,13 @@ a {
   @apply underline-offset-2 hover:underline decoration-[var(--color-brand)];
 }
 
-/* 卡片统一圆角 & 阴影 */
 .card {
   background: var(--color-card);
   border: 1px solid var(--color-card-border);
   @apply rounded-2xl shadow-sm;
 }
 
-/* 轻微入场动画，可通过 motion-safe 只在支持时启用 */
+/* ⑤ 动画 */
 @keyframes fadeSlide {
   from {
     opacity: 0;
@@ -140,40 +175,7 @@ a {
   animation: fadeSlide 0.35s ease-out both;
 }
 
-.dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.92 0.004 286.32);
-  --primary-foreground: oklch(0.21 0.006 285.885);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.552 0.016 285.938);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.552 0.016 285.938);
-}
-
+/* ⑥ Tailwind base 层增强 */
 @layer base {
   * {
     @apply border-border outline-ring/50;
