@@ -18,12 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${inter.className} bg-[--color-background] flex flex-col min-h-screen`}
-        >
-          <Provider>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.className} bg-[--color-background] flex flex-col min-h-screen`}
+      >
+        <Provider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <header
               className="
                 sticky top-0 z-50
@@ -47,9 +47,9 @@ export default function RootLayout({
             </header>
 
             <main className="flex-1 container mx-auto p-6">{children}</main>
-          </Provider>
-        </body>
-      </html>
-    </ThemeProvider>
+          </ThemeProvider>
+        </Provider>
+      </body>
+    </html>
   );
 }
