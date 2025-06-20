@@ -1,5 +1,5 @@
 import Link from "next/link";
-/* 首页：app/page.tsx --------------------------------------------------- */
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -15,14 +15,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/hello"
-              className="px-6 py-3 rounded-xl font-medium bg-[--color-brand] text-white hover:bg-[--color-brand-hover] transition"
+              className="px-6 py-3 rounded-xl font-medium bg-[--color-brand] text-[--color-brand] hover:bg-[--color-brand-hover] transition"
             >
               前往示例页面 →
             </Link>
 
             <Link
               href="/todolist"
-              className="px-6 py-3 rounded-xl font-medium border border-[--color-brand] text-[--color-brand] hover:bg-[--color-brand] hover:text-white transition"
+              className="px-6 py-3 rounded-xl font-medium border border-[--color-brand] text-[--color-brand] hover:bg-[--color-brand] hover:text-white transition" //	有 border border-[--color-brand]（主色描边按钮）
             >
               Todo List
             </Link>

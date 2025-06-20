@@ -6,7 +6,7 @@
 
 /* ① 主题变量：浅色模式（默认） */
 :root {
-  --color-background: hsl(210 40% 98%);
+  --color-background: hsl(42, 40%, 95%);
   --color-foreground: hsl(222 47% 11%);
   --color-brand: hsl(242 85% 65%);
   --color-brand-hover: hsl(242 85% 55%);
