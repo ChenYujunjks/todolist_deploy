@@ -22,13 +22,13 @@ export default function Home() {
 
             <Link
               href="/todolist"
-              className="px-6 py-3 rounded-xl font-medium border border-[--color-brand] text-[--color-brand] hover:bg-[--color-brand] hover:text-white transition" //	有 border border-[--color-brand]（主色描边按钮）
+              className="px-6 py-3 rounded-xl font-medium border border-[--color-brand] text-[--color-brand] hover:bg-[--color-brand] transition" //	有 border border-[--color-brand]（主色描边按钮）
             >
               Todo List
             </Link>
             <Link
               href="/coinbase"
-              className="px-6 py-3 rounded-xl font-medium border border-[--color-brand] text-[--color-brand] hover:bg-[--color-brand] hover:text-white transition"
+              className="px-6 py-3 rounded-xl font-medium border border-[--color-brand] text-[--color-brand] hover:bg-[--color-brand] transition"
             >
               Coinbase API
             </Link>
