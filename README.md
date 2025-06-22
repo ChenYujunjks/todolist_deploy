@@ -158,4 +158,68 @@ proj-root/
 
 ---
 
-> Keep these conventions consistent to help everyone on the team read and maintain the codebase efficiently.
+非常正确 ✅，**在 Windows 上仅修改文件名的大小写时，Git 默认是不会察觉到变化的**，这是很多开发者遇到的一个坑。
+
+---
+
+## 😵 为什么 Git 无法追踪大小写变动？
+
+因为：
+
+- Windows 是**大小写不敏感**的文件系统（`foo.tsx` 与 `Foo.tsx` 被认为是同一个文件）。
+- Git 虽然本质是大小写敏感的，但**依赖于操作系统的行为**。
+- 所以在 Windows 上你把 `BuyPriceCard.tsx` 改成 `buy-price-card.tsx`，Git **认为啥都没变**。
+
+---
+
+## ✅ 正确的解决方案：强制重命名触发 Git 变动
+
+### ✅ 方法一：**中间重命名法（推荐）**
+
+1. 改成一个临时名字（例如加 `_tmp`）：
+
+   ```
+   BuyPriceCard.tsx → tmp.tsx
+   ```
+
+2. 再改成目标名字：
+
+   ```
+   tmp.tsx → buy-price-card.tsx
+   ```
+
+3. 此时 Git 就能正确追踪到大小写变化。
+
+---
+
+### ✅ 方法二：Git 设置强制追踪大小写变化（不推荐在团队项目中）
+
+可以修改本地 Git 配置：
+
+```bash
+git config core.ignorecase false
+```
+
+这会让 Git 强制识别大小写变化，但：
+
+- ✅ 在 Linux、macOS 上可以这么做。
+- ⚠️ 在 Windows 上**并不总是生效**，而且容易引起协作冲突。
+- 🧠 所以在团队项目中**不推荐全局改这个配置**。
+
+---
+
+## 🔍 如何确认 Git 是否识别了重命名？
+
+你可以用：
+
+```bash
+git status
+```
+
+如果成功，会看到类似：
+
+```bash
+renamed:    BuyPriceCard.tsx → buy-price-card.tsx
+```
+
+否则它会显示为 “no changes”。
