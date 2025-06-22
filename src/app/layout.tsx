@@ -4,7 +4,7 @@ import { Provider } from "@/components/trpc/Provider";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "@/components/ThemeToggle";
-
+import { NavigationMenuDemo } from "@/components/navigation-menu";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
@@ -41,6 +41,7 @@ export default function RootLayout({
                   >
                     {metadata.title as string}
                   </Link>
+                  <NavigationMenuDemo />
                   <ThemeToggle />
                 </div>
               </div>
