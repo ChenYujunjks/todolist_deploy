@@ -98,7 +98,7 @@ export function NavigationMenuDemo() {
         {/* Docs（跳转链接菜单项） */}
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/hello">Docs</Link>
+            <Link href="/tailwind">Tailwind</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
