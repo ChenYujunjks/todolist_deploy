@@ -29,23 +29,36 @@ export default function AxiosDemoPage() {
         </button>
 
         {showMessage && (
-          <section className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6">
+          <section
+            id="fetch-message"
+            className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6"
+          >
             <h2 className="text-xl font-semibold mb-4">📨 获取信息（GET）</h2>
             <MessageFetcher />
           </section>
         )}
+
         {/* ✅ 加入 Coinbase Price 卡片展示区 */}
-        <section className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6">
+        <section
+          id="coinbase-price"
+          className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6"
+        >
           <h2 className="text-xl font-semibold mb-4">💹 Coinbase 实时价格</h2>
           <CoinbasePriceCard />
         </section>
 
-        <section className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6">
+        <section
+          id="form-sender"
+          className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6"
+        >
           <h2 className="text-xl font-semibold mb-4">📝 发送信息（POST）</h2>
           <FormSender />
         </section>
 
-        <section className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6">
+        <section
+          id="accordion-demo"
+          className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6"
+        >
           <h2 className="text-xl font-semibold mb-4">
             📦 尝试使用Accordion 并且解耦
           </h2>
