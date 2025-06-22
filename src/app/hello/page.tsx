@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import MessageFetcher from "@/components/api/MessageFetcher";
-import FormSender from "@/components/api/FormSender";
-import CoinbasePriceCard from "@/components/coinbase/GetPriceCard";
+import MessageFetcher from "@/components/api/messagefetcher";
+import FormSender from "@/components/api/formsender";
+import CoinbasePriceCard from "@/components/coinbase/pricecard";
 import AccordionEntry from "./accordion";
 import { demoSections } from "./demo";
 

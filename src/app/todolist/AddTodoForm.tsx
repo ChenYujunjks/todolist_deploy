@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { DueDatePicker } from "@/components/DatePicker";
+import { DueDatePicker } from "@/components/datepicker";
 
 interface AddTodoFormProps {
   onSubmit: (todo: {
