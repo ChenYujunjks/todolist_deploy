@@ -8,9 +8,11 @@ export default function Home() {
               👋 Welcome!
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-              I'm a senior CS student at <strong>NYU Shanghai</strong> (Class of
-              2025), passionate about decentralized systems and cryptocurrency
-              ⚙️.
+              {"I'm a senior CS student at "}
+              <strong>NYU Shanghai</strong>
+              {
+                " (Class of 2025), passionate about decentralized systems and cryptocurrency ⚙️."
+              }
             </p>
           </div>
 
