@@ -1,16 +1,12 @@
 "use client";
-
+// app/page.tsx
+import UserBadge from "@/contexts/components/userbadge";
 import { useAuth } from "@/contexts/authcontext";
-
-export default function DashboardHome() {
+export default function Home() {
   const { user, setUser } = useAuth();
-
   return (
     <div className="bg-white rounded-xl shadow p-6 max-w-md mx-auto">
-      <h2 className="text-xl font-semibold mb-4 text-gray-700">
-        📋 User Panel
-      </h2>
-
+      <UserBadge />
       {user ? (
         <div className="space-y-4">
           <p className="text-green-600 font-medium">
