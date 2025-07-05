@@ -29,7 +29,7 @@ export default function ExchangeRatesViewer() {
       {exchangeRatesQuery.isLoading ? (
         <p>加载中...</p>
       ) : exchangeRatesQuery.isError || !exchangeRatesQuery.data ? (
-        <p>获取失败</p>
+        <p>获取失败 可能是因为edge function 在新加坡</p>
       ) : (
         <div className="max-h-64 overflow-y-auto text-sm">
           {Object.entries(exchangeRatesQuery.data.data.rates)
