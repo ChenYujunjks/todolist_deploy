@@ -1,5 +1,9 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
+    "api/trpc/**/*.ts": {
+      "regions": ["sin1"]
+    },
     "app/api/trpc/route.ts": {
       "regions": ["sin1"]
     }
