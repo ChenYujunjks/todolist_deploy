@@ -1,7 +1,7 @@
 {
   "functions": {
-    "api/**.ts": {
-      "regions": ["icn1"]
+    "app/api/trpc/route.ts": {
+      "regions": ["sin1"]
     }
   }
 }
