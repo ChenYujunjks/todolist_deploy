@@ -17,17 +17,4 @@ export const formRouter = router({
         timestamp: new Date().toISOString(),
       };
     }),
-
-  //已搁置
-  getServerIp: publicProcedure.query(() => {
-    const interfaces = os.networkInterfaces();
-
-    for (const name of Object.keys(interfaces)) {
-      for (const iface of interfaces[name] || []) {
-        if (iface.family === "IPv4" && !iface.internal) {
-          return iface.address;
-        }
-      }
-    }
-  }),
 });
