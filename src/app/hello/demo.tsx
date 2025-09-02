@@ -1,4 +1,4 @@
-import type { AccordionSection } from "@/types";
+import type { AccordionSection } from "@/lib/types";
 
 export const demoSections: AccordionSection[] = [
   {
