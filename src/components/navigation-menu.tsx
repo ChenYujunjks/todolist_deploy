@@ -56,48 +56,17 @@ export function NavigationMenuDemo() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-
-        {/* 图标菜单项（例如任务状态） */}
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-4 w-[240px]">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="/todolist#backlog"
-                    className="flex items-center gap-2"
-                  >
-                    <CircleHelpIcon className="w-4 h-4" />
-                    Backlog
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="/todolist#todo"
-                    className="flex items-center gap-2"
-                  >
-                    <CircleIcon className="w-4 h-4" />
-                    To Do
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="/todolist#done"
-                    className="flex items-center gap-2"
-                  >
-                    <CircleCheckIcon className="w-4 h-4" />
-                    Done
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
+        {/* Tailwind 页面 */}
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link href="/tailwind">Tailwind</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+
+        {/* Zod 页面 */}
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/zod">Zod Example</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
