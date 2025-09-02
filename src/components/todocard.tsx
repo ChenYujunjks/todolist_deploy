@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import type { Todo } from "@/types/Todo";
+import type { Todo } from "@/lib/types/Todo";
 
 interface TodoCardProps {
   todo: Todo;
