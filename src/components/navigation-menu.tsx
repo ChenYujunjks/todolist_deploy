@@ -65,7 +65,7 @@ export function NavigationMenuDemo() {
         {/* Zod 页面 */}
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/zod">Zod Example</Link>
+            <Link href="/zod-lab">Zod Example</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
