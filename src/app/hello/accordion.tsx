@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import React from "react";
-import type { AccordionSection } from "@/types";
+import type { AccordionSection } from "@/lib/types";
 
 interface AccordionProps {
   sections: AccordionSection[];
