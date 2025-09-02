@@ -1,4 +1,4 @@
-import type { Todo } from "@/types/Todo";
+import type { Todo } from "@/lib/types/Todo";
 import { useMemo } from "react";
 
 export function useCategorizedTodos(todos: Todo[] = []) {
