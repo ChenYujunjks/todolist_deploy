@@ -10,7 +10,7 @@ export const FormInputSchema = z.object({
   // 始终去掉首尾空格
   name: z.string().transform((s) => s.trim()),
   // 用 coerce 简化布尔/数字字符串转换
-  subscribed: z.coerce.boolean().default(false),
+  subscribed: z.enum(["true", "false"]).transform((v) => v === "true"),
 });
 
 export type FormInput = z.infer<typeof FormInputSchema>;
