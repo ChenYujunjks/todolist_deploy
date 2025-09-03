@@ -31,17 +31,11 @@ export function NavigationMenuDemo() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-
-        {/* Coinbase 页面 */}
+        {/* Tailwind 页面 */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Coinbase</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-2 w-[300px]">
-              <ListItem href="/coinbase" title="Coinbase Integration">
-                Example integration with Coinbase API or interface.
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/tailwind">Tailwind</Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
 
         {/* Todo List 页面 */}
@@ -55,18 +49,23 @@ export function NavigationMenuDemo() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        {/* Tailwind 页面 */}
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/tailwind">Tailwind</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
 
         {/* Zod 页面 */}
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
             <Link href="/zod-lab">Zod Example</Link>
           </NavigationMenuLink>
+        </NavigationMenuItem>
+        {/* Coinbase 页面 */}
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Coinbase</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-2 w-[300px]">
+              <ListItem href="/coinbase" title="Coinbase Integration">
+                Example integration with Coinbase API or interface.
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
