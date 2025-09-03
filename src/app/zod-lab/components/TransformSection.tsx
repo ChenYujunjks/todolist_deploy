@@ -5,11 +5,16 @@ import { useState } from "react";
 import { FormInputSchema } from "@/lib/schemas/forms";
 
 export default function TransformSection() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<{
+    age: string;
+    name: string;
+    subscribed: string;
+  }>({
     age: "  20 ",
     name: "  Bruce  ",
-    subscribed: "true" as any,
+    subscribed: "true",
   });
+
   const parsed = FormInputSchema.safeParse(form);
 
   return (
