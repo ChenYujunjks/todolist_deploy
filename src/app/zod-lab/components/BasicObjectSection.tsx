@@ -1,7 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { UserSchema } from "@/lib/schemas/user";
+import { z } from "zod";
+import { UserSchema, type User } from "@/lib/schemas/user";
+
+type ParseResult =
+  | { mode: "parse"; success: true; data: User }
+  | { mode: "parse"; success: false }
+  | { mode: "safeParse"; success: true; data: User }
+  | { mode: "safeParse"; success: false; error: z.ZodError };
+
+// 3) 类型守卫：判断是否为 ZodError
+function isZodError(e: unknown): e is z.ZodError {
+  return e instanceof z.ZodError;
+}
 
 export default function BasicObjectSection() {
   const [userJson, setUserJson] = useState(
@@ -11,24 +23,33 @@ export default function BasicObjectSection() {
       2
     )
   );
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<ParseResult | null>(null);
   const [error, setError] = useState<string>("");
 
   const handleParse = () => {
     setError("");
     try {
-      const data = UserSchema.parse(JSON.parse(userJson));
+      const data = UserSchema.parse(JSON.parse(userJson)); // 合法则返回 data
       setResult({ mode: "parse", success: true, data });
-    } catch (e: any) {
+    } catch (e: unknown) {
+      // 不使用 any，先缩小类型
       setResult({ mode: "parse", success: false });
-      setError(e?.errors ? JSON.stringify(e.errors, null, 2) : String(e));
+      if (isZodError(e)) {
+        setError(JSON.stringify(e.errors, null, 2));
+      } else {
+        setError(String(e));
+      }
     }
   };
 
   const handleSafeParse = () => {
     setError("");
     const parsed = UserSchema.safeParse(JSON.parse(userJson));
-    setResult({ mode: "safeParse", ...parsed });
+    if (parsed.success) {
+      setResult({ mode: "safeParse", success: true, data: parsed.data });
+    } else {
+      setResult({ mode: "safeParse", success: false, error: parsed.error });
+    }
   };
 
   return (
@@ -61,7 +82,7 @@ export default function BasicObjectSection() {
         </button>
       </div>
 
-      {/* ✅ 错误输出（红色） */}
+      {/*✅ 错误输出（红色 仅 parse 的异常单独显示） */}
       {error && (
         <pre className="text-sm p-2 rounded bg-red-100 text-red-700 whitespace-pre-wrap">
           ❌ Error:
@@ -70,7 +91,7 @@ export default function BasicObjectSection() {
         </pre>
       )}
 
-      {/* ✅ 结果输出 */}
+      {/* 结果输出 */}
       {result && (
         <pre
           className={`text-sm p-2 rounded whitespace-pre-wrap ${
@@ -81,14 +102,21 @@ export default function BasicObjectSection() {
         >
           {result.mode === "parse" ? (
             result.success ? (
-              <>✅ parse 成功: {JSON.stringify(result.data, null, 2)}</>
+              <>✅ parse 成功：{JSON.stringify(result.data, null, 2)}</>
             ) : (
-              "❌ parse 失败"
+              "❌ parse 失败（已在上方显示错误详情）"
             )
+          ) : result.success ? (
+            <>
+              🔎 safeParse 结果（success=true）
+              {"\n"}
+              {JSON.stringify(result.data, null, 2)}
+            </>
           ) : (
             <>
-              <div>🔎 safeParse 结果：</div>
-              {JSON.stringify(result, null, 2)}
+              🔎 safeParse 结果（success=false）
+              {"\n"}
+              {JSON.stringify(result.error.flatten(), null, 2)}
             </>
           )}
         </pre>

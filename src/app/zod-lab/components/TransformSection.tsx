@@ -1,14 +1,20 @@
+// 跨字段校验
 "use client";
 
 import { useState } from "react";
 import { FormInputSchema } from "@/lib/schemas/forms";
 
 export default function TransformSection() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<{
+    age: string;
+    name: string;
+    subscribed: string;
+  }>({
     age: "  20 ",
     name: "  Bruce  ",
-    subscribed: "true" as any,
+    subscribed: "true",
   });
+
   const parsed = FormInputSchema.safeParse(form);
 
   return (
@@ -33,8 +39,9 @@ export default function TransformSection() {
         />
 
         <label className="text-sm">
-          subscribed（"true"/"false" → boolean）：
+          subscribed（&quot;true&quot;/&quot;false&quot; → boolean）：
         </label>
+
         <select
           className="border p-1 rounded"
           value={String(form.subscribed)}
