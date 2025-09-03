@@ -109,3 +109,44 @@ const handleParse = () => {
 
 如果用普通 `<div>`，所有换行会丢失，看起来就会是一行。
 而 `<pre>` 会保留格式，更适合展示 JSON / 错误信息。
+
+---
+
+# 跨字段校验 （2）
+
+好 👌，我给你展示一下同样的内容 `"true"/"false"` 在 **React JSX** 里面的三种写法：
+
+---
+
+### 1. ❌ 直接写（会触发 ESLint 报错）
+
+```tsx
+<p>subscribed（"true"/"false" → boolean）</p>
+```
+
+- 这里的 `"` 被认为是 **未转义实体**，Lint 会警告。
+
+---
+
+### 2. ✅ 使用 HTML 转义字符
+
+```tsx
+<p>subscribed（&quot;true&quot;/&quot;false&quot; → boolean）</p>
+```
+
+- `&quot;` = `"`
+- `&lt;` = `<`
+- `&gt;` = `>`
+- `&amp;` = `&`
+- 这是最 **规范** 的写法，Lint 不会报错。
+
+---
+
+### 3. ✅ 使用表达式包裹字符串
+
+```tsx
+<p>subscribed（{'"true"/"false"'} → boolean）</p>
+```
+
+- React 会把大括号 `{}` 里的内容当作 **JS 字符串**，就不用转义 HTML 实体。
+- 这种方法常见于要写特殊字符的时候。

@@ -1,3 +1,4 @@
+// 跨字段校验
 "use client";
 
 import { useState } from "react";
@@ -33,8 +34,9 @@ export default function TransformSection() {
         />
 
         <label className="text-sm">
-          subscribed（"true"/"false" → boolean）：
+          subscribed（&quot;true&quot;/&quot;false&quot; → boolean）：
         </label>
+
         <select
           className="border p-1 rounded"
           value={String(form.subscribed)}
