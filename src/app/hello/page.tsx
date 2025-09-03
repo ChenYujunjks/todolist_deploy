@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import MessageFetcher from "@/components/api/message-fetcher";
 import FormSender from "@/components/api/form-sender";
 import CoinbasePriceCard from "@/components/coinbase/coinbase-pricecard";
 import AccordionEntry from "./accordion";
@@ -34,7 +33,6 @@ export default function AxiosDemoPage() {
             className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md mb-6"
           >
             <h2 className="text-xl font-semibold mb-4">📨 获取信息（GET）</h2>
-            <MessageFetcher />
           </section>
         )}
 

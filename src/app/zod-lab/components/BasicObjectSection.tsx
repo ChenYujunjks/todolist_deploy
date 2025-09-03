@@ -17,18 +17,18 @@ export default function BasicObjectSection() {
   const handleParse = () => {
     setError("");
     try {
-      const data = UserSchema.parse(JSON.parse(userJson)); // 不合法会 throw
-      setResult(data);
+      const data = UserSchema.parse(JSON.parse(userJson));
+      setResult({ mode: "parse", success: true, data });
     } catch (e: any) {
-      setResult(null);
+      setResult({ mode: "parse", success: false });
       setError(e?.errors ? JSON.stringify(e.errors, null, 2) : String(e));
     }
   };
 
   const handleSafeParse = () => {
     setError("");
-    const parsed = UserSchema.safeParse(JSON.parse(userJson)); // 不 throw
-    setResult(parsed);
+    const parsed = UserSchema.safeParse(JSON.parse(userJson));
+    setResult({ mode: "safeParse", ...parsed });
   };
 
   return (
@@ -41,26 +41,56 @@ export default function BasicObjectSection() {
       </p>
 
       <textarea
-        className="w-full h-40 p-2 border rounded"
+        className="w-full h-40 p-2 border rounded font-mono text-sm"
         value={userJson}
         onChange={(e) => setUserJson(e.target.value)}
       />
 
       <div className="flex gap-2">
-        <button className="px-3 py-1 border rounded" onClick={handleParse}>
+        <button
+          className="px-3 py-1 border rounded bg-blue-100 hover:bg-blue-200"
+          onClick={handleParse}
+        >
           parse()
         </button>
-        <button className="px-3 py-1 border rounded" onClick={handleSafeParse}>
+        <button
+          className="px-3 py-1 border rounded bg-green-100 hover:bg-green-200"
+          onClick={handleSafeParse}
+        >
           safeParse()
         </button>
       </div>
 
+      {/* ✅ 错误输出（红色） */}
       {error && (
-        <pre className="text-sm text-red-600 whitespace-pre-wrap">{error}</pre>
+        <pre className="text-sm p-2 rounded bg-red-100 text-red-700 whitespace-pre-wrap">
+          ❌ Error:
+          {"\n"}
+          {error}
+        </pre>
       )}
+
+      {/* ✅ 结果输出 */}
       {result && (
-        <pre className="text-sm p-2 rounded bg-gray-50">
-          {JSON.stringify(result, null, 2)}
+        <pre
+          className={`text-sm p-2 rounded whitespace-pre-wrap ${
+            result.success
+              ? "bg-green-100 text-green-800"
+              : "bg-yellow-100 text-yellow-800"
+          }`}
+        >
+          {result.mode === "parse" ? (
+            result.success ? (
+              <>✅ parse 成功: {JSON.stringify(result.data, null, 2)}</>
+            ) : (
+              "❌ parse 失败"
+            )
+          ) : (
+            <>
+              <div>🔎 safeParse 结果：</div>
+              {JSON.stringify(result, null, 2)}
+            </>
+          )}
         </pre>
       )}
     </section>
