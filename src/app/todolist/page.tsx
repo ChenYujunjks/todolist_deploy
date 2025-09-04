@@ -1,7 +1,7 @@
 "use client";
 
 import { trpc } from "@/components/trpc/Provider";
-import { TodoCard } from "@/components/ui/todocard";
+import { TodoCard } from "@/components/TodoCard";
 import { useCategorizedTodos } from "@/hooks/useCategorizedTodos";
 import { AddTodoForm } from "./AddTodoForm";
 
@@ -78,7 +78,7 @@ const TodoListPage = () => {
       {/* ➕ 添加任务区域 */}
       <AddTodoForm
         onSubmit={async (todo) => {
-          await addTodoMutation.mutateAsync(todo); // 使用 tRPC 的 addTodo mutation
+          await addTodoMutation.mutateAsync(todo);
           todosQuery.refetch(); // 添加完之后刷新列表
         }}
       />
