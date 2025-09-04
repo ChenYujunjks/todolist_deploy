@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -17,7 +17,8 @@ interface DueDatePickerProps {
 }
 
 export function DueDatePicker({ value, onChange }: DueDatePickerProps) {
-  const parsedDate = value ? new Date(value) : undefined;
+  // 使用 parseISO 来正确解析 "YYYY-MM-DD"
+  const parsedDate = value ? parseISO(value) : undefined;
 
   return (
     <Popover>
@@ -37,8 +38,9 @@ export function DueDatePicker({ value, onChange }: DueDatePickerProps) {
           selected={parsedDate}
           onSelect={(date) => {
             if (date) {
-              const isoString = date.toISOString().split("T")[0]; // 转换为 YYYY-MM-DD
-              onChange(isoString);
+              // 避免使用 toISOString，直接格式化为本地 YYYY-MM-DD
+              const localDate = format(date, "yyyy-MM-dd");
+              onChange(localDate);
             }
           }}
         />
