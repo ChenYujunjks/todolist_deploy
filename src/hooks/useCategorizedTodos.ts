@@ -1,41 +1,30 @@
+// hooks/useCategorizedTodos.ts
 import type { Todo } from "@/lib/types/Todo";
 import { useMemo } from "react";
+import { classifyTodoDate, type TodoBucket } from "@/lib/TodoClassify";
+
+type BucketData = {
+  pending: Todo[];
+  completed: Todo[];
+};
 
 export function useCategorizedTodos(todos: Todo[] = []) {
   return useMemo(() => {
-    const today = new Date();
-    const nextWeek = new Date();
-    nextWeek.setDate(today.getDate() + 7);
+    const buckets: Record<TodoBucket, BucketData> = {
+      expired: { pending: [], completed: [] },
+      week: { pending: [], completed: [] },
+      future: { pending: [], completed: [] },
+    };
 
-    const expired: Todo[] = [];
-    const expiredCompleted: Todo[] = [];
-    const upcoming: Todo[] = [];
-    const upcomingCompleted: Todo[] = [];
-    const future: Todo[] = [];
-    const futureCompleted: Todo[] = [];
-
-    for (const todo of todos) {
-      const due = todo.due_date ? new Date(todo.due_date) : undefined;
-
-      if (!due) {
-        if (todo.is_completed) futureCompleted.push(todo);
-        else future.push(todo);
-      } else if (due < today) {
-        if (todo.is_completed) expiredCompleted.push(todo);
-        else expired.push(todo);
-      } else if (due <= nextWeek) {
-        if (todo.is_completed) upcomingCompleted.push(todo);
-        else upcoming.push(todo);
-      } else {
-        if (todo.is_completed) futureCompleted.push(todo);
-        else future.push(todo);
-      }
+    for (const t of todos) {
+      const b = classifyTodoDate(t.due_date);
+      (t.is_completed ? buckets[b].completed : buckets[b].pending).push(t);
     }
 
     return {
-      expired: { pending: expired, completed: expiredCompleted },
-      upcoming: { pending: upcoming, completed: upcomingCompleted },
-      future: { pending: future, completed: futureCompleted },
+      expired: buckets.expired,
+      upcoming: buckets.week,
+      future: buckets.future,
     };
   }, [todos]);
 }
