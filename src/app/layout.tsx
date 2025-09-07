@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import { Provider } from "@/components/trpc/Provider";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import ThemeToggle from "@/components/themetoggle";
-import { NavigationMenuDemo } from "@/components/navigation-menu";
+import ThemeToggle from "@/components/nav/themetoggle";
+import { NavigationMenuDemo } from "@/components/nav/navigation-menu";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
