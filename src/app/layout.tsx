@@ -8,8 +8,7 @@ import { NavigationMenuDemo } from "@/components/nav/navigation-menu";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
-  title: "My todo list",
-  description: "A Next.js project using tRPC, Supabase and pnpm",
+  title: "Bruce Chen | Software Engineer",
 };
 
 export default function RootLayout({
@@ -27,7 +26,7 @@ export default function RootLayout({
             <header
               className="
                 sticky top-0 z-50
-                backdrop-blur     /* 毛玻璃 */
+                backdrop-blur  /* 毛玻璃效果 */
                 bg-white/80       /* 浅色:80% 不透明白 */
                 dark:bg-zinc-900/60   /* 深色:60% 不透明深灰 */
                 border-b border-[--color-card-border]
