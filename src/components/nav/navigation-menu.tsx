@@ -56,6 +56,11 @@ export function NavigationMenuDemo() {
             <Link href="/zod-lab">Zod Example</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/stipend">StipendPage</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
         {/* Coinbase 页面 */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Coinbase</NavigationMenuTrigger>
