@@ -8,6 +8,35 @@ interface TodoCardProps {
   onDelete: (id: number) => void;
 }
 
+function getStatusStyle(todo: Todo) {
+  const bucket = classifyTodoDate(todo.due_date);
+  const done = todo.is_completed;
+
+  // 颜色：同一分组只在“完成/未完成”用深浅区分，避免跨分组串色
+  if (bucket === "expired") {
+    return done
+      ? { bg: "bg-red-200", border: "border-red-400", text: "text-red-900" }
+      : { bg: "bg-red-100", border: "border-red-300", text: "text-red-900" };
+  }
+  if (bucket === "week") {
+    return done
+      ? {
+          bg: "bg-emerald-200",
+          border: "border-emerald-400",
+          text: "text-emerald-900",
+        }
+      : {
+          bg: "bg-emerald-100",
+          border: "border-emerald-300",
+          text: "text-emerald-900",
+        };
+  }
+  // future
+  return done
+    ? { bg: "bg-sky-200", border: "border-sky-400", text: "text-sky-900" }
+    : { bg: "bg-sky-100", border: "border-sky-300", text: "text-sky-900" };
+}
+
 export function TodoCard({ todo, onToggleComplete, onDelete }: TodoCardProps) {
   const style = getStatusStyle(todo);
 
@@ -52,32 +81,4 @@ export function TodoCard({ todo, onToggleComplete, onDelete }: TodoCardProps) {
       </button>
     </li>
   );
-}
-function getStatusStyle(todo: Todo) {
-  const bucket = classifyTodoDate(todo.due_date);
-  const done = todo.is_completed;
-
-  // 颜色：同一分组只在“完成/未完成”用深浅区分，避免跨分组串色
-  if (bucket === "expired") {
-    return done
-      ? { bg: "bg-red-200", border: "border-red-400", text: "text-red-900" }
-      : { bg: "bg-red-100", border: "border-red-300", text: "text-red-900" };
-  }
-  if (bucket === "week") {
-    return done
-      ? {
-          bg: "bg-emerald-200",
-          border: "border-emerald-400",
-          text: "text-emerald-900",
-        }
-      : {
-          bg: "bg-emerald-100",
-          border: "border-emerald-300",
-          text: "text-emerald-900",
-        };
-  }
-  // future
-  return done
-    ? { bg: "bg-sky-200", border: "border-sky-400", text: "text-sky-900" }
-    : { bg: "bg-sky-100", border: "border-sky-300", text: "text-sky-900" };
 }
