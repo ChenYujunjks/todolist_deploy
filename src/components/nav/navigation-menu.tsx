@@ -17,9 +17,9 @@ export function NavigationMenuDemo() {
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList>
-        {/* Hello 页面菜单：支持锚点跳转 */}
+        {/* Personal 页面菜单：学习代码 */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Hello</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[300px]">
               <ListItem href="/hello" title="Full Page">
@@ -30,12 +30,6 @@ export function NavigationMenuDemo() {
               </ListItem>
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
-        {/* Tailwind 页面 */}
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/tailwind">Tailwind</Link>
-          </NavigationMenuLink>
         </NavigationMenuItem>
 
         {/* Todo List 页面 */}
@@ -50,17 +44,6 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Zod 页面 */}
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/zod-lab">Zod Example</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/stipend">StipendPage</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
         {/* Coinbase 页面 */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Coinbase</NavigationMenuTrigger>
@@ -68,6 +51,31 @@ export function NavigationMenuDemo() {
             <ul className="grid gap-2 w-[300px]">
               <ListItem href="/coinbase" title="Coinbase Integration">
                 Example integration with Coinbase API or interface.
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        {/* Stipend Page */}
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <Link href="/stipend">Stipend Page</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+
+        {/* Static Pages */}
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Static Pages</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-2 w-[300px]">
+              <ListItem href="/memo" title="Memo">
+                Quick notes and memos.
+              </ListItem>
+              <ListItem href="/tailwind" title="Tailwind Examples">
+                Tailwind CSS demo page.
+              </ListItem>
+              <ListItem href="/zod-lab" title="Zod Lab">
+                Zod validation examples.
               </ListItem>
             </ul>
           </NavigationMenuContent>
