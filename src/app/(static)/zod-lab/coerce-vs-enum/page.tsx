@@ -15,8 +15,8 @@ export default function ZodDemoPage() {
 
   useEffect(() => {
     const output = testValues.map((value) => {
-      let coerceResult: any;
-      let enumResult: any;
+      let coerceResult: unknown;
+      let enumResult: unknown;
 
       try {
         coerceResult = coerceSchema.parse(value);

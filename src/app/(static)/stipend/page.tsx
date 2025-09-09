@@ -43,7 +43,7 @@ export default function StipendPage() {
             />
             <YAxis />
             <Tooltip
-              content={({ active, payload, label }) => {
+              content={({ active, payload }) => {
                 if (!active || !payload || payload.length === 0) return null;
 
                 const item = payload[0].payload; // 拿到当前 data 对象
