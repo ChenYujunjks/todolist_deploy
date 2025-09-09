@@ -30,9 +30,35 @@ export default function StipendPage() {
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={cashflow}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="date" tick={{ fontSize: 12 }} />
+            <XAxis
+              dataKey="ts"
+              type="number"
+              domain={["dataMin", "dataMax"]}
+              tickFormatter={(ts) =>
+                new Date(ts).toLocaleDateString("zh-CN", {
+                  month: "2-digit",
+                  day: "2-digit",
+                })
+              }
+            />
             <YAxis />
-            <Tooltip />
+            <Tooltip
+              content={({ active, payload, label }) => {
+                if (!active || !payload || payload.length === 0) return null;
+
+                const item = payload[0].payload; // 拿到当前 data 对象
+
+                return (
+                  <div className="bg-white dark:bg-gray-800 border rounded p-2 text-sm shadow">
+                    <div>
+                      日期: {new Date(item.ts).toLocaleDateString("zh-CN")}
+                    </div>
+                    <div>余额: ${item.balance}</div>
+                    {item.note && <div>备注: {item.note}</div>}
+                  </div>
+                );
+              }}
+            />
 
             {/* 折线 */}
             <Line
