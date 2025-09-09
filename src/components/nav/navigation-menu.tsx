@@ -75,7 +75,13 @@ export function NavigationMenuDemo() {
                 Tailwind CSS demo page.
               </ListItem>
               <ListItem href="/zod-lab" title="Zod Lab">
-                Zod validation examples.
+                Zod validation playground.
+              </ListItem>
+              <ListItem href="/zod-lab/coerce-vs-enum" title="Coerce vs Enum">
+                Compare z.coerce.boolean() and z.enum().
+              </ListItem>
+              <ListItem href="/zod-lab/function" title="Function Demo">
+                Test Zod parsing logic.
               </ListItem>
             </ul>
           </NavigationMenuContent>
