@@ -1,4 +1,4 @@
-export const cashflow = [
+const rawCashflow = [
   {
     date: "2025-09-14",
     balance: 320,
@@ -138,3 +138,9 @@ export const cashflow = [
     type: "income",
   },
 ];
+
+// ✅ 自动加上 ts 字段
+export const cashflow = rawCashflow.map((item) => ({
+  ...item,
+  ts: new Date(item.date).getTime(),
+}));

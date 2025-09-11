@@ -28,12 +28,10 @@ const TodoListPage = () => {
     todosQuery.refetch();
   };
 
-  const { expired, upcoming, future } = useCategorizedTodos(
-    todosQuery.data || []
-  );
+  const { expired, week, future } = useCategorizedTodos(todosQuery.data || []);
   const sections = [
     { title: "⏳ 已过期", data: expired },
-    { title: "📆 一周内", data: upcoming },
+    { title: "📆 一周内", data: week },
     { title: "📅 七天以后", data: future },
   ];
 

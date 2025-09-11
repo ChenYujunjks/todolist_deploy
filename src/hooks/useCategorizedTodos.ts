@@ -21,10 +21,6 @@ export function useCategorizedTodos(todos: Todo[] = []) {
       (t.is_completed ? buckets[b].completed : buckets[b].pending).push(t);
     }
 
-    return {
-      expired: buckets.expired,
-      upcoming: buckets.week,
-      future: buckets.future,
-    };
+    return buckets;
   }, [todos]);
 }
