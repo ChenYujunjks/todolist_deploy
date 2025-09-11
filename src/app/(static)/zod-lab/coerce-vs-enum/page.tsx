@@ -6,15 +6,22 @@ import { z } from "zod";
 const coerceSchema = z.coerce.boolean();
 const enumSchema = z.enum(["true", "false"]).transform((v) => v === "true");
 
-const testValues = [true, false, "true", "false", 1, 0, "", null];
+// ✅ 给 testValues 明确类型（原来是 `any[]`）
+// 原来: const testValues = [true, false, "true", "false", 1, 0, "", null];
+const testValues: unknown[] = [true, false, "true", "false", 1, 0, "", null];
+
+type ResultRow = {
+  // 原来: input: any; coerce: any; enumStrict: any;
+  input: unknown;
+  coerce: unknown;
+  enumStrict: unknown;
+};
 
 export default function ZodDemoPage() {
-  const [results, setResults] = useState<
-    { input: any; coerce: any; enumStrict: any }[]
-  >([]);
+  const [results, setResults] = useState<ResultRow[]>([]);
 
   useEffect(() => {
-    const output = testValues.map((value) => {
+    const output: ResultRow[] = testValues.map((value) => {
       let coerceResult: unknown;
       let enumResult: unknown;
 
@@ -46,7 +53,8 @@ export default function ZodDemoPage() {
             <th className="border px-2 py-1">Input</th>
             <th className="border px-2 py-1">z.coerce.boolean()</th>
             <th className="border px-2 py-1">
-              z.enum(["true","false"]).transform
+              {/* 原来: z.enum(["true","false"]).transform */}
+              z.enum([&quot;true&quot;,&quot;false&quot;]).transform
             </th>
           </tr>
         </thead>
