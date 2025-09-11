@@ -3,7 +3,6 @@ import React, { useState, useMemo } from "react";
 
 export default function WithoutMemo() {
   const [count, setCount] = useState(0);
-
   // 模拟一个很重的计算（比如过滤 400 项数据）
   const expensiveValue = useMemo(() => {
     console.log("⚡ 只在依赖变化时计算一次");
@@ -12,7 +11,7 @@ export default function WithoutMemo() {
       sum += i;
     }
     return sum;
-  }, []);
+  }, []); // [count] 依赖项变化时才重新计算
 
   return (
     <div>
