@@ -1,23 +1,17 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 
-export default function WithoutMemo() {
-  const [count, setCount] = useState(0);
-  // 模拟一个很重的计算（比如过滤 400 项数据）
-  const expensiveValue = useMemo(() => {
-    console.log("⚡ 只在依赖变化时计算一次");
-    let sum = 0;
-    for (let i = 0; i < 500000000; i++) {
-      sum += i;
-    }
-    return sum;
-  }, []); // [count] 依赖项变化时才重新计算
+export default function LoopDemo() {
+  const [n, setN] = useState(0);
 
-  return (
-    <div>
-      <p>使用 useMemo 计算的结果：{expensiveValue}</p>
-      <p>count: {count}</p>
-      <button onClick={() => setCount((c) => c + 1)}>+1</button>
-    </div>
-  );
+  // ⚠️ 每次渲染都创建一个新对象，引用恒变
+  const dep = { k: 1 };
+
+  useEffect(() => {
+    console.log("effect runs. n =", n);
+    // ⚠️ effect 里 setState，触发下一次渲染
+    setN((x) => x + 1);
+  }, [dep]); // ⚠️ 依赖始终“变化”→ effect 每次渲染都触发 → setState → 渲染 → 如此循环
+
+  return <div>{n}</div>;
 }
