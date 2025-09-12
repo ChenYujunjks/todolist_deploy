@@ -6,7 +6,7 @@ export const rawCashflow = [
     date: "2025-09-14",
     change: 0,
     note: "初始状态",
-    type: "travel ",
+    type: "travel",
   },
   {
     date: "2025-09-21",
@@ -94,7 +94,6 @@ export const rawCashflow = [
     note: "机票支出 ¥7800 ≈ $1071；当周伙食 -$100（合计 -$1171）",
     type: "travel",
   },
-
   // 12/16 大楼返佣
   {
     date: "2025-12-16",
@@ -103,6 +102,13 @@ export const rawCashflow = [
     type: "income",
   },
 
+  //买礼物预算
+  {
+    date: "2025-12-18",
+    change: -400,
+    note: "买礼物预算 -400",
+    type: "consumption",
+  },
   {
     date: "2025-12-21",
     change: -100,
@@ -117,30 +123,30 @@ export const rawCashflow = [
     note: "12/22 额外 aunt 收入 $1000",
     type: "income",
   },
-
-  // 12/28 旅行期间消费 + 当周伙食
   {
     date: "2025-12-28",
-    change: -656,
-    note: "旅行期间 10 天消费（含酒店）≈ ¥4000 ≈ $556；本周伙食 -$100（合计 -$656）",
-    type: "travel",
+    change: -100,
+    note: "本周伙食 -$100",
+    type: "food",
   },
 
   // 1月第一周到账
   {
     date: "2026-01-04",
-    change: +1150,
-    note: "1月生活费到账 $1400；固定支出 -$150；伙食 -$100（合计 +$1150）",
+    change: +1250,
+    note: "1月生活费到账 $1400；固定支出 -$150（合计 +$1250）",
     type: "income",
   },
+  // 1/5 旅行期间消费 + 当周伙食
+  {
+    date: "2026-01-05",
+    change: -656,
+    note: "旅行期间 10 天消费（含酒店）≈ ¥4000 ≈ $556；本周伙食 -$100（合计 -$656）",
+    type: "travel",
+  },
+
   {
     date: "2026-01-11",
-    change: -100,
-    note: "伙食 -$100",
-    type: "food",
-  },
-  {
-    date: "2026-01-18",
     change: -100,
     note: "伙食 -$100",
     type: "food",

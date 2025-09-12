@@ -102,11 +102,13 @@ export default function StipendPage() {
               key={idx}
               className={
                 item.type === "income"
-                  ? "bg-green-50"
+                  ? "bg-emerald-50"
                   : item.type === "food"
                   ? "bg-yellow-50"
                   : item.type === "travel"
                   ? "bg-red-50"
+                  : item.type === "consumption"
+                  ? "bg-blue-100"
                   : ""
               }
             >
