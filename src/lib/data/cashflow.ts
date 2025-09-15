@@ -9,6 +9,12 @@ export const rawCashflow = [
     type: "travel",
   },
   {
+    date: "2025-09-16",
+    change: -80,
+    note: "买东西消费 -$80",
+    type: "consumption",
+  },
+  {
     date: "2025-09-21",
     change: -100,
     note: "起始后第一周伙食 -$100",
