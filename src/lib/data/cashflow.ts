@@ -1,4 +1,4 @@
-const startingBalance = 525; // 这里填你最初的余额
+const startingBalance = 300; // 这里填你最初的余额
 
 // ✅ 原始 cashflow：只写 change，不写 balance
 export const rawCashflow = [
