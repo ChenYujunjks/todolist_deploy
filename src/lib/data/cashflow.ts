@@ -30,8 +30,8 @@ export const rawCashflow = [
   // 10月第一周（收入到账 + 固定支出 + 当周伙食）
   {
     date: "2025-10-05",
-    change: +1150,
-    note: "10月生活费到账 $1400；固定支出 -$150；伙食 -$100（合计 +$1150）",
+    change: +1100,
+    note: "10月生活费到账 $1400；固定支出 -$200；伙食 -$100（合计 +$1100）",
     type: "income",
   },
   {
@@ -42,8 +42,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-10-19",
-    change: -100,
-    note: "伙食 -$100",
+    change: -125,
+    note: "伙食 -$125",
     type: "food",
   },
   {
@@ -53,11 +53,10 @@ export const rawCashflow = [
     type: "food",
   },
 
-  // 11月第一周到账
   {
     date: "2025-11-02",
-    change: +1150,
-    note: "11月生活费到账 $1400；固定支出 -$150；伙食 -$100（合计 +$1150）",
+    change: +1050,
+    note: "11月生活费到账 $1400；固定支出 -$200；伙食 -$150（合计 +$1050）",
     type: "income",
   },
   {
@@ -69,7 +68,7 @@ export const rawCashflow = [
   {
     date: "2025-11-16",
     change: -100,
-    note: "伙食 -$100",
+    note: "伙食 -$125",
     type: "food",
   },
   {
@@ -80,8 +79,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-11-30",
-    change: -100,
-    note: "伙食 -$100",
+    change: -150,
+    note: "伙食 -$150",
     type: "food",
   },
 
