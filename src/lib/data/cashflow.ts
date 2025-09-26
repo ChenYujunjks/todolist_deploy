@@ -137,8 +137,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-12-28",
-    change: -100,
-    note: "本周伙食 -$100",
+    change: -200,
+    note: "本周伙食 -$200",
     type: "food",
   },
 
