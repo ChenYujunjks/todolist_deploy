@@ -78,6 +78,13 @@ export const rawCashflow = [
     type: "food",
   },
   {
+    date: "2025-11-19",
+    change: +288,
+    note: "获得一点钱",
+    type: "income",
+  },
+
+  {
     date: "2025-11-23",
     change: -125,
     note: "伙食 -$125",
@@ -113,7 +120,6 @@ export const rawCashflow = [
     type: "income",
   },
 
-  //买礼物预算
   {
     date: "2025-12-18",
     change: -450,
@@ -127,7 +133,6 @@ export const rawCashflow = [
     type: "food",
   },
 
-  // 12/22 额外收入
   {
     date: "2025-12-22",
     change: +1000,
