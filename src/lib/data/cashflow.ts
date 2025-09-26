@@ -22,8 +22,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-09-28",
-    change: -150,
-    note: "伙食 -$150",
+    change: -200,
+    note: "伙食 -$200",
     type: "food",
   },
 
@@ -37,8 +37,8 @@ export const rawCashflow = [
 
   {
     date: "2025-10-12",
-    change: -100,
-    note: "伙食 -$100",
+    change: -150,
+    note: "伙食 -$150",
     type: "food",
   },
   {
@@ -55,8 +55,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-10-26",
-    change: -100,
-    note: "伙食 -$100",
+    change: -150,
+    note: "伙食 -$150",
     type: "food",
   },
 
@@ -68,13 +68,13 @@ export const rawCashflow = [
   },
   {
     date: "2025-11-09",
-    change: -100,
-    note: "伙食 -$100",
+    change: -150,
+    note: "伙食 -$150",
     type: "food",
   },
   {
     date: "2025-11-16",
-    change: -100,
+    change: -125,
     note: "伙食 -$125",
     type: "food",
   },
@@ -102,8 +102,8 @@ export const rawCashflow = [
   // 12/14 机票支出 + 当周伙食
   {
     date: "2025-12-14",
-    change: -1171,
-    note: "机票支出 ¥7800 ≈ $1071；当周伙食 -$100（合计 -$1171）",
+    change: -1271,
+    note: "机票支出 ¥7800 ≈ $1071；当周伙食 -$200（合计 -$1171）",
     type: "travel",
   },
   // 12/16 大楼返佣
