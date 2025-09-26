@@ -116,8 +116,8 @@ export const rawCashflow = [
   //买礼物预算
   {
     date: "2025-12-18",
-    change: -400,
-    note: "买礼物预算 -400",
+    change: -450,
+    note: "买礼物预算 -450",
     type: "consumption",
   },
   {
