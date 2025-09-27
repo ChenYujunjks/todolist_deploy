@@ -17,7 +17,7 @@ export function CashflowTable() {
 
   // 定义 9/1 ~ 11/30 时间段
   const start = new Date("2025-09-01").getTime();
-  const end = new Date("2025-12-15").getTime();
+  const end = Date.now(); // 今天
 
   const filtered = hideFall
     ? cashflow.filter((item) => item.ts < start || item.ts > end)
@@ -30,7 +30,7 @@ export function CashflowTable() {
         variant="destructive"
         size="sm"
       >
-        {hideFall ? "显示 9-11 月数据" : "隐藏 9-11 月数据"}
+        {hideFall ? "显示9月-今天的数据" : "隐藏9月-今天的数据"}
       </Button>
 
       <Table>
