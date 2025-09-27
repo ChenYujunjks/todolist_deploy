@@ -160,13 +160,6 @@ export const rawCashflow = [
     note: "旅行期间 10 天消费（含酒店）≈ ¥4000 ≈ $556；本周伙食 -$100（合计 -$656）",
     type: "travel",
   },
-
-  {
-    date: "2026-01-11",
-    change: -100,
-    note: "伙食 -$100",
-    type: "food",
-  },
   {
     date: "2026-01-25",
     change: -100,
@@ -174,33 +167,34 @@ export const rawCashflow = [
     type: "food",
   },
 
-  // 2月第一周到账
+  // 2月
   {
     date: "2026-02-01",
-    change: +1150,
-    note: "2月生活费到账 $1400；固定支出 -$150；伙食 -$100（合计 +$1150）",
+    change: +1050,
+    note: "2月生活费到账 $1400；固定支出 -$200；伙食 -$150（合计 +$1050）",
     type: "income",
   },
-  {
-    date: "2026-02-08",
-    change: -100,
-    note: "伙食 -$100",
-    type: "food",
-  },
-  {
-    date: "2026-02-15",
-    change: -100,
-    note: "伙食 -$100",
-    type: "food",
-  },
-
-  // 2/17 压岁钱
+  { date: "2026-02-08", change: -150, note: "伙食 -$150", type: "food" },
+  { date: "2026-02-15", change: -150, note: "伙食 -$150", type: "food" },
   {
     date: "2026-02-17",
     change: +2083,
     note: "压岁钱到账 ¥15000 ≈ $2083",
     type: "income",
   },
+  { date: "2026-02-22", change: -150, note: "伙食 -$150", type: "food" },
+
+  // 3月
+  {
+    date: "2026-03-01",
+    change: +1050,
+    note: "3月生活费到账 $1400；固定支出 -$200；伙食 -$150（合计 +$1050）",
+    type: "income",
+  },
+  { date: "2026-03-08", change: -150, note: "伙食 -$150", type: "food" },
+  { date: "2026-03-15", change: -150, note: "伙食 -$150", type: "food" },
+  { date: "2026-03-22", change: -150, note: "伙食 -$150", type: "food" },
+  { date: "2026-03-29", change: -150, note: "伙食 -$150", type: "food" },
 ];
 
 // ✅ 自动生成 balance + ts
