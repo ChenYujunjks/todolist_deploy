@@ -30,7 +30,7 @@ export function CashflowTable() {
         variant="destructive"
         size="sm"
       >
-        {hideFall ? "显示9月-今天的数据" : "隐藏9月-今天的数据"}
+        {hideFall ? "显示9月 - 今天 的数据" : "隐藏9月 - 今天 的数据"}
       </Button>
 
       <Table>
