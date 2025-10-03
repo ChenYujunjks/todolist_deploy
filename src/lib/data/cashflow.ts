@@ -1,4 +1,4 @@
-const startingBalance = 300; // 这里填你最初的余额
+const startingBalance = 300;
 
 // ✅ 原始 cashflow：只写 change，不写 balance
 export const rawCashflow = [
@@ -36,8 +36,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-10-07",
-    change: +200,
-    note: "银行返现 +$200",
+    change: +250,
+    note: "银行返现 +$250",
     type: "income",
   },
   {
@@ -124,12 +124,6 @@ export const rawCashflow = [
     change: -150,
     note: "伙食 -$150",
     type: "food",
-  },
-  {
-    date: "2025-12-22",
-    change: +1000,
-    note: "12/22 额外 aunt 收入 $1000",
-    type: "income",
   },
   {
     date: "2025-12-28",
