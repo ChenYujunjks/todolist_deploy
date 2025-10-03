@@ -17,7 +17,6 @@ export function NavigationMenuDemo() {
   return (
     <NavigationMenu viewport={false}>
       <NavigationMenuList>
-        {/* Personal 页面菜单：学习代码 */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -56,14 +55,6 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Stipend Page */}
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link href="/stipend">Stipend Page</Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-
-        {/* Static Pages */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Static Pages</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -71,14 +62,15 @@ export function NavigationMenuDemo() {
               <ListItem href="/memo" title="Memo">
                 Quick notes and memos.
               </ListItem>
-             
+              <ListItem href="/stipend" title="Stipend Page">
+                Quick notes and memos.
+              </ListItem>
               <ListItem href="/zod-lab" title="Zod Lab">
                 Zod validation playground.
               </ListItem>
               <ListItem href="/zod-lab/coerce-vs-enum" title="Coerce vs Enum">
                 Compare z.coerce.boolean() and z.enum().
               </ListItem>
-             
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
