@@ -34,18 +34,26 @@ export const rawCashflow = [
     note: "10月生活费到账 $1400；固定支出 -$200；伙食 -$250（合计 +$1100）",
     type: "income",
   },
+
   {
-    date: "2025-10-07",
-    change: +250,
-    note: "银行返现 +$250",
-    type: "income",
+    date: "2025-10-09",
+    change: -200,
+    note: "购买鼠标 -$200",
+    type: "consumption",
   },
   {
     date: "2025-10-12",
-    change: -150,
-    note: "伙食 -$150",
+    change: -250,
+    note: "伙食 -$250",
     type: "food",
   },
+  {
+    date: "2025-10-15",
+    change: -100,
+    note: "出行 -$100",
+    type: "travel",
+  },
+
   {
     date: "2025-10-19",
     change: -175,
@@ -58,12 +66,23 @@ export const rawCashflow = [
     note: "伙食 -$150",
     type: "food",
   },
-
+  {
+    date: "2025-10-29",
+    change: +250,
+    note: "银行返现 +$250",
+    type: "income",
+  },
   {
     date: "2025-11-02",
     change: +950,
-    note: "11月生活费到账 $1400；固定支出 -$200；伙食 -$250（合计 +$1050）",
+    note: "11月生活费到账 $1400；固定支出 -$200；伙食 -$250（合计 +$950）",
     type: "income",
+  },
+  {
+    date: "2025-11-07",
+    change: -1000,
+    note: "机票 -$1000",
+    type: "travel",
   },
   {
     date: "2025-11-09",
@@ -72,16 +91,22 @@ export const rawCashflow = [
     type: "food",
   },
   {
+    date: "2025-11-10",
+    change: +900,
+    note: "获得感恩节钱 +$900",
+    type: "income",
+  },
+  {
+    date: "2025-11-12",
+    change: -400,
+    note: "出行 -$400",
+    type: "travel",
+  },
+  {
     date: "2025-11-16",
     change: -150,
     note: "伙食 -$150",
     type: "food",
-  },
-  {
-    date: "2025-11-19",
-    change: +288,
-    note: "获得一点钱",
-    type: "income",
   },
 
   {
@@ -112,9 +137,15 @@ export const rawCashflow = [
     note: "当周伙食 -$200（合计 -$200）",
     type: "travel",
   },
+  {
+    date: "2025-12-17",
+    change: -200,
+    note: "购买键盘 -$200",
+    type: "consumption",
+  },
   // 12/16 大楼返佣
   {
-    date: "2025-12-16",
+    date: "2025-12-19",
     change: +888,
     note: "大楼返佣到账 $888",
     type: "income",
