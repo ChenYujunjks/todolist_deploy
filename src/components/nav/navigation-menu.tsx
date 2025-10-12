@@ -58,9 +58,6 @@ export function NavigationMenuDemo() {
           <NavigationMenuTrigger>Static Pages</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[300px]">
-              <ListItem href="/memo" title="Memo">
-                Quick notes and memos.
-              </ListItem>
               <ListItem href="/stipend" title="Stipend Page">
                 Quick notes and memos.
               </ListItem>
@@ -75,6 +72,9 @@ export function NavigationMenuDemo() {
               </ListItem>
               <ListItem href="/zod-lab/function" title="Function Demo">
                 Test Zod parsing logic.
+              </ListItem>
+              <ListItem href="/memo" title="Memo">
+                Quick notes and memos.
               </ListItem>
             </ul>
           </NavigationMenuContent>
