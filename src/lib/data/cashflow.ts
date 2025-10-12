@@ -34,10 +34,22 @@ export const rawCashflow = [
     type: "income",
   },
   {
+    date: "2025-10-11",
+    change: -200,
+    note: "购买鼠标 -$200",
+    type: "consumption",
+  },
+  {
     date: "2025-10-12",
     change: -250,
     note: "伙食 -$250",
     type: "food",
+  },
+  {
+    date: "2025-10-13",
+    change: -200,
+    note: "购买键盘 -$200",
+    type: "consumption",
   },
   {
     date: "2025-10-15",
@@ -45,12 +57,7 @@ export const rawCashflow = [
     note: "出行 -$100",
     type: "travel",
   },
-  {
-    date: "2025-10-17",
-    change: -200,
-    note: "购买鼠标 -$200",
-    type: "consumption",
-  },
+
   {
     date: "2025-10-19",
     change: -175,
@@ -128,12 +135,7 @@ export const rawCashflow = [
     note: "当周伙食 -$200（合计 -$200）",
     type: "travel",
   },
-  {
-    date: "2025-12-17",
-    change: -200,
-    note: "购买键盘 -$200",
-    type: "consumption",
-  },
+
   // 12/16 大楼返佣
   {
     date: "2025-12-19",
