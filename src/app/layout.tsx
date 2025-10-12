@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Inter } from "next/font/google";
-import { Provider } from "@/components/trpc/Provider";
+import { Provider } from "@/components/api/trpc/Provider";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "@/components/nav/themetoggle";

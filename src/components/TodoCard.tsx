@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import type { Todo } from "@/lib/types/Todo";
-import { classifyTodoDate } from "@/lib/TodoClassify";
+import { classifyTodoDate } from "@/lib/types/TodoClassify";
 
 interface TodoCardProps {
   todo: Todo;

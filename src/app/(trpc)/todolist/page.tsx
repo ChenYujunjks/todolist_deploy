@@ -1,6 +1,6 @@
 "use client";
 
-import { trpc } from "@/components/trpc/Provider";
+import { trpc } from "@/components/api/trpc/Provider";
 import { TodoCard } from "@/components/TodoCard";
 import { useCategorizedTodos } from "@/hooks/useCategorizedTodos";
 import { AddTodoForm } from "./AddTodoForm";

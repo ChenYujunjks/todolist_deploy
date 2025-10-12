@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import { trpc } from "@/components/trpc/Provider";
+import { trpc } from "@/components/api/trpc/Provider";
 
 export default function BuyPriceCard() {
   const [base, setBase] = useState("BTC");

@@ -64,11 +64,17 @@ export function NavigationMenuDemo() {
               <ListItem href="/stipend" title="Stipend Page">
                 Quick notes and memos.
               </ListItem>
+              <ListItem href="/tailwind" title="Tailwind Examples">
+                Tailwind CSS demo page.
+              </ListItem>
               <ListItem href="/zod-lab" title="Zod Lab">
                 Zod validation playground.
               </ListItem>
               <ListItem href="/zod-lab/coerce-vs-enum" title="Coerce vs Enum">
                 Compare z.coerce.boolean() and z.enum().
+              </ListItem>
+              <ListItem href="/zod-lab/function" title="Function Demo">
+                Test Zod parsing logic.
               </ListItem>
             </ul>
           </NavigationMenuContent>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import FormSender from "@/components/api/form-sender";
+import FormSender from "@/components/form-sender";
 import CoinbasePriceCard from "@/components/api/coinbase/coinbase-pricecard";
 import AccordionEntry from "./accordion";
 import { demoSections } from "./demo";

@@ -1,7 +1,7 @@
 // components/FormSender.tsx
 "use client";
 
-import { trpc } from "@/components/trpc/Provider";
+import { trpc } from "@/components/api/trpc/Provider";
 import { useState } from "react";
 
 export default function FormSender() {

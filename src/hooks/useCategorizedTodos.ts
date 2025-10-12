@@ -1,7 +1,7 @@
 // hooks/useCategorizedTodos.ts
 import type { Todo } from "@/lib/types/Todo";
 import { useMemo } from "react";
-import { classifyTodoDate, type TodoBucket } from "@/lib/TodoClassify";
+import { classifyTodoDate, type TodoBucket } from "@/lib/types/TodoClassify";
 
 type BucketData = {
   pending: Todo[];
