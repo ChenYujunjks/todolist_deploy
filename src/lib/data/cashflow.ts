@@ -57,7 +57,6 @@ export const rawCashflow = [
     note: "出行 -$100",
     type: "travel",
   },
-
   {
     date: "2025-10-19",
     change: -175,
@@ -65,17 +64,18 @@ export const rawCashflow = [
     type: "food",
   },
   {
+    date: "2025-10-20",
+    change: +250,
+    note: "银行返现 +$250",
+    type: "income",
+  },
+  {
     date: "2025-10-26",
     change: -150,
     note: "伙食 -$150",
     type: "food",
   },
-  {
-    date: "2025-10-29",
-    change: +250,
-    note: "银行返现 +$250",
-    type: "income",
-  },
+
   {
     date: "2025-11-02",
     change: +950,
@@ -96,8 +96,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-11-12",
-    change: -400,
-    note: "出行 -$400",
+    change: -750,
+    note: "出行 -$750",
     type: "travel",
   },
   {
