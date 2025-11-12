@@ -30,7 +30,7 @@ export const rawCashflow = [
   {
     date: "2025-10-05",
     change: +950,
-    note: "10月生活费到账 $1400；固定支出 -$200；伙食 -$250（合计 +$1100）",
+    note: "10月生活费到账 $1400；固定支出 -$200；伙食 -$250（合计 +$950）",
     type: "income",
   },
   {
@@ -139,8 +139,8 @@ export const rawCashflow = [
   // 12/16 大楼返佣
   {
     date: "2025-12-19",
-    change: +888,
-    note: "大楼返佣到账 $888",
+    change: +875,
+    note: "大楼返佣到账 $875",
     type: "income",
   },
   {
