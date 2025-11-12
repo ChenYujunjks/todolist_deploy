@@ -71,8 +71,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-10-26",
-    change: -150,
-    note: "伙食 -$150",
+    change: -200,
+    note: "伙食 -$200",
     type: "food",
   },
 
@@ -205,10 +205,10 @@ export const rawCashflow = [
     note: "3月生活费到账 $1400；固定支出 -$200；伙食 -$200（合计 +$1000）",
     type: "income",
   },
-  { date: "2026-03-08", change: -150, note: "伙食 -$150", type: "food" },
-  { date: "2026-03-15", change: -150, note: "伙食 -$150", type: "food" },
-  { date: "2026-03-22", change: -150, note: "伙食 -$150", type: "food" },
-  { date: "2026-03-29", change: -150, note: "伙食 -$150", type: "food" },
+  { date: "2026-03-08", change: -200, note: "伙食 -$200", type: "food" },
+  { date: "2026-03-15", change: -200, note: "伙食 -$200", type: "food" },
+  { date: "2026-03-22", change: -200, note: "伙食 -$200", type: "food" },
+  { date: "2026-03-29", change: -200, note: "伙食 -$200", type: "food" },
 ];
 
 // ✅ 自动生成 balance + ts
