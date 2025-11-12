@@ -84,8 +84,8 @@ export const rawCashflow = [
   },
   {
     date: "2025-11-09",
-    change: -150,
-    note: "伙食 -$150",
+    change: -200,
+    note: "伙食 -$200",
     type: "food",
   },
   {
@@ -102,21 +102,21 @@ export const rawCashflow = [
   },
   {
     date: "2025-11-16",
-    change: -150,
-    note: "伙食 -$150",
+    change: -200,
+    note: "伙食 -$200",
     type: "food",
   },
 
   {
     date: "2025-11-23",
-    change: -175,
-    note: "伙食 -$175",
+    change: -200,
+    note: "伙食 -$200",
     type: "food",
   },
   {
     date: "2025-11-30",
-    change: -150,
-    note: "伙食 -$150",
+    change: -200,
+    note: "伙食 -$200",
     type: "food",
   },
 
@@ -145,7 +145,7 @@ export const rawCashflow = [
   },
   {
     date: "2025-12-21",
-    change: -150,
+    change: -200,
     note: "伙食 -$150",
     type: "food",
   },
@@ -176,8 +176,8 @@ export const rawCashflow = [
   },
   {
     date: "2026-01-25",
-    change: -150,
-    note: "伙食 -$150",
+    change: -200,
+    note: "伙食 -$200",
     type: "food",
   },
 
@@ -201,8 +201,8 @@ export const rawCashflow = [
   // 3月
   {
     date: "2026-03-01",
-    change: +1050,
-    note: "3月生活费到账 $1400；固定支出 -$200；伙食 -$150（合计 +$1050）",
+    change: +1000,
+    note: "3月生活费到账 $1400；固定支出 -$200；伙食 -$200（合计 +$1000）",
     type: "income",
   },
   { date: "2026-03-08", change: -150, note: "伙食 -$150", type: "food" },
