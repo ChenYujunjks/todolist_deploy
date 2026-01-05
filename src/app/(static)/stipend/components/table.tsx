@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { cashflow } from "@/lib/data/cashflow";
+import { cashflow } from "@/data/cashflow";
 import { Button } from "@/components/ui/button";
 
 export function CashflowTable() {

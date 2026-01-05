@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
   Scatter,
 } from "recharts";
-import { cashflow } from "@/lib/data/cashflow";
+import { cashflow } from "@/data/cashflow";
 
 export function CashflowChart() {
   return (

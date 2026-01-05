@@ -1,17 +1,21 @@
 // lib/calc.ts
-import { Trade, config } from "./store";
+import { Trade } from "./store";
 
-export function calcEquity(trades: Trade[]) {
-  let equity = config.initialCapital;
+export function calcEquity(
+  trades: Trade[],
+  initialCapital: number,
+  riskPct: number
+) {
+  let equity = initialCapital;
 
   return trades.map((t) => {
-    const pnlPct = t.R * config.riskPct;
+    const pnlPct = t.R * riskPct;
     equity = equity * (1 + pnlPct);
 
     return {
       ...t,
-      equity,
       pnlPct,
+      equity,
     };
   });
 }
