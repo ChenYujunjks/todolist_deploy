@@ -70,9 +70,6 @@ export function NavigationMenuDemo() {
               <ListItem href="/zod-lab/coerce-vs-enum" title="Coerce vs Enum">
                 Compare z.coerce.boolean() and z.enum().
               </ListItem>
-              <ListItem href="/zod-lab/function" title="Function Demo">
-                Test Zod parsing logic.
-              </ListItem>
               <ListItem href="/memo" title="Memo">
                 Quick notes and memos.
               </ListItem>
