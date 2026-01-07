@@ -61,6 +61,9 @@ export function NavigationMenuDemo() {
               <ListItem href="/stipend" title="Stipend Page">
                 Quick notes and memos.
               </ListItem>
+              <ListItem href="/trades" title="Trades Page">
+                Trades page.
+              </ListItem>
               <ListItem href="/tailwind" title="Tailwind Examples">
                 Tailwind CSS demo page.
               </ListItem>
