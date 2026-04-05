@@ -20,6 +20,9 @@ export function NavigationMenuDemo() {
           <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[300px]">
+              <ListItem href="/risk-management" title="Risk Management">
+                Risk management page.
+              </ListItem>
               <ListItem href="/hello" title="Full Page">
                 View full Hello page with multiple sections.
               </ListItem>
