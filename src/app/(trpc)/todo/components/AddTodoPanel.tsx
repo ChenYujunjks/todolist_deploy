@@ -7,7 +7,7 @@ import { DueDatePicker } from "@/components/ui/datepicker";
 import type { TodoDraft } from "@/lib/types/Todo";
 
 type AddTodoPanelProps = {
-  onSubmit: (todo: TodoDraft) => void;
+  onSubmit: (todo: TodoDraft) => Promise<void>;
 };
 
 function getDefaultDueDate() {
@@ -21,15 +21,11 @@ export function AddTodoPanel({ onSubmit }: AddTodoPanelProps) {
     due_date: getDefaultDueDate(),
   });
 
-  const handleSubmit = () => {
-    if (!todo.title.trim()) return;
-
-    onSubmit({
-      title: todo.title.trim(),
-      description: todo.description?.trim(),
-      due_date: todo.due_date ?? getDefaultDueDate(),
-    });
-    setTodo({ title: "", description: "", due_date: getDefaultDueDate() });
+  const handleSubmit = async () => {
+    if (todo.title.trim()) {
+      await onSubmit(todo);
+      setTodo({ title: "", description: "", due_date: getDefaultDueDate() });
+    }
   };
 
   return (

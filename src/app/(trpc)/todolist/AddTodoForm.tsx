@@ -14,10 +14,10 @@ function getDefaultDueDate() {
 }
 
 export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
-  const [todo, setTodo] = useState({
-    title: "",
-    description: "",
-    due_date: getDefaultDueDate(),
+  const [todo, setTodo] = useState<TodoDraft>({
+    title: "", //初始值
+    description: "", //初始值
+    due_date: getDefaultDueDate(), //初始值
   });
 
   const handleSubmit = async () => {
@@ -29,12 +29,13 @@ export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
 
   return (
     <div className="mt-14 max-w-xl mx-auto space-y-4 border-t pt-8">
-      {/* ➕ 添加任务区域 */}
       <input
         type="text"
         placeholder="Todo title"
         value={todo.title}
-        onChange={(e) => setTodo({ ...todo, title: e.target.value })}
+        onChange={(e) =>
+          setTodo((current) => ({ ...current, title: e.target.value }))
+        }
         className="w-full px-4 py-3 border border-[--color-card-border] rounded-xl bg-background shadow-sm focus:outline-none focus:ring-2 focus:ring-[--color-brand]"
       />
       <textarea
