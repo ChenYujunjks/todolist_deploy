@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { addDays, format } from "date-fns";
 import { Plus } from "lucide-react";
 import { DueDatePicker } from "@/components/ui/datepicker";
 import type { TodoDraft } from "@/lib/types/Todo";
@@ -9,11 +10,15 @@ type AddTodoPanelProps = {
   onSubmit: (todo: TodoDraft) => void;
 };
 
+function getDefaultDueDate() {
+  return format(addDays(new Date(), 1), "yyyy-MM-dd");
+}
+
 export function AddTodoPanel({ onSubmit }: AddTodoPanelProps) {
   const [todo, setTodo] = useState<TodoDraft>({
     title: "",
     description: "",
-    due_date: undefined,
+    due_date: getDefaultDueDate(),
   });
 
   const handleSubmit = () => {
@@ -22,9 +27,9 @@ export function AddTodoPanel({ onSubmit }: AddTodoPanelProps) {
     onSubmit({
       title: todo.title.trim(),
       description: todo.description?.trim(),
-      due_date: todo.due_date,
+      due_date: todo.due_date ?? getDefaultDueDate(),
     });
-    setTodo({ title: "", description: "", due_date: undefined });
+    setTodo({ title: "", description: "", due_date: getDefaultDueDate() });
   };
 
   return (
