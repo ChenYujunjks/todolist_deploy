@@ -2,13 +2,10 @@
 
 import { useState } from "react";
 import { DueDatePicker } from "@/components/ui/datepicker";
+import type { TodoDraft } from "@/lib/types/Todo";
 
 interface AddTodoFormProps {
-  onSubmit: (todo: {
-    title: string;
-    description: string;
-    due_date?: string;
-  }) => Promise<void>;
+  onSubmit: (todo: TodoDraft) => Promise<void>;
 }
 
 export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
