@@ -3,112 +3,84 @@
 import { useMemo } from "react";
 import { trpc } from "@/components/api/trpc/Provider";
 import { useCategorizedTodos } from "@/hooks/useCategorizedTodos";
-import { AddTodoForm } from "../todolist/AddTodoForm";
-import { TodoItem } from "./TodoItem";
+import type { Todo, TodoDraft } from "@/lib/types/Todo";
+import { AddTodoPanel } from "./components/AddTodoPanel";
+import { TodoCard } from "./components/TodoCard";
 
-const TodoPage = () => {
+type TodoSection = {
+  title: string;
+  todos: Todo[];
+};
+
+export default function Todo21Page() {
   const todosQuery = trpc.todo.getTodos.useQuery();
   const addTodoMutation = trpc.todo.addTodo.useMutation();
   const updateTodoMutation = trpc.todo.updateTodo.useMutation();
-
-  const handleToggleComplete = async (id: number, is_completed: boolean) => {
-    try {
-      await updateTodoMutation.mutateAsync({
-        id,
-        is_completed: !is_completed,
-      });
-      todosQuery.refetch();
-    } catch (error) {
-      console.error("Error during update:", error);
-    }
-  };
 
   const { expired, week, future } = useCategorizedTodos(todosQuery.data || []);
 
   const completed = useMemo(
     () => [...expired.completed, ...week.completed, ...future.completed],
-    [expired.completed, week.completed, future.completed]
+    [expired.completed, future.completed, week.completed]
   );
 
-  const sections = [
-    { title: "近七天", data: week.pending },
-    { title: "七天之后", data: future.pending },
-    { title: "过去的", data: expired.pending },
+  const sections: TodoSection[] = [
+    { title: "近七天", todos: week.pending },
+    { title: "七天之后", todos: future.pending },
+    { title: "过去的", todos: expired.pending },
   ];
+
+  const handleToggleComplete = async (id: number, isCompleted: boolean) => {
+    await updateTodoMutation.mutateAsync({
+      id,
+      is_completed: !isCompleted,
+    });
+    todosQuery.refetch();
+  };
+
+  const handleAddTodo = async (todo: TodoDraft) => {
+    await addTodoMutation.mutateAsync(todo);
+    todosQuery.refetch();
+  };
 
   if (todosQuery.isLoading) {
     return (
-      <div className="text-center mt-10 text-[--color-muted-foreground]">
+      <main className="mx-auto max-w-5xl px-4 py-10 text-center text-sm text-[--color-muted-foreground]">
         Loading...
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <h1 className="text-xl font-medium mb-8 text-[--color-foreground]">
-        Todo
-      </h1>
+    <main className="mx-auto max-w-5xl px-4 py-10">
+      <header className="mb-6">
+        <h1 className="text-2xl font-semibold text-[--color-foreground]">
+          Todo
+        </h1>
+      </header>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        {sections.map(({ title, data }) => (
-          <div
-            key={title}
-            className="rounded-lg border border-[--color-card-border] bg-[--color-card] p-4"
-          >
-            <h2 className="text-sm font-medium text-[--color-muted-foreground] mb-3">
-              {title}
-            </h2>
-            <ul className="space-y-2">
-              {data.length === 0 ? (
-                <li className="text-xs text-[--color-muted-foreground] py-2">
-                  暂无
-                </li>
-              ) : (
-                data.map((todo) => (
-                  <li key={todo.id}>
-                    <TodoItem
-                      todo={todo}
-                      onToggleComplete={handleToggleComplete}
-                    />
-                  </li>
-                ))
-              )}
-            </ul>
-          </div>
+      <div className="grid gap-4 md:grid-cols-3">
+        {sections.map((section) => (
+          <TodoCard
+            key={section.title}
+            title={section.title}
+            todos={section.todos}
+            onToggleComplete={handleToggleComplete}
+          />
         ))}
       </div>
 
-      <div className="rounded-lg border border-[--color-card-border] bg-[--color-card] p-4 mb-8">
-        <h2 className="text-sm font-medium text-[--color-muted-foreground] mb-3">
-          Completed
-        </h2>
-        <ul className="space-y-2">
-          {completed.length === 0 ? (
-            <li className="text-xs text-[--color-muted-foreground] py-2">
-              暂无
-            </li>
-          ) : (
-            completed.map((todo) => (
-              <li key={todo.id}>
-                <TodoItem
-                  todo={todo}
-                  onToggleComplete={handleToggleComplete}
-                />
-              </li>
-            ))
-          )}
-        </ul>
+      <div className="mt-4">
+        <TodoCard
+          title="Completed"
+          todos={completed}
+          onToggleComplete={handleToggleComplete}
+        />
       </div>
 
-      <AddTodoForm
-        onSubmit={async (todo) => {
-          await addTodoMutation.mutateAsync(todo);
-          todosQuery.refetch();
-        }}
-      />
-    </div>
+      <div className="mt-4">
+        <AddTodoPanel onSubmit={handleAddTodo} />
+      </div>
+    </main>
   );
-};
-
-export default TodoPage;
+}
