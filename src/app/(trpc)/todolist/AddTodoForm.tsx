@@ -2,50 +2,51 @@
 
 import { useState } from "react";
 import { DueDatePicker } from "@/components/ui/datepicker";
+import type { TodoDraft } from "@/lib/types/Todo";
+import { addDays, format } from "date-fns";
 
 interface AddTodoFormProps {
-  onSubmit: (todo: {
-    title: string;
-    description: string;
-    due_date?: string;
-  }) => Promise<void>;
+  onSubmit: (todo: TodoDraft) => Promise<void>;
+}
+
+function getDefaultDueDate() {
+  return format(addDays(new Date(), 1), "yyyy-MM-dd");
 }
 
 export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
-  const [newTodo, setNewTodo] = useState({
-    title: "",
-    description: "",
-    due_date: undefined as string | undefined,
+  const [todo, setTodo] = useState<TodoDraft>({
+    title: "", //初始值
+    description: "", //初始值
+    due_date: getDefaultDueDate(), //初始值
   });
 
   const handleSubmit = async () => {
-    if (newTodo.title.trim()) {
-      await onSubmit(newTodo);
-      setNewTodo({ title: "", description: "", due_date: undefined });
+    if (todo.title.trim()) {
+      await onSubmit(todo);
+      setTodo({ title: "", description: "", due_date: getDefaultDueDate() });
     }
   };
 
   return (
     <div className="mt-14 max-w-xl mx-auto space-y-4 border-t pt-8">
-      {/* ➕ 添加任务区域 */}
       <input
         type="text"
         placeholder="Todo title"
-        value={newTodo.title}
-        onChange={(e) => setNewTodo({ ...newTodo, title: e.target.value })}
+        value={todo.title}
+        onChange={(e) =>
+          setTodo((current) => ({ ...current, title: e.target.value }))
+        }
         className="w-full px-4 py-3 border border-[--color-card-border] rounded-xl bg-background shadow-sm focus:outline-none focus:ring-2 focus:ring-[--color-brand]"
       />
       <textarea
         placeholder="Todo description"
-        value={newTodo.description}
-        onChange={(e) =>
-          setNewTodo({ ...newTodo, description: e.target.value })
-        }
+        value={todo.description}
+        onChange={(e) => setTodo({ ...todo, description: e.target.value })}
         className="w-full px-4 py-3 border border-[--color-card-border] rounded-xl bg-background shadow-sm focus:outline-none focus:ring-2 focus:ring-[--color-brand]"
       />
       <DueDatePicker
-        value={newTodo.due_date}
-        onChange={(date) => setNewTodo({ ...newTodo, due_date: date })}
+        value={todo.due_date}
+        onChange={(date) => setTodo({ ...todo, due_date: date })}
       />
       <button
         onClick={handleSubmit}
