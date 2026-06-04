@@ -29,6 +29,9 @@ export function NavigationMenuDemo() {
               <ListItem href="/hello#coinbase-price" title="Section 1">
                 Jump to first section on Hello page.
               </ListItem>
+              <ListItem href="/trade-notes" title="Trade Notes">
+                Trade notes page.
+              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -62,22 +65,16 @@ export function NavigationMenuDemo() {
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[300px]">
               <ListItem href="/stipend" title="Stipend Page">
-                Quick notes and memos.
+                Money Calendar 2025 Cashflow Tracker
               </ListItem>
               <ListItem href="/trades" title="Trades Page">
                 Trades page.
-              </ListItem>
-              <ListItem href="/tailwind" title="Tailwind Examples">
-                Tailwind CSS demo page.
               </ListItem>
               <ListItem href="/zod-lab" title="Zod Lab">
                 Zod validation playground.
               </ListItem>
               <ListItem href="/zod-lab/coerce-vs-enum" title="Coerce vs Enum">
                 Compare z.coerce.boolean() and z.enum().
-              </ListItem>
-              <ListItem href="/memo" title="Memo">
-                Quick notes and memos.
               </ListItem>
             </ul>
           </NavigationMenuContent>
