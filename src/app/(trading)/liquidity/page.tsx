@@ -149,20 +149,77 @@ export default function LiquidityPage() {
             </div>
           </CardContent>
         </Card>
-
-        <Card className="mt-8 border-brand/20 bg-brand/5">
+        <Card className="mt-8 border-card-border bg-card">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-brand">
-              <TrendingUp className="h-5 w-5" />
-              一句话总结
+            <CardTitle className="flex items-center gap-2">
+              <Target className="h-5 w-5 text-brand" />
+              专业交易员怎么利用扫流动性？
             </CardTitle>
+            <CardDescription>
+              前高前低不是单纯用来放止损的位置，而是用来判断市场可能去哪里拿流动性。
+            </CardDescription>
           </CardHeader>
 
-          <CardContent>
-            <p className="text-lg leading-8">
-              震荡累计多空流动性，就是价格在区间内停留越久，越多交易者在上下边界附近建仓并设置止损，
-              最终让区间上方和下方都堆积大量未来可能被触发的买单或卖单。
+          <CardContent className="space-y-5">
+            <p className="text-muted-foreground">
+              很多新手会在前低下方放多单止损，或者在前高上方放空单止损。
+              但这些位置本身就是流动性集中区，所以市场经常会先去扫掉这些止损，再选择真正方向。
             </p>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-destructive/20 bg-muted p-4">
+                <h3 className="mb-3 flex items-center gap-2 font-semibold text-destructive">
+                  <ArrowDown className="h-4 w-4" />扫 SSL 后找多
+                </h3>
+
+                <div className="mb-3 rounded-lg bg-background p-3 font-mono text-sm">
+                  <div>前低 / SSL</div>
+                  <div className="text-destructive">↓ 假跌破</div>
+                  <div>触发多头止损</div>
+                  <div className="text-brand">↑ 快速收回区间</div>
+                  <div className="font-medium text-brand">再观察做多机会</div>
+                </div>
+
+                <p className="text-sm text-muted-foreground">
+                  如果价格跌破前低后没有继续下跌，而是快速收回，说明下方卖方流动性可能已经被吸收。
+                  这时做多的逻辑会比直接在支撑位抄底更清晰。
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-chart-2/20 bg-muted p-4">
+                <h3 className="mb-3 flex items-center gap-2 font-semibold text-chart-2">
+                  <ArrowUp className="h-4 w-4" />扫 BSL 后找空
+                </h3>
+
+                <div className="mb-3 rounded-lg bg-background p-3 font-mono text-sm">
+                  <div>前高 / BSL</div>
+                  <div className="text-chart-2">↑ 假突破</div>
+                  <div>触发空头止损</div>
+                  <div className="text-destructive">↓ 快速跌回区间</div>
+                  <div className="font-medium text-destructive">
+                    再观察做空机会
+                  </div>
+                </div>
+
+                <p className="text-sm text-muted-foreground">
+                  如果价格突破前高后无法站稳，而是快速跌回区间，说明上方买方流动性可能已经被利用。
+                  这时做空的逻辑会比直接在压力位空更合理。
+                </p>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="rounded-xl border border-brand/20 bg-brand/5 p-4">
+              <p className="text-sm leading-7">
+                核心思路不是看到前高前低就进场，而是等待：
+                <span className="font-medium text-brand">
+                  {" "}
+                  扫流动性 → 失败延续 → 回到区间内 → 再考虑交易。
+                </span>
+                这样止损可以放在扫流动性的极端点之外，而不是直接放在最容易被扫的位置。
+              </p>
+            </div>
           </CardContent>
         </Card>
       </div>

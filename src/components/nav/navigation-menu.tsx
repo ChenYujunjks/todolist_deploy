@@ -49,10 +49,13 @@ export function NavigationMenuDemo() {
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[300px]">
               <ListItem href="/liquidity" title="Liquidity">
-                Example integration with Coinbase API or interface.
+                Liquidity page
               </ListItem>
               <ListItem href="/trade-notes" title="Trade Notes">
                 Trade notes page.
+              </ListItem>
+              <ListItem href="/smt" title="SMT Notes">
+                SMT
               </ListItem>
             </ul>
           </NavigationMenuContent>
