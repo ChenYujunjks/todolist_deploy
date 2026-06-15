@@ -185,51 +185,6 @@ export default function FVGPage() {
           </CardContent>
         </Card>
 
-        <Card className="mt-8 border-card-border bg-card">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Layers className="h-5 w-5 text-brand" />
-              FVG 和其他指标怎么组合？
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-xl border border-card-border bg-muted p-4">
-                <h3 className="mb-2 font-semibold">FVG + Liquidity</h3>
-                <p className="text-sm text-muted-foreground">
-                  先看价格是否扫了 BSL 或 SSL，再看扫完之后是否形成 FVG。
-                  扫流动性后的 FVG 通常比普通 FVG 更有参考价值。
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-card-border bg-muted p-4">
-                <h3 className="mb-2 font-semibold">FVG + CVD</h3>
-                <p className="text-sm text-muted-foreground">
-                  如果价格扫 SSL 后形成 Bullish FVG，同时 CVD 没有继续创新低，
-                  说明主动卖盘可能衰竭，多头机会更值得观察。
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-card-border bg-muted p-4">
-                <h3 className="mb-2 font-semibold">FVG + OI</h3>
-                <p className="text-sm text-muted-foreground">
-                  如果扫流动性时 OI 快速下降，可能代表仓位被释放； 如果回踩 FVG
-                  时 OI 重新增加，可能代表新仓开始介入。
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-card-border bg-muted p-4">
-                <h3 className="mb-2 font-semibold">FVG + Funding Rate</h3>
-                <p className="text-sm text-muted-foreground">
-                  如果市场一边过度拥挤，扫流动性后出现反向 FVG，
-                  可能代表拥挤方向被清算后的反转机会。
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         <Card className="mt-8 border-destructive/20 bg-destructive/5">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-destructive">

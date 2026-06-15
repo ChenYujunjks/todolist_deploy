@@ -286,51 +286,6 @@ export default function CVDPage() {
           </CardContent>
         </Card>
 
-        <Card className="mt-8 border-card-border bg-card">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <CircleDot className="h-5 w-5 text-brand" />
-              CVD 和其他指标怎么组合？
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent className="space-y-4">
-            <div className="grid gap-4 md:grid-cols-2">
-              <div className="rounded-xl border border-card-border bg-muted p-4">
-                <h3 className="mb-2 font-semibold">CVD + Liquidity</h3>
-                <p className="text-sm text-muted-foreground">
-                  价格扫 BSL/SSL 时，观察 CVD 是否跟随价格创新高或创新低。
-                  不跟随时，要警惕假突破或假跌破。
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-card-border bg-muted p-4">
-                <h3 className="mb-2 font-semibold">CVD + FVG</h3>
-                <p className="text-sm text-muted-foreground">
-                  背离出现后，如果价格快速反向并留下 FVG， 后续回踩或反抽 FVG
-                  是更清晰的观察区域。
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-card-border bg-muted p-4">
-                <h3 className="mb-2 font-semibold">CVD + OI</h3>
-                <p className="text-sm text-muted-foreground">
-                  如果 CVD 背离，同时 OI 快速下降，可能说明一边仓位被清洗。 如果
-                  OI 继续增加，则要警惕新的趋势仓位继续压制价格。
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-card-border bg-muted p-4">
-                <h3 className="mb-2 font-semibold">CVD + Funding Rate</h3>
-                <p className="text-sm text-muted-foreground">
-                  如果 Funding Rate 显示一边过度拥挤， 同时价格扫流动性后 CVD
-                  背离，反向交易机会更值得观察。
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         <Card className="mt-8 border-destructive/20 bg-destructive/5">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-destructive">
@@ -340,11 +295,6 @@ export default function CVDPage() {
           </CardHeader>
 
           <CardContent className="space-y-3">
-            <p>
-              <span className="font-medium">误区 1：</span>
-              CVD 上升就做多，CVD 下降就做空。
-            </p>
-
             <p>
               <span className="font-medium">误区 2：</span>
               只看 CVD，不看价格是否已经扫到 BSL / SSL。

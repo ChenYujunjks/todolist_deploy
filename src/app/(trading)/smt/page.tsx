@@ -226,24 +226,6 @@ export default function SMTPage() {
           </CardContent>
         </Card>
 
-        <Card className="mt-8 border-chart-3/30 bg-chart-3/5">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-chart-3">
-              <Target className="h-5 w-5" />
-              交易员版本口诀
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent className="space-y-4">
-            <div className="rounded-xl border border-chart-3/20 bg-muted p-4 font-mono text-sm leading-7">
-              <div>一个市场创新高，另一个不创新高 → Bearish SMT</div>
-              <div>一个市场创新低，另一个不创新低 → Bullish SMT</div>
-              <div>SMT 只提示背离，不直接等于入场</div>
-              <div>必须结合 OI / CVD / 流动性 / FVG / 市场结构</div>
-            </div>
-          </CardContent>
-        </Card>
-
         <Card className="mt-8 border-brand/20 bg-brand/5">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-brand">

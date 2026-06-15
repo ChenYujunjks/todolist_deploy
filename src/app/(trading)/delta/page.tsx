@@ -294,11 +294,6 @@ export default function DeltaPage() {
 
           <CardContent className="space-y-3">
             <p>
-              <span className="font-medium">误区 1：</span>
-              Delta 为正就做多，Delta 为负就做空。
-            </p>
-
-            <p>
               <span className="font-medium">误区 2：</span>
               只看 Delta，不看价格有没有到 BSL / SSL。
             </p>

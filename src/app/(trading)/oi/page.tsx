@@ -236,46 +236,6 @@ export default function OIPage() {
           </CardContent>
         </Card>
 
-        <Card className="mt-8 border-card-border bg-card">
-          <CardHeader>
-            <CardTitle>OI 和其他指标怎么组合？</CardTitle>
-          </CardHeader>
-
-          <CardContent className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-xl border border-card-border bg-muted p-4">
-              <h3 className="mb-2 font-semibold">OI + Funding Rate</h3>
-              <p className="text-sm text-muted-foreground">
-                OI 看仓位规模，Funding 看哪边拥挤。OI 上升同时 Funding 极端，
-                说明市场可能正在向某一边过度堆仓。
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-card-border bg-muted p-4">
-              <h3 className="mb-2 font-semibold">OI + CVD</h3>
-              <p className="text-sm text-muted-foreground">
-                OI 增加说明有仓位进场，CVD
-                用来判断主动买卖力量是否配合价格方向。
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-card-border bg-muted p-4">
-              <h3 className="mb-2 font-semibold">OI + Liquidity</h3>
-              <p className="text-sm text-muted-foreground">
-                价格扫 BSL / SSL 时，观察 OI 是释放还是继续增加，
-                可以帮助判断是清洗仓位还是趋势继续。
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-card-border bg-muted p-4">
-              <h3 className="mb-2 font-semibold">OI + FVG</h3>
-              <p className="text-sm text-muted-foreground">
-                扫流动性后形成 FVG，如果回踩或反抽时 OI 重新增加，
-                说明新的方向仓位可能开始进入。
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
         <Card className="mt-8 border-destructive/20 bg-destructive/5">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-destructive">
