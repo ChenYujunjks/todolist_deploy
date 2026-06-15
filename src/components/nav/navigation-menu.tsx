@@ -17,17 +17,47 @@ export function NavigationMenuDemo() {
     <NavigationMenu viewport={false}>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Trading</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 w-[300px]">
-              <ListItem href="/risk-management" title="Risk Management">
-                Risk management page.
+            <ul className="grid gap-2 w-[340px]">
+              <ListItem href="/liquidity" title="Liquidity">
+                BSL / SSL, liquidity sweeps, stop hunts, and reversal logic.
               </ListItem>
-              <ListItem href="/hello" title="Full Page">
-                View full Hello page with multiple sections.
+
+              <ListItem href="/fvg" title="FVG">
+                Fair Value Gap, imbalance zones, and pullback entry areas.
               </ListItem>
-              <ListItem href="/hello#coinbase-price" title="Section 1">
-                Jump to first section on Hello page.
+
+              <ListItem href="/oi" title="Open Interest">
+                Judge whether price movement is driven by new positions or
+                position release.
+              </ListItem>
+
+              <ListItem href="/funding-rates" title="Funding Rate">
+                Understand market crowding, long/short bias, and liquidation
+                risk.
+              </ListItem>
+
+              <ListItem href="/delta" title="Delta">
+                Analyze aggressive buying and selling pressure behind price
+                moves.
+              </ListItem>
+
+              <ListItem href="/cvd" title="CVD">
+                Cumulative Volume Delta, divergence, and order flow
+                confirmation.
+              </ListItem>
+
+              <ListItem href="/smt" title="SMT Notes">
+                Smart Money Technique notes for divergence between correlated
+                markets.
+              </ListItem>
+              <ListItem href="/trade-notes" title="Trade Notes">
+                Personal trading notes, setups, execution reviews, and lessons
+                learned.
+              </ListItem>
+              <ListItem href="/trading" title="Trading Overview">
+                Trading knowledge base overview and learning map.
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -45,17 +75,17 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Trading</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[300px]">
-              <ListItem href="/liquidity" title="Liquidity">
-                Liquidity page
+              <ListItem href="/risk-management" title="Risk Management">
+                Risk management page.
               </ListItem>
-              <ListItem href="/trade-notes" title="Trade Notes">
-                Trade notes page.
+              <ListItem href="/hello" title="Full Page">
+                View full Hello page with multiple sections.
               </ListItem>
-              <ListItem href="/smt" title="SMT Notes">
-                SMT
+              <ListItem href="/hello#coinbase-price" title="Section 1">
+                Jump to first section on Hello page.
               </ListItem>
             </ul>
           </NavigationMenuContent>
