@@ -29,14 +29,10 @@ export function NavigationMenuDemo() {
               <ListItem href="/hello#coinbase-price" title="Section 1">
                 Jump to first section on Hello page.
               </ListItem>
-              <ListItem href="/trade-notes" title="Trade Notes">
-                Trade notes page.
-              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Todo List 页面 */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Todo List</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -48,13 +44,15 @@ export function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        {/* Coinbase 页面 */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Coinbase</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Trading</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[300px]">
-              <ListItem href="/coinbase" title="Coinbase Integration">
+              <ListItem href="/liquidity" title="Liquidity">
                 Example integration with Coinbase API or interface.
+              </ListItem>
+              <ListItem href="/trade-notes" title="Trade Notes">
+                Trade notes page.
               </ListItem>
             </ul>
           </NavigationMenuContent>
