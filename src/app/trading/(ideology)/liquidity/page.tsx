@@ -223,7 +223,7 @@ export default function LiquidityPage() {
             </div>
           </CardContent>
         </Card>
-        
+
         <Card className="mt-8 border-card-border bg-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">

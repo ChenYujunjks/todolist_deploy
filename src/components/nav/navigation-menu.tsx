@@ -56,8 +56,8 @@ export function NavigationMenuDemo() {
                 Personal trading notes, setups, execution reviews, and lessons
                 learned.
               </ListItem>
-              <ListItem href="/trading/trading" title="Trading Overview">
-                Trading knowledge base overview and learning map.
+              <ListItem href="/trading/bsl" title="BSL Model">
+                Learn BSL
               </ListItem>
             </ul>
           </NavigationMenuContent>
