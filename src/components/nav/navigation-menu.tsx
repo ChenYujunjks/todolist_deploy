@@ -24,10 +24,6 @@ export function NavigationMenuDemo() {
                 BSL / SSL, liquidity sweeps, stop hunts, and reversal logic.
               </ListItem>
 
-              <ListItem href="/trading/fvg" title="FVG">
-                Fair Value Gap, imbalance zones, and pullback entry areas.
-              </ListItem>
-
               <ListItem href="/trading/oi" title="Open Interest">
                 Judge whether price movement is driven by new positions or
                 position release.
@@ -48,16 +44,20 @@ export function NavigationMenuDemo() {
                 confirmation.
               </ListItem>
 
+              <ListItem href="/trading/bsl" title="BSL Model">
+                Learn BSL
+              </ListItem>
               <ListItem href="/trading/smt" title="SMT Notes">
                 Smart Money Technique notes for divergence between correlated
                 markets.
               </ListItem>
+
+              <ListItem href="/trading/fvg" title="FVG">
+                Fair Value Gap, imbalance zones, and pullback entry areas.
+              </ListItem>
               <ListItem href="/trading/trade-notes" title="Trade Notes">
                 Personal trading notes, setups, execution reviews, and lessons
                 learned.
-              </ListItem>
-              <ListItem href="/trading/bsl" title="BSL Model">
-                Learn BSL
               </ListItem>
             </ul>
           </NavigationMenuContent>
