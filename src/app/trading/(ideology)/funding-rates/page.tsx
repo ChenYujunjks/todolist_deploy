@@ -198,7 +198,125 @@ export default function FundingRatePage() {
             </p>
           </CardContent>
         </Card>
+        <Card className="mt-8 border-card-border bg-card">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5 text-brand" />
+              Funding + OI 实战解读
+            </CardTitle>
+            <CardDescription>
+              单独看 Funding 或 OI 都不够，真正有价值的是价格、OI、Funding
+              三者一起看。
+            </CardDescription>
+          </CardHeader>
 
+          <CardContent className="space-y-5">
+            <div className="rounded-xl border border-chart-2/20 bg-chart-2/5 p-4">
+              <h3 className="mb-3 font-semibold text-chart-2">
+                案例一：上涨 + OI 上升 + Funding 仍为负
+              </h3>
+
+              <div className="mb-3 rounded-lg bg-background p-3 font-mono text-sm">
+                <div>BTC 当日上涨：+3%</div>
+                <div>OI：363 亿 → 379 亿</div>
+                <div>OI 变化率：约 +4.4%</div>
+                <div>Funding：多数交易所仍为负</div>
+              </div>
+
+              <p className="text-sm text-muted-foreground">
+                这种结构说明，价格上涨的同时有大量新仓位进入市场。如果只是空头回补，
+                OI 通常会下降；但这里 OI 同步上升，说明多空双方都在加仓。
+              </p>
+
+              <p className="text-sm text-muted-foreground">
+                同时 Funding 仍为负，说明市场里仍有不少人偏空。价格却继续上涨，
+                代表多头暂时占优，并且存在继续轧空的可能。
+              </p>
+
+              <div className="mt-3 rounded-lg border border-chart-2/20 bg-background p-3 text-sm">
+                <span className="font-medium text-chart-2">核心结论：</span>
+                <span className="text-muted-foreground">
+                  {" "}
+                  这是偏强结构，不是单纯反弹。上涨仍有燃料，因为空头还没有完全投降。
+                </span>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-destructive/20 bg-destructive/5 p-4">
+              <h3 className="mb-3 font-semibold text-destructive">
+                案例二：上涨 + OI 上升 + Funding 快速转高
+              </h3>
+
+              <div className="mb-3 rounded-lg bg-background p-3 font-mono text-sm">
+                <div>BTC 持续上涨</div>
+                <div>OI 持续创新高</div>
+                <div>Funding 从负数转为明显正数</div>
+                <div>市场情绪开始一致看多</div>
+              </div>
+
+              <p className="text-sm text-muted-foreground">
+                这种情况下，上涨不一定马上结束，但风险开始变高。因为空头被打掉后，
+                原本推动上涨的空头止损买盘会减少，而新追多的仓位会越来越拥挤。
+              </p>
+
+              <p className="text-sm text-muted-foreground">
+                当 Funding 变得很高，说明多头愿意支付更高成本持仓。
+                这在牛市中很常见，但短线交易上要警惕回调和多头清算。
+              </p>
+
+              <div className="mt-3 rounded-lg border border-destructive/20 bg-background p-3 text-sm">
+                <span className="font-medium text-destructive">核心结论：</span>
+                <span className="text-muted-foreground">
+                  {" "}
+                  牛市里 Funding 可以长期为正，但 Funding 极端偏高代表多头拥挤，
+                  不适合盲目追高。
+                </span>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-card-border bg-muted p-4">
+              <h3 className="mb-3 font-semibold">快速判断框架</h3>
+
+              <div className="grid gap-3 text-sm md:grid-cols-2">
+                <div className="rounded-lg bg-background p-3">
+                  <div className="font-medium text-chart-2">
+                    涨 + OI 涨 + Funding 负
+                  </div>
+                  <div className="text-muted-foreground">
+                    偏强，可能是空头还在抵抗，后续有轧空空间。
+                  </div>
+                </div>
+
+                <div className="rounded-lg bg-background p-3">
+                  <div className="font-medium text-chart-2">
+                    涨 + OI 涨 + Funding 小幅正
+                  </div>
+                  <div className="text-muted-foreground">
+                    健康趋势，新增资金进场，多头占优。
+                  </div>
+                </div>
+
+                <div className="rounded-lg bg-background p-3">
+                  <div className="font-medium text-destructive">
+                    涨 + OI 暴涨 + Funding 极高
+                  </div>
+                  <div className="text-muted-foreground">
+                    多头拥挤，行情可能继续冲，但短线回调风险升高。
+                  </div>
+                </div>
+
+                <div className="rounded-lg bg-background p-3">
+                  <div className="font-medium text-destructive">
+                    跌 + OI 涨 + Funding 高
+                  </div>
+                  <div className="text-muted-foreground">
+                    多头被套，若跌破关键位，容易触发多头止损和清算。
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
         <Card className="mt-8 border-card-border bg-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -327,25 +445,6 @@ export default function FundingRatePage() {
             <p className="text-muted-foreground">
               更专业的理解是：Funding Rate 是情绪和拥挤度指标。
               它告诉你哪边人多，但不直接告诉你价格马上往哪走。
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="mt-8 border-brand/20 bg-brand/5">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-brand">
-              <TrendingUp className="h-5 w-5" />
-              一句话总结
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            <p className="text-lg leading-8">
-              Funding Rate 的核心价值不是预测方向，而是判断：
-              <span className="font-medium text-brand">
-                {" "}
-                市场哪一边更拥挤，以及这边仓位在扫流动性后是否容易被反向清算。
-              </span>
             </p>
           </CardContent>
         </Card>

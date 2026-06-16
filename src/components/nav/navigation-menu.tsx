@@ -20,43 +20,43 @@ export function NavigationMenuDemo() {
           <NavigationMenuTrigger>Trading</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[340px]">
-              <ListItem href="/liquidity" title="Liquidity">
+              <ListItem href="/trading/liquidity" title="Liquidity">
                 BSL / SSL, liquidity sweeps, stop hunts, and reversal logic.
               </ListItem>
 
-              <ListItem href="/fvg" title="FVG">
+              <ListItem href="/trading/fvg" title="FVG">
                 Fair Value Gap, imbalance zones, and pullback entry areas.
               </ListItem>
 
-              <ListItem href="/oi" title="Open Interest">
+              <ListItem href="/trading/oi" title="Open Interest">
                 Judge whether price movement is driven by new positions or
                 position release.
               </ListItem>
 
-              <ListItem href="/funding-rates" title="Funding Rate">
+              <ListItem href="/trading/funding-rates" title="Funding Rate">
                 Understand market crowding, long/short bias, and liquidation
                 risk.
               </ListItem>
 
-              <ListItem href="/delta" title="Delta">
+              <ListItem href="/trading/delta" title="Delta">
                 Analyze aggressive buying and selling pressure behind price
                 moves.
               </ListItem>
 
-              <ListItem href="/cvd" title="CVD">
+              <ListItem href="/trading/cvd" title="CVD">
                 Cumulative Volume Delta, divergence, and order flow
                 confirmation.
               </ListItem>
 
-              <ListItem href="/smt" title="SMT Notes">
+              <ListItem href="/trading/smt" title="SMT Notes">
                 Smart Money Technique notes for divergence between correlated
                 markets.
               </ListItem>
-              <ListItem href="/trade-notes" title="Trade Notes">
+              <ListItem href="/trading/trade-notes" title="Trade Notes">
                 Personal trading notes, setups, execution reviews, and lessons
                 learned.
               </ListItem>
-              <ListItem href="/trading" title="Trading Overview">
+              <ListItem href="/trading/trading" title="Trading Overview">
                 Trading knowledge base overview and learning map.
               </ListItem>
             </ul>
