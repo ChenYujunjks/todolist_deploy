@@ -31,6 +31,12 @@ export function NavigationMenuDemo() {
               >
                 Sweep Reclaim 长下影线与假跌破收回模型
               </ListItem>
+              <ListItem
+                href="/trading/reversal-patterns"
+                title="Reversal Patterns"
+              >
+                Double Bottom / Inverse Head and Shoulders 双底与头肩底反转模型
+              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
