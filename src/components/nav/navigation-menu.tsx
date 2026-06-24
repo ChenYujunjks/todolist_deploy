@@ -17,6 +17,24 @@ export function NavigationMenuDemo() {
     <NavigationMenu viewport={false}>
       <NavigationMenuList>
         <NavigationMenuItem>
+          <NavigationMenuTrigger>Market Structure</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-2 w-[340px]">
+              <ListItem href="/trading/trade-notes" title="Trade Notes">
+                Personal trading notes, setups, execution reviews, and lessons
+                learned.
+              </ListItem>
+
+              <ListItem
+                href="/trading/long-lower-shadow"
+                title="Long Lower Shadow "
+              >
+                Sweep Reclaim 长下影线与假跌破收回模型
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <NavigationMenuTrigger>Trading</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[340px]">
@@ -47,6 +65,7 @@ export function NavigationMenuDemo() {
               <ListItem href="/trading/bsl" title="BSL Model">
                 Learn BSL
               </ListItem>
+
               <ListItem href="/trading/smt" title="SMT Notes">
                 Smart Money Technique notes for divergence between correlated
                 markets.
@@ -54,10 +73,6 @@ export function NavigationMenuDemo() {
 
               <ListItem href="/trading/fvg" title="FVG">
                 Fair Value Gap, imbalance zones, and pullback entry areas.
-              </ListItem>
-              <ListItem href="/trading/trade-notes" title="Trade Notes">
-                Personal trading notes, setups, execution reviews, and lessons
-                learned.
               </ListItem>
             </ul>
           </NavigationMenuContent>
