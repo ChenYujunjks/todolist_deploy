@@ -58,8 +58,9 @@ export function NavigationMenuDemo() {
                 Buy-side liquidity model and sweep-reclaim setups.
               </ListItem>
 
-              <ListItem href="/trading/smc-ict/fvg" title="FVG">
-                Fair Value Gap, imbalance zones, and pullback entry areas.
+              <ListItem href="/trading/smc-ict/fvg-model" title="FVG">
+                ICT imbalance zones for liquidity-sweep pullbacks and
+                displacement validation.
               </ListItem>
 
               <ListItem href="/trading/smc-ict/smt" title="SMT">
