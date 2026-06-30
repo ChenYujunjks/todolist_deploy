@@ -27,10 +27,11 @@ export function NavigationMenuDemo() {
 
               <ListItem
                 href="/trading/long-lower-shadow"
-                title="Long Lower Shadow "
+                title="Long Lower Shadow"
               >
                 Sweep Reclaim 长下影线与假跌破收回模型
               </ListItem>
+
               <ListItem
                 href="/trading/reversal-patterns"
                 title="Reversal Patterns"
@@ -40,14 +41,39 @@ export function NavigationMenuDemo() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Trading</NavigationMenuTrigger>
+          <NavigationMenuTrigger>SMC / ICT</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[340px]">
-              <ListItem href="/trading/liquidity" title="Liquidity">
+              <ListItem href="/trading/smc-ict/page" title="SMC / ICT Overview">
+                聪明钱与流动性框架：市场结构、订单块与交易确认逻辑
+              </ListItem>
+
+              <ListItem href="/trading/smc-ict/liquidity" title="Liquidity">
                 BSL / SSL, liquidity sweeps, stop hunts, and reversal logic.
               </ListItem>
 
+              <ListItem href="/trading/smc-ict/bsl" title="BSL Model">
+                Buy-side liquidity model and sweep-reclaim setups.
+              </ListItem>
+
+              <ListItem href="/trading/smc-ict/fvg" title="FVG">
+                Fair Value Gap, imbalance zones, and pullback entry areas.
+              </ListItem>
+
+              <ListItem href="/trading/smc-ict/smt" title="SMT">
+                Smart Money Technique notes for divergence between correlated
+                markets.
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Derivatives Flow</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-2 w-[340px]">
               <ListItem href="/trading/oi" title="Open Interest">
                 Judge whether price movement is driven by new positions or
                 position release.
@@ -67,19 +93,6 @@ export function NavigationMenuDemo() {
                 Cumulative Volume Delta, divergence, and order flow
                 confirmation.
               </ListItem>
-
-              <ListItem href="/trading/bsl" title="BSL Model">
-                Learn BSL
-              </ListItem>
-
-              <ListItem href="/trading/smt" title="SMT Notes">
-                Smart Money Technique notes for divergence between correlated
-                markets.
-              </ListItem>
-
-              <ListItem href="/trading/fvg" title="FVG">
-                Fair Value Gap, imbalance zones, and pullback entry areas.
-              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -90,6 +103,10 @@ export function NavigationMenuDemo() {
             <ul className="grid gap-2 w-[300px]">
               <ListItem href="/todolist" title="Track Tasks">
                 View and manage your todos and task states.
+              </ListItem>
+
+              <ListItem href="/todo" title="Todo 2.1">
+                Categorized todo view with expired, week, and future sections.
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -102,11 +119,17 @@ export function NavigationMenuDemo() {
               <ListItem href="/risk-management" title="Risk Management">
                 Risk management page.
               </ListItem>
-              <ListItem href="/hello" title="Full Page">
-                View full Hello page with multiple sections.
+
+              <ListItem href="/hello" title="Hello Page">
+                Axios + Next.js demo with GET/POST requests.
               </ListItem>
-              <ListItem href="/hello#coinbase-price" title="Section 1">
-                Jump to first section on Hello page.
+
+              <ListItem href="/hello#coinbase-price" title="Coinbase Price">
+                Jump to Coinbase price section on Hello page.
+              </ListItem>
+
+              <ListItem href="/coinbase" title="Coinbase API">
+                查询任意基础币种的实时汇率和 Coinbase 买入价格
               </ListItem>
             </ul>
           </NavigationMenuContent>
@@ -119,12 +142,11 @@ export function NavigationMenuDemo() {
               <ListItem href="/stipend" title="Stipend Page">
                 Money Calendar 2025 Cashflow Tracker
               </ListItem>
-              <ListItem href="/trades" title="Trades Page">
-                Trades page.
-              </ListItem>
+
               <ListItem href="/zod-lab" title="Zod Lab">
                 Zod validation playground.
               </ListItem>
+
               <ListItem href="/zod-lab/coerce-vs-enum" title="Coerce vs Enum">
                 Compare z.coerce.boolean() and z.enum().
               </ListItem>
