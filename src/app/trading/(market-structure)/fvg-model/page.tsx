@@ -13,13 +13,9 @@ import {
   BadgeAlert,
   CandlestickChart,
   CheckCircle2,
-  CircleDot,
   Crosshair,
   Eye,
-  LineChart,
-  Repeat,
   ShieldAlert,
-  Target,
   TrendingDown,
   TrendingUp,
   XCircle,
@@ -72,61 +68,6 @@ export default function FVGModelPage() {
           </CardContent>
         </Card>
 
-        <Card className="mt-8 border-card-border bg-card">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <CircleDot className="h-5 w-5 text-chart-3" />
-              FVG 在 ICT 里面的角色
-            </CardTitle>
-            <CardDescription>
-              它不是方向信号，而是入场区域、回踩区域、风险定义区域。
-            </CardDescription>
-          </CardHeader>
-
-          <CardContent className="space-y-4">
-            <p className="text-muted-foreground">
-              很多人把 FVG 理解错了，以为 bullish FVG 就一定做多， bearish FVG
-              就一定做空。但在 ICT 里面，FVG 更像是一个
-              “价格回补后可能继续原方向”的区域。
-            </p>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              <div className="rounded-xl border border-brand/20 bg-muted p-4">
-                <h3 className="mb-2 font-semibold text-brand">入场区域</h3>
-                <p className="text-sm text-muted-foreground">
-                  当方向已经由流动性和结构确认后，FVG 可以作为回踩入场位置。
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-brand/20 bg-muted p-4">
-                <h3 className="mb-2 font-semibold text-brand">重新定价区域</h3>
-                <p className="text-sm text-muted-foreground">
-                  价格快速离开后，后续可能回到 FVG 区域重新成交，再继续移动。
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-brand/20 bg-muted p-4">
-                <h3 className="mb-2 font-semibold text-brand">风险参考区域</h3>
-                <p className="text-sm text-muted-foreground">
-                  FVG 可以辅助设计入场、止损和止盈，但不能单独决定交易方向。
-                </p>
-              </div>
-            </div>
-
-            <Separator />
-
-            <div className="rounded-xl border border-brand/20 bg-brand/5 p-4">
-              <h3 className="mb-3 font-semibold text-brand">交易员视角</h3>
-
-              <p className="text-sm text-muted-foreground">
-                FVG 的价值不是“它存在”，而是它出现之前发生了什么。
-                如果前面没有扫流动性、没有结构转变、没有明显推动， 这个 FVG
-                很可能只是图表噪音。
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <Card className="border-chart-2/30 bg-chart-2/5">
             <CardHeader>
@@ -153,7 +94,8 @@ export default function FVGModelPage() {
 
               <p className="text-muted-foreground">
                 Bullish FVG 通常代表买方强势推动。真正的用法不是看到它就追多，
-                而是等价格回踩这个区域，看买方是否继续防守。
+                而是等价格回踩这个未充分成交的区域，观察买方是否继续防守。
+                如果买方防守成功，说明刚才的向上 displacement 可能是真实有效的。
               </p>
             </CardContent>
           </Card>
@@ -183,11 +125,94 @@ export default function FVGModelPage() {
 
               <p className="text-muted-foreground">
                 Bearish FVG 通常代表卖方强势推动。真正的用法不是看到它就追空，
-                而是等价格反弹这个区域，看卖方是否继续压制。
+                而是等价格反弹回这个未充分成交的区域，观察卖方是否继续压制。
+                如果卖方压制成功，说明刚才的向下 displacement 可能是真实有效的。
               </p>
             </CardContent>
           </Card>
         </div>
+
+        <Card className="mt-8 border-card-border bg-card">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Eye className="h-5 w-5 text-brand" />
+              为什么回踩 FVG 会有交易价值？
+            </CardTitle>
+            <CardDescription>
+              FVG 不是神奇支撑，而是测试上一轮强推动是否真实有效的区域。
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent className="space-y-5">
+            <p className="text-muted-foreground">
+              Bullish FVG 形成时，说明价格曾经快速向上穿过这一段。
+              这个区域没有充分成交，代表当时买方推动很强，卖方没有能力在这里形成有效阻力。
+              所以后面价格回踩 FVG，本质上是在测试：刚才那波买盘是不是真的强。
+            </p>
+
+            <div className="rounded-xl border border-chart-2/20 bg-chart-2/5 p-4">
+              <h3 className="mb-3 font-semibold text-chart-2">
+                做多视角：谁在被迫？
+              </h3>
+
+              <div className="mb-3 rounded-lg bg-background p-3 font-mono text-sm">
+                <div>价格先下扫 SSL / 下方清算区</div>
+                <div className="text-destructive">追空的人进场</div>
+                <div>价格没有继续跌，反而快速收回</div>
+                <div className="text-chart-2">空头开始被套</div>
+                <div>价格突破短期结构，形成 Bullish FVG</div>
+                <div className="text-chart-2">空头止损 = 买入平仓</div>
+                <div>错过第一波的多头等待回踩</div>
+                <div className="font-medium text-chart-2">
+                  回踩 FVG，如果买方防守成功，才观察做多
+                </div>
+              </div>
+
+              <p className="text-sm text-muted-foreground">
+                所以 Bullish FVG 回踩做多，不是因为“这里有缺口所以一定涨”，
+                而是因为这里可能同时出现三类买盘：空头被迫回补、错过上涨的多头进场、
+                原有多头在强势区域加仓。
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-destructive/20 bg-destructive/5 p-4">
+              <h3 className="mb-3 font-semibold text-destructive">
+                做空视角：谁在被迫？
+              </h3>
+
+              <div className="mb-3 rounded-lg bg-background p-3 font-mono text-sm">
+                <div>价格先上扫 BSL / 上方清算区</div>
+                <div className="text-chart-2">追多的人进场</div>
+                <div>价格没有继续涨，反而快速跌回</div>
+                <div className="text-destructive">多头开始被套</div>
+                <div>价格跌破短期结构，形成 Bearish FVG</div>
+                <div className="text-destructive">多头止损 = 卖出平仓</div>
+                <div>错过第一波下跌的空头等待反弹</div>
+                <div className="font-medium text-destructive">
+                  反弹 FVG，如果卖方压制成功，才观察做空
+                </div>
+              </div>
+
+              <p className="text-sm text-muted-foreground">
+                Bearish FVG 反弹做空，本质是上方突破失败后，多头开始被迫退出。
+                价格反弹回
+                FVG，如果卖方继续压制，就说明上方价格仍然不被市场接受。
+              </p>
+            </div>
+
+            <Separator />
+
+            <div className="rounded-xl border border-brand/20 bg-brand/5 p-4">
+              <h3 className="mb-3 font-semibold text-brand">一单的核心假设</h3>
+
+              <p className="text-sm text-muted-foreground">
+                做多时，你真正交易的不是 FVG，而是：刚才的向上 displacement
+                如果是真实买盘，那么价格回到 FVG 时，买方应该防守。
+                防守成功，才有做多价值；防守失败，FVG 就失效。
+              </p>
+            </div>
+          </CardContent>
+        </Card>
 
         <Card className="mt-8 border-destructive/20 bg-destructive/5">
           <CardHeader>
@@ -292,8 +317,8 @@ export default function FVGModelPage() {
 
               <p className="text-sm text-muted-foreground">
                 这个模型的核心是：上方流动性被扫掉后，买方无法维持突破。 随后的
-                Bearish FVG
-                是价格拒绝上方区域之后，空头重新掌控短线结构的回踩区域。
+                Bearish FVG 是价格拒绝上方区域之后，
+                空头重新掌控短线结构的回踩区域。
               </p>
             </div>
           </CardContent>
@@ -333,7 +358,7 @@ export default function FVGModelPage() {
 
                 <p className="text-sm text-muted-foreground">
                   价格扫完流动性后，快速回到原区间，并出现反向结构转变。
-                  这种情况更接近 liquidity sweep reversal， 后续 FVG
+                  这种情况更接近 liquidity sweep reversal，后续 FVG
                   才有交易意义。
                 </p>
               </div>
@@ -344,7 +369,7 @@ export default function FVGModelPage() {
 
               <p className="text-sm text-muted-foreground">
                 价格扫清算图亮区之后，不要立刻反手。先看它是否快速收回，
-                再看低周期是否出现 MSS。只有当市场拒绝扫盘方向， 并用
+                再看低周期是否出现 MSS。只有当市场拒绝扫盘方向，并用
                 displacement 留下 FVG，FVG 才能作为回踩入场区。
               </p>
             </div>
@@ -420,134 +445,6 @@ export default function FVGModelPage() {
         <Card className="mt-8 border-card-border bg-card">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Target className="h-5 w-5 text-brand" />
-              FVG 能不能指导止盈止损？
-            </CardTitle>
-            <CardDescription>
-              可以提供参考，但不能机械地把 FVG 边界当作唯一止损止盈。
-            </CardDescription>
-          </CardHeader>
-
-          <CardContent className="space-y-5">
-            <p className="text-muted-foreground">
-              FVG 可以帮助交易员规划交易，但真正的止损通常要结合 sweep high /
-              sweep low、结构高低点和交易方向。止盈则通常看对侧流动性，
-              而不是只看某个 FVG 的边界。
-            </p>
-
-            <div className="rounded-xl border border-chart-2/20 bg-chart-2/5 p-4">
-              <h3 className="mb-3 font-semibold text-chart-2">
-                做多时的参考方式
-              </h3>
-
-              <div className="mb-3 rounded-lg bg-background p-3 font-mono text-sm">
-                <div>Entry：回踩 Bullish FVG</div>
-                <div>Invalidation：跌破 sweep low / 关键 HL</div>
-                <div className="text-destructive">
-                  Stop Loss：通常放在 sweep low 下方
-                </div>
-                <div className="text-chart-2">
-                  Take Profit：看上方 BSL / 清算亮区 / 前高
-                </div>
-              </div>
-
-              <p className="text-sm text-muted-foreground">
-                做多时，不建议机械把止损放在 Bullish FVG 下边界。
-                因为价格可能刺穿 FVG 后再收回。更稳的失效位通常是扫低点下方，
-                或者导致多头结构失效的位置。
-              </p>
-            </div>
-
-            <div className="rounded-xl border border-destructive/20 bg-destructive/5 p-4">
-              <h3 className="mb-3 font-semibold text-destructive">
-                做空时的参考方式
-              </h3>
-
-              <div className="mb-3 rounded-lg bg-background p-3 font-mono text-sm">
-                <div>Entry：反弹 Bearish FVG</div>
-                <div>Invalidation：突破 sweep high / 关键 LH</div>
-                <div className="text-destructive">
-                  Stop Loss：通常放在 sweep high 上方
-                </div>
-                <div className="text-chart-2">
-                  Take Profit：看下方 SSL / 清算亮区 / 前低
-                </div>
-              </div>
-
-              <p className="text-sm text-muted-foreground">
-                做空时，也不要机械把止损放在 Bearish FVG 上边界。
-                真正的失效条件是价格重新接受上方价格，并破坏空头结构。
-              </p>
-            </div>
-
-            <Separator />
-
-            <div className="rounded-xl border border-brand/20 bg-brand/5 p-4">
-              <h3 className="mb-3 font-semibold text-brand">
-                关于止盈的交易员理解
-              </h3>
-
-              <p className="text-sm text-muted-foreground">
-                FVG 更适合指导入场和失效区域，而不是主要止盈目标。
-                止盈目标通常看对侧流动性：做多看上方前高、equal highs、
-                空头清算区；做空看下方前低、equal lows、多头清算区。
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="mt-8 border-brand/20 bg-brand/5">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-brand">
-              <CheckCircle2 className="h-5 w-5" />
-              有效 FVG 检查清单
-            </CardTitle>
-            <CardDescription>
-              一个 FVG 想要变成可交易区域，至少要通过这些检查。
-            </CardDescription>
-          </CardHeader>
-
-          <CardContent className="space-y-3">
-            <p>
-              <span className="font-medium">确认 1：</span>
-              它是否出现在扫流动性之后，而不是随机出现？
-            </p>
-
-            <p>
-              <span className="font-medium">确认 2：</span>
-              扫完之后价格是接受，还是快速拒绝？
-            </p>
-
-            <p>
-              <span className="font-medium">确认 3：</span>
-              是否出现 MSS / CHoCH，证明短线结构发生变化？
-            </p>
-
-            <p>
-              <span className="font-medium">确认 4：</span>
-              形成 FVG 的推动是否足够强，有没有明显 displacement？
-            </p>
-
-            <p>
-              <span className="font-medium">确认 5：</span>
-              趋势行情中，这个 FVG 是否和主趋势方向一致？
-            </p>
-
-            <p>
-              <span className="font-medium">确认 6：</span>
-              回踩 FVG 后，价格是否出现预期方向的反应？
-            </p>
-
-            <p>
-              <span className="font-medium">确认 7：</span>
-              止损是否有明确失效位，止盈是否有对侧流动性目标？
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="mt-8 border-card-border bg-card">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
               <ShieldAlert className="h-5 w-5 text-destructive" />
               什么时候放弃这个 FVG？
             </CardTitle>
@@ -575,26 +472,6 @@ export default function FVGModelPage() {
             <p className="text-muted-foreground">
               对交易员来说，FVG 不是信仰。价格如果没有在 FVG 区域产生预期反应，
               或者直接破坏了结构失效位，就说明原来的交易计划不成立。
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="mt-8 border-brand/20 bg-brand/5">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-brand">
-              <Repeat className="h-5 w-5" />
-              一句话总结
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent>
-            <p className="text-lg leading-8">
-              FVG 在 ICT 里面不是独立买卖信号，而是：
-              <span className="font-medium text-brand">
-                {" "}
-                扫流动性之后、结构转变之后、趋势推动之后留下的回踩入场区域。
-                它可以帮助规划入场和失效位置，但止盈主要仍然看对侧流动性。
-              </span>
             </p>
           </CardContent>
         </Card>
