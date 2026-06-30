@@ -38,6 +38,9 @@ export function NavigationMenuDemo() {
               >
                 Double Bottom / Inverse Head and Shoulders 双底与头肩底反转模型
               </ListItem>
+              <ListItem href="/trading/trading-models" title="Trading Models">
+                Funding Trap / FVG Continuation / Absorption 多指标组合交易模型
+              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
