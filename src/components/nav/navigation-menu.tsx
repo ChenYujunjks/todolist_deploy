@@ -78,6 +78,13 @@ export function NavigationMenuDemo() {
           <NavigationMenuTrigger>Derivatives Flow</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[340px]">
+              <ListItem
+                href="/trading/top-trader-long-short-ratio"
+                title="Top Trader Long Short Ratio"
+              >
+                大户多空比
+              </ListItem>
+
               <ListItem href="/trading/oi" title="Open Interest">
                 Judge whether price movement is driven by new positions or
                 position release.
