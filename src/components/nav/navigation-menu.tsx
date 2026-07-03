@@ -20,11 +20,9 @@ export function NavigationMenuDemo() {
           <NavigationMenuTrigger>Market Structure</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 w-[340px]">
-              <ListItem href="/trading/trade-notes" title="Trade Notes">
-                Personal trading notes, setups, execution reviews, and lessons
-                learned.
+              <ListItem href="/trading/ssl-reaction" title="SSL Reaction">
+                SSL 扫荡反应的两种市场反应模型
               </ListItem>
-
               <ListItem
                 href="/trading/long-lower-shadow"
                 title="Long Lower Shadow"
@@ -40,6 +38,10 @@ export function NavigationMenuDemo() {
               </ListItem>
               <ListItem href="/trading/trading-models" title="Trading Models">
                 Funding Trap / FVG Continuation / Absorption 多指标组合交易模型
+              </ListItem>
+              <ListItem href="/trading/trade-notes" title="Trade Notes">
+                Personal trading notes, setups, execution reviews, and lessons
+                learned.
               </ListItem>
             </ul>
           </NavigationMenuContent>
