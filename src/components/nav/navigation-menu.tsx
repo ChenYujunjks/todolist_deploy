@@ -155,11 +155,12 @@ export function NavigationMenuDemo() {
               <ListItem href="/stipend" title="Stipend Page">
                 Money Calendar 2025 Cashflow Tracker
               </ListItem>
-
-              <ListItem href="/zod-lab" title="Zod Lab">
-                Zod validation playground.
+              <ListItem href="/notes/rent-plan" title="Rent Plan">
+                Rent Plan Comparison
               </ListItem>
-
+              <ListItem href="/notes/nvidia" title="NVIDIA Filter Guide">
+                NVIDIA Filter Guide
+              </ListItem>
               <ListItem href="/zod-lab/coerce-vs-enum" title="Coerce vs Enum">
                 Compare z.coerce.boolean() and z.enum().
               </ListItem>
