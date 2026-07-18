@@ -1,4 +1,4 @@
-# Supabase Keepalive Plan
+# Supabase Keepalive Implementation
 
 ## Background
 
@@ -18,15 +18,15 @@ The project uses Next.js App Router and tRPC.
 
 Because `form.formSubmit` does not hit Supabase, calling the form router would not keep the Supabase project active. The keepalive should call Supabase directly.
 
-## Recommended Change
+## Implemented Change
 
-Add a dedicated cron route:
+A dedicated cron route has been added:
 
 ```txt
 src/app/api/cron/supabase-keepalive/route.ts
 ```
 
-The route should perform a lightweight read against Supabase:
+The route performs a lightweight read against Supabase:
 
 ```ts
 await supabase.from("todos").select("id", { count: "exact", head: true });
@@ -36,7 +36,7 @@ This creates Supabase activity without returning todo rows and without changing 
 
 ## Vercel Cron Configuration
 
-Add `vercel.json` at the project root:
+`vercel.json` configures the cron schedule:
 
 ```json
 {
@@ -53,18 +53,19 @@ This runs every 3 days at 00:00 UTC, comfortably inside Supabase's 1-week inacti
 
 ## Endpoint Security
 
-Add a required secret, for example:
+Add a required secret in the Vercel project environment variables:
 
 ```txt
 CRON_SECRET=...
 ```
 
-The route should reject requests unless the request includes the expected bearer token:
+Vercel automatically sends this value as an authorization header when invoking the cron job. The route rejects requests unless the request includes the expected bearer token:
 
 ```ts
 const authHeader = request.headers.get("authorization");
+const cronSecret = process.env.CRON_SECRET;
 
-if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+if (!cronSecret || authHeader !== `Bearer ${cronSecret}`) {
   return Response.json({ error: "Unauthorized" }, { status: 401 });
 }
 ```
@@ -73,12 +74,11 @@ This keeps the route from becoming a public health-check endpoint anyone can tri
 
 ## Implementation Notes
 
-- Keep this route separate from tRPC. Cron endpoints are simpler as App Router route handlers because Vercel Cron calls an HTTP GET path directly.
-- Use a read-only Supabase operation. Avoid insert/delete because it pollutes database history and creates unnecessary side effects.
-- Return a small JSON payload with `ok`, `checkedAt`, and maybe `count` if the query includes exact count.
-- The route can use Node.js runtime unless Edge is required. Since this is a low-frequency cron task, Node.js is fine and avoids surprises with SDK/runtime compatibility.
+- The route is separate from tRPC. Cron endpoints are simpler as App Router route handlers because Vercel Cron calls an HTTP GET path directly.
+- The route uses a read-only Supabase operation. It avoids insert/delete because that would pollute database history and create unnecessary side effects.
+- The response includes `ok`, `checkedAt`, and `count`.
+- The route uses the default Next.js runtime and is marked `force-dynamic` so it is always executed when Vercel calls it.
 
 ## Follow-Up Security Work
 
 The current todo tRPC router uses `publicProcedure` for add, update, and delete operations. That means anyone who can call the deployed tRPC endpoint can mutate todos. This is separate from keepalive, but it is worth fixing later with authentication or another authorization guard.
-
