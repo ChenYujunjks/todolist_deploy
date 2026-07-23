@@ -114,15 +114,6 @@ export function NavigationMenuDemo() {
           <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-90 gap-2">
-              <ListItem
-                href="/trading/my-notes/myown"
-                title="My Trading Strategies"
-              >
-                我的 BTC、ETH、XAUUSDT、SPY 和 QQQ 交易策略总览。
-              </ListItem>
-              <ListItem href="/trading/my-notes/qqq" title="QQQ Framework">
-                Multi-market trading framework for crypto, gold, SPY, and QQQ.
-              </ListItem>
               <ListItem href="/notes" title="Notes">
                 Browse all personal notes in one place.
               </ListItem>
