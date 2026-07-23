@@ -111,9 +111,21 @@ export function NavigationMenuDemo() {
         </NavigationMenuItem>
 
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Todo List</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 w-75">
+            <ul className="grid w-90 gap-2">
+              <ListItem
+                href="/trading/my-notes/myown"
+                title="My Trading Strategies"
+              >
+                我的 BTC、ETH、XAUUSDT、SPY 和 QQQ 交易策略总览。
+              </ListItem>
+              <ListItem href="/trading/my-notes/qqq" title="QQQ Framework">
+                Multi-market trading framework for crypto, gold, SPY, and QQQ.
+              </ListItem>
+              <ListItem href="/notes" title="Notes">
+                Browse all personal notes in one place.
+              </ListItem>
               <ListItem href="/todolist" title="Track Tasks">
                 View and manage your todos and task states.
               </ListItem>
@@ -121,45 +133,9 @@ export function NavigationMenuDemo() {
               <ListItem href="/todo" title="Todo 2.1">
                 Categorized todo view with expired, week, and future sections.
               </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
 
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-2 w-75">
               <ListItem href="/risk-management" title="Risk Management">
                 Risk management page.
-              </ListItem>
-
-              <ListItem href="/hello" title="Hello Page">
-                Axios + Next.js demo with GET/POST requests.
-              </ListItem>
-
-              <ListItem href="/hello#coinbase-price" title="Coinbase Price">
-                Jump to Coinbase price section on Hello page.
-              </ListItem>
-
-              <ListItem href="/coinbase" title="Coinbase API">
-                查询任意基础币种的实时汇率和 Coinbase 买入价格
-              </ListItem>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Static Pages</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-2 w-75">
-              <ListItem href="/stipend" title="Stipend Page">
-                Money Calendar 2025 Cashflow Tracker
-              </ListItem>
-              <ListItem href="/notes/rent-plan" title="Rent Plan">
-                Rent Plan Comparison
-              </ListItem>
-              <ListItem href="/notes/nvidia" title="NVIDIA Filter Guide">
-                NVIDIA Filter Guide
               </ListItem>
             </ul>
           </NavigationMenuContent>
