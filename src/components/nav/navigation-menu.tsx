@@ -19,7 +19,7 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Market Structure</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 w-[340px]">
+            <ul className="grid gap-2 w-85">
               <ListItem href="/trading/ssl-reaction" title="SSL Reaction">
                 SSL 扫荡反应的两种市场反应模型
               </ListItem>
@@ -50,7 +50,7 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>SMC / ICT</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 w-[340px]">
+            <ul className="grid gap-2 w-85">
               <ListItem href="/trading/smc-ict/page" title="SMC / ICT Overview">
                 聪明钱与流动性框架：市场结构、订单块与交易确认逻辑
               </ListItem>
@@ -79,7 +79,7 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Derivatives Flow</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 w-[340px]">
+            <ul className="grid gap-2 w-85">
               <ListItem
                 href="/trading/top-trader-long-short-ratio"
                 title="Top Trader Long Short Ratio"
@@ -113,7 +113,7 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Todo List</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 w-[300px]">
+            <ul className="grid gap-2 w-75">
               <ListItem href="/todolist" title="Track Tasks">
                 View and manage your todos and task states.
               </ListItem>
@@ -128,7 +128,7 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Personal</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 w-[300px]">
+            <ul className="grid gap-2 w-75">
               <ListItem href="/risk-management" title="Risk Management">
                 Risk management page.
               </ListItem>
@@ -151,7 +151,7 @@ export function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Static Pages</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-2 w-[300px]">
+            <ul className="grid gap-2 w-75">
               <ListItem href="/stipend" title="Stipend Page">
                 Money Calendar 2025 Cashflow Tracker
               </ListItem>
@@ -160,9 +160,6 @@ export function NavigationMenuDemo() {
               </ListItem>
               <ListItem href="/notes/nvidia" title="NVIDIA Filter Guide">
                 NVIDIA Filter Guide
-              </ListItem>
-              <ListItem href="/zod-lab/coerce-vs-enum" title="Coerce vs Enum">
-                Compare z.coerce.boolean() and z.enum().
               </ListItem>
             </ul>
           </NavigationMenuContent>
