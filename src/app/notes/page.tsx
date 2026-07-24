@@ -19,13 +19,7 @@ function titleFromSlug(slug: string) {
 }
 
 function getNotes() {
-  const notesDirectory = join(
-    process.cwd(),
-    "src",
-    "app",
-    "(static)",
-    "notes",
-  );
+  const notesDirectory = join(process.cwd(), "src", "app", "notes");
 
   return readdirSync(notesDirectory, { withFileTypes: true })
     .filter(
