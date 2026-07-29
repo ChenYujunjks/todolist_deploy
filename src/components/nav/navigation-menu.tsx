@@ -130,10 +130,6 @@ export function NavigationMenuDemo() {
               <ListItem href="/todo" title="Todo 2.1">
                 Categorized todo view with expired, week, and future sections.
               </ListItem>
-
-              <ListItem href="/risk-management" title="Risk Management">
-                Risk management page.
-              </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
