@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { addDays, format } from "date-fns";
 import { Plus } from "lucide-react";
 import { DueDatePicker } from "@/components/ui/datepicker";
-import type { TodoDraft } from "@/lib/types/Todo";
+import type { TodoCreateInput, TodoDraft } from "@/lib/types/Todo";
 
 type AddTodoPanelProps = {
-  onSubmit: (todo: TodoDraft) => Promise<void>;
+  onSubmit: (todo: TodoCreateInput) => Promise<void>;
 };
 
 function getDefaultDueDate() {
@@ -15,6 +15,8 @@ function getDefaultDueDate() {
 }
 
 export function AddTodoPanel({ onSubmit }: AddTodoPanelProps) {
+  const submittingRef = useRef(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [todo, setTodo] = useState<TodoDraft>({
     title: "",
     description: "",
@@ -22,9 +24,17 @@ export function AddTodoPanel({ onSubmit }: AddTodoPanelProps) {
   });
 
   const handleSubmit = async () => {
-    if (todo.title.trim()) {
-      await onSubmit(todo);
+    if (submittingRef.current || !todo.title.trim()) return;
+
+    submittingRef.current = true;
+    setIsSubmitting(true);
+
+    try {
+      await onSubmit({ ...todo, request_id: crypto.randomUUID() });
       setTodo({ title: "", description: "", due_date: getDefaultDueDate() });
+    } finally {
+      submittingRef.current = false;
+      setIsSubmitting(false);
     }
   };
 
@@ -49,10 +59,12 @@ export function AddTodoPanel({ onSubmit }: AddTodoPanelProps) {
         <button
           type="button"
           onClick={handleSubmit}
-          className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-[--color-card-border] bg-[--color-card] px-4 text-sm font-medium text-[--color-foreground] transition-colors hover:bg-[--color-muted] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring]"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
+          className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-[--color-card-border] bg-[--color-card] px-4 text-sm font-medium text-[--color-foreground] transition-colors hover:bg-[--color-muted] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring] disabled:cursor-not-allowed disabled:opacity-60"
         >
           <Plus className="h-4 w-4" />
-          Add
+          {isSubmitting ? "Adding..." : "Add"}
         </button>
       </div>
 

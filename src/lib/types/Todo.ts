@@ -7,3 +7,7 @@ export interface Todo {
 }
 
 export type TodoDraft = Pick<Todo, "title" | "description" | "due_date">;
+
+export type TodoCreateInput = TodoDraft & {
+  request_id: string;
+};
