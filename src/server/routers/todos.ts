@@ -15,17 +15,22 @@ export const todoRouter = router({
         title: z.string(),
         description: z.string().optional(),
         due_date: z.string().optional(), // 前端传 ISO 字符串
+        request_id: z.string().uuid(),
       })
     )
     .mutation(async ({ input }) => {
       const { data, error } = await supabase
         .from("todos")
-        .insert({
-          title: input.title,
-          description: input.description ?? "",
-          is_completed: false,
-          due_date: input.due_date ? new Date(input.due_date) : null,
-        })
+        .upsert(
+          {
+            title: input.title,
+            description: input.description ?? "",
+            is_completed: false,
+            due_date: input.due_date ? new Date(input.due_date) : null,
+            request_id: input.request_id,
+          },
+          { onConflict: "request_id" }
+        )
         .select()
         .single();
 

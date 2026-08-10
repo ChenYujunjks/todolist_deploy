@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { trpc } from "@/components/api/trpc/Provider";
 import { useCategorizedTodos } from "@/hooks/useCategorizedTodos";
-import type { Todo, TodoDraft } from "@/lib/types/Todo";
+import type { Todo, TodoCreateInput } from "@/lib/types/Todo";
 import { AddTodoPanel } from "./components/AddTodoPanel";
 import { TodoCard } from "./components/TodoCard";
 
@@ -38,7 +38,7 @@ export default function Todo21Page() {
     todosQuery.refetch();
   };
 
-  const handleAddTodo = async (todo: TodoDraft) => {
+  const handleAddTodo = async (todo: TodoCreateInput) => {
     await addTodoMutation.mutateAsync(todo);
     todosQuery.refetch();
   };

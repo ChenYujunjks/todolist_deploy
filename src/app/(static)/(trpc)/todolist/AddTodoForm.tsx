@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { DueDatePicker } from "@/components/ui/datepicker";
-import type { TodoDraft } from "@/lib/types/Todo";
+import type { TodoCreateInput, TodoDraft } from "@/lib/types/Todo";
 import { addDays, format } from "date-fns";
 
 interface AddTodoFormProps {
-  onSubmit: (todo: TodoDraft) => Promise<void>;
+  onSubmit: (todo: TodoCreateInput) => Promise<void>;
 }
 
 function getDefaultDueDate() {
@@ -14,6 +14,8 @@ function getDefaultDueDate() {
 }
 
 export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
+  const submittingRef = useRef(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [todo, setTodo] = useState<TodoDraft>({
     title: "", //初始值
     description: "", //初始值
@@ -21,9 +23,17 @@ export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
   });
 
   const handleSubmit = async () => {
-    if (todo.title.trim()) {
-      await onSubmit(todo);
+    if (submittingRef.current || !todo.title.trim()) return;
+
+    submittingRef.current = true;
+    setIsSubmitting(true);
+
+    try {
+      await onSubmit({ ...todo, request_id: crypto.randomUUID() });
       setTodo({ title: "", description: "", due_date: getDefaultDueDate() });
+    } finally {
+      submittingRef.current = false;
+      setIsSubmitting(false);
     }
   };
 
@@ -49,10 +59,13 @@ export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
         onChange={(date) => setTodo({ ...todo, due_date: date })}
       />
       <button
+        type="button"
         onClick={handleSubmit}
-        className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition"
+        disabled={isSubmitting}
+        aria-busy={isSubmitting}
+        className="w-full bg-indigo-600 text-white py-3 rounded-xl font-semibold hover:bg-indigo-700 transition disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Add Todo
+        {isSubmitting ? "Adding..." : "Add Todo"}
       </button>
     </div>
   );
