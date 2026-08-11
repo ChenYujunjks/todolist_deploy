@@ -6,6 +6,7 @@ import { ArrowRight, FileText } from "lucide-react";
 import { Card, CardTitle } from "@/components/ui/card";
 
 const noteTitles: Record<string, string> = {
+  "2026-fall": "2026 Fall",
   stipend: "Stipend Page",
   "rent-plan": "Rent Plan",
   nvidia: "NVIDIA Filter Guide",
