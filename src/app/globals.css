@@ -11,6 +11,7 @@
   --color-brand: hsl(242 85% 65%);
   --color-brand-hover: hsl(242 85% 55%);
   --color-card: hsl(0 0% 100%);
+  --color-task-card: hsl(0 0% 100%);
   --color-card-border: hsl(210 15% 90%);
 
   --radius: 0.625rem;
@@ -56,6 +57,7 @@
   --color-brand: hsl(242 100% 72%);
   --color-brand-hover: hsl(242 100% 80%);
   --color-card: hsl(222 25% 14%);
+  --color-task-card: hsl(222 20% 18%);
   --color-card-border: hsl(216 12% 20%);
 
   --color-chart-1: hsl(264 80% 60%);
