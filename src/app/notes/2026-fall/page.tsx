@@ -37,9 +37,9 @@ const expenses = [
   { name: "桌子", amount: 140, icon: LampDesk },
   { name: "初期日用品", amount: 200, icon: ShoppingBasket },
   { name: "US Mobile（9月）", amount: 270, icon: Smartphone },
-  { name: "8月底到9月底生活费总共", amount: 1300, icon: CircleDollarSign },
+  { name: "8月底到9月底生活费总共", amount: 1500, icon: CircleDollarSign },
   { name: "PSEG 电费", amount: 130, icon: Zap },
-  { name: "Renters insurance（估算）", amount: 20, icon: ShieldCheck },
+  { name: "Renters insurance（估算）", amount: 80, icon: ShieldCheck },
   { name: "Internet", amount: 20, icon: Wifi },
 ];
 
@@ -224,7 +224,7 @@ export default function Fall2026BudgetPage() {
                 家具等项目基本是一次性固定支出。真正需要重点控制的是
                 {" "}
                 <span className="font-semibold text-foreground">
-                  {formatMoney(1300)} 的总生活费
+                  {formatMoney(1500)} 的总生活费
                 </span>
                 ，只要这部分不失控，整体预算会比较舒服。
               </p>
