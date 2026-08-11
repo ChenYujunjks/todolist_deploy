@@ -62,4 +62,14 @@ export const todoRouter = router({
     if (error) throw new Error(error.message);
     return { success: true };
   }),
+
+  deleteCompletedTodos: publicProcedure.mutation(async () => {
+    const { error } = await supabase
+      .from("todos")
+      .delete()
+      .eq("is_completed", true);
+
+    if (error) throw new Error(error.message);
+    return { success: true };
+  }),
 });
