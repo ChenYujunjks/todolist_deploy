@@ -14,6 +14,7 @@ type TodoRowProps = {
   onComplete: (id: number) => void;
   onDelete: (id: number) => void;
   completed?: boolean;
+  showDueDate?: boolean;
 };
 
 export function TodoRow({
@@ -21,6 +22,7 @@ export function TodoRow({
   onComplete,
   onDelete,
   completed = false,
+  showDueDate = true,
 }: TodoRowProps) {
   return (
     <ContextMenu>
@@ -30,15 +32,15 @@ export function TodoRow({
           onClick={() => !completed && onComplete(todo.id)}
           aria-disabled={completed}
           className={cn(
-            "group block w-full rounded-md border border-[--color-card-border] bg-[--color-card] px-3 py-3 text-left",
-            !completed && "cursor-pointer transition-colors hover:border-[--color-ring] hover:bg-[--color-muted] hover:text-[--color-foreground] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring]",
+            "group block w-full rounded-md border border-[--color-card-border] bg-[--color-background] px-3 py-3 text-left shadow-sm",
+            !completed && "cursor-pointer transition-colors hover:border-[--color-ring] hover:bg-[--color-accent] hover:text-[--color-foreground] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring]",
             completed && "cursor-default text-[--color-muted-foreground]"
           )}
         >
-          <span className="flex items-start gap-3">
+          <span className="flex items-center gap-3">
             <span
               className={cn(
-                "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border",
+                "flex h-5 w-5 shrink-0 items-center justify-center rounded-full border",
                 completed
                   ? "border-[--color-muted-foreground] bg-[--color-muted]"
                   : "border-[--color-card-border] transition-colors group-hover:border-[--color-ring]"
@@ -46,22 +48,26 @@ export function TodoRow({
             >
               {completed && <Check className="h-3 w-3" />}
             </span>
-            <span className="min-w-0 flex-1">
+            <span className="flex min-w-0 flex-1 items-center gap-3">
               <span
                 className={cn(
-                  "block text-sm font-medium leading-5",
+                  "min-w-0 shrink-0 truncate text-sm font-medium leading-5",
+                  todo.description && "max-w-[45%]",
                   completed && "line-through"
                 )}
               >
                 {todo.title}
               </span>
               {todo.description && (
-                <span className="mt-1 block text-sm leading-5 text-[--color-muted-foreground]">
+                <span
+                  title={todo.description}
+                  className="min-w-0 flex-1 truncate text-right text-sm leading-5 text-[--color-muted-foreground]"
+                >
                   {todo.description}
                 </span>
               )}
-              {todo.due_date && (
-                <span className="mt-2 flex items-center gap-1.5 text-xs text-[--color-muted-foreground]">
+              {showDueDate && todo.due_date && (
+                <span className="ml-auto flex shrink-0 items-center gap-1.5 text-xs text-[--color-muted-foreground]">
                   <CalendarDays className="h-3.5 w-3.5" />
                   {todo.due_date.slice(0, 10)}
                 </span>

@@ -64,6 +64,8 @@ export default function Todo21Page() {
         emptyMessage="所有任务都已完成"
         onComplete={handleComplete}
         onDelete={handleDelete}
+        twoColumns
+        showDueDate={false}
       />
 
       <section className="mt-5 overflow-hidden rounded-lg border border-[--color-card-border] bg-[--color-card]">

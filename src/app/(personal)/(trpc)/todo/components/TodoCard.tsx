@@ -9,6 +9,8 @@ type TodoCardProps = {
   onDelete: (id: number) => void;
   completed?: boolean;
   unframed?: boolean;
+  twoColumns?: boolean;
+  showDueDate?: boolean;
 };
 
 export function TodoCard({
@@ -19,6 +21,8 @@ export function TodoCard({
   onDelete,
   completed = false,
   unframed = false,
+  twoColumns = false,
+  showDueDate = true,
 }: TodoCardProps) {
   return (
     <section
@@ -39,9 +43,9 @@ export function TodoCard({
         </div>
       )}
 
-      <div className="space-y-2">
+      <div className={twoColumns ? "grid gap-2 md:grid-cols-2" : "space-y-2"}>
         {todos.length === 0 ? (
-          <p className="rounded-md border border-dashed border-[--color-card-border] px-3 py-6 text-center text-xs text-[--color-muted-foreground]">
+          <p className="col-span-full rounded-md border border-dashed border-[--color-card-border] px-3 py-6 text-center text-xs text-[--color-muted-foreground]">
             {emptyMessage}
           </p>
         ) : (
@@ -52,6 +56,7 @@ export function TodoCard({
               onComplete={onComplete}
               onDelete={onDelete}
               completed={completed}
+              showDueDate={showDueDate}
             />
           ))
         )}
