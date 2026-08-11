@@ -32,7 +32,7 @@ export function TodoRow({
           onClick={() => !completed && onComplete(todo.id)}
           aria-disabled={completed}
           className={cn(
-            "group block w-full rounded-md border border-[--color-card-border] bg-[--color-background] px-3 py-3 text-left shadow-sm",
+            "group block w-full rounded-md border border-[--color-card-border] bg-white px-3 py-3 text-left shadow-sm dark:bg-[--color-card]",
             !completed && "cursor-pointer transition-colors hover:border-[--color-ring] hover:bg-[--color-accent] hover:text-[--color-foreground] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-ring]",
             completed && "cursor-default text-[--color-muted-foreground]"
           )}
