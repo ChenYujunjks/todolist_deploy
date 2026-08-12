@@ -16,6 +16,7 @@ function getDefaultDueDate() {
 export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
   const submittingRef = useRef(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [todo, setTodo] = useState<TodoDraft>({
     title: "", //初始值
     description: "", //初始值
@@ -27,10 +28,16 @@ export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
 
     submittingRef.current = true;
     setIsSubmitting(true);
+    setSubmitError(null);
 
     try {
-      await onSubmit({ ...todo, request_id: crypto.randomUUID() });
+      await onSubmit(todo);
       setTodo({ title: "", description: "", due_date: getDefaultDueDate() });
+    } catch (error) {
+      console.error("Error while adding todo:", error);
+      setSubmitError(
+        error instanceof Error ? error.message : "添加失败，请稍后重试。"
+      );
     } finally {
       submittingRef.current = false;
       setIsSubmitting(false);
@@ -58,6 +65,11 @@ export function AddTodoForm({ onSubmit }: AddTodoFormProps) {
         value={todo.due_date}
         onChange={(date) => setTodo({ ...todo, due_date: date })}
       />
+      {submitError && (
+        <p role="alert" className="text-sm text-red-600 dark:text-red-400">
+          添加失败：{submitError}
+        </p>
+      )}
       <button
         type="button"
         onClick={handleSubmit}

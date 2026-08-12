@@ -12,25 +12,20 @@ export const todoRouter = router({
   addTodo: publicProcedure
     .input(
       z.object({
-        title: z.string(),
+        title: z.string().trim().min(1, "Todo title is required"),
         description: z.string().optional(),
         due_date: z.string().optional(), // 前端传 ISO 字符串
-        request_id: z.string().uuid(),
       })
     )
     .mutation(async ({ input }) => {
       const { data, error } = await supabase
         .from("todos")
-        .upsert(
-          {
-            title: input.title,
-            description: input.description ?? "",
-            is_completed: false,
-            due_date: input.due_date ? new Date(input.due_date) : null,
-            request_id: input.request_id,
-          },
-          { onConflict: "request_id" }
-        )
+        .insert({
+          title: input.title,
+          description: input.description ?? "",
+          is_completed: false,
+          due_date: input.due_date || null,
+        })
         .select()
         .single();
 
