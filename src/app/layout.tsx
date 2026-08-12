@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import ThemeToggle from "@/components/nav/themetoggle";
 import { NavigationMenuDemo } from "@/components/nav/navigation-menu";
+import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
@@ -47,6 +48,7 @@ export default function RootLayout({
             </header>
 
             <main className="flex-1 container mx-auto p-6">{children}</main>
+            <Toaster />
           </ThemeProvider>
         </Provider>
       </body>
