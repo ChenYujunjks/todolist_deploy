@@ -7,6 +7,7 @@ import { Card, CardTitle } from "@/components/ui/card";
 
 const noteTitles: Record<string, string> = {
   "2026-fall": "2026 Fall",
+  ethbtc: "ETH/BTC Bear-Market Relative Strength",
   stipend: "Stipend Page",
   "rent-plan": "Rent Plan",
   nvidia: "NVIDIA Filter Guide",
